@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c4caa02-103c-4c1b-a170-c3d549a8d003" name="Default" comment="" />
+    <list default="true" id="5c4caa02-103c-4c1b-a170-c3d549a8d003" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/distributed-registry/target/" />
     <ignored path="$PROJECT_DIR$/distributed-order/target/" />
     <ignored path="$PROJECT_DIR$/common-distributed/target/" />
@@ -52,8 +55,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/distributed-message-service/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="145" column="4" selection-start-line="145" selection-start-column="4" selection-end-line="145" selection-end-column="4" />
+            <state relative-caret-position="298">
+              <caret line="146" column="19" lean-forward="true" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
             </state>
           </provider>
           <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
@@ -141,6 +144,9 @@
       <replace>',</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -224,6 +230,11 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="distributed-transation" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="distributed-transation" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
       </expand>
       <select />
     </treeState>
@@ -267,6 +278,9 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <autoscrollFromSource ProjectPane="true" />
@@ -298,13 +312,6 @@
               <item name="distributed-core" type="462c0819:PsiDirectoryNode" />
               <item name="core-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
-              <item name="distributed-core" type="462c0819:PsiDirectoryNode" />
-              <item name="core-service" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
@@ -649,7 +656,7 @@
       <workItem from="1531806331950" duration="1142000" />
       <workItem from="1531818958680" duration="1308000" />
       <workItem from="1531881257554" duration="23464000" />
-      <workItem from="1531961338832" duration="24702000" />
+      <workItem from="1531961338832" duration="26146000" />
     </task>
     <servers />
   </component>
@@ -686,11 +693,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165087000" />
+    <option name="totallyTimeSpent" value="166531000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -708,8 +714,8 @@
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
       <window_info anchor="bottom" id="Run Dashboard" order="10" weight="0.46433565" />
       <window_info anchor="right" x="0" y="0" width="354" height="676" id="Documentation" sideWeight="0.5024155" side_tool="true" weight="0.32969153" />
-      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40979022" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="12" visible="true" weight="0.32913166" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.16666667" />
       <window_info anchor="bottom" id="Spring" order="15" weight="0.32867134" />
       <window_info anchor="bottom" id="Terminal" order="13" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33611825" />
@@ -762,6 +768,32 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1262,8 +1294,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/distributed-message-service/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="145" column="4" selection-start-line="145" selection-start-column="4" selection-end-line="145" selection-end-column="4" />
+        <state relative-caret-position="298">
+          <caret line="146" column="19" lean-forward="true" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
         </state>
       </provider>
       <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
