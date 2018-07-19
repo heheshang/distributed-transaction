@@ -1,0 +1,1361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5c4caa02-103c-4c1b-a170-c3d549a8d003" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/distributed-registry/target/" />
+    <ignored path="$PROJECT_DIR$/distributed-order/target/" />
+    <ignored path="$PROJECT_DIR$/common-distributed/target/" />
+    <ignored path="$PROJECT_DIR$/account-distributed/target/" />
+    <ignored path="$PROJECT_DIR$/distributed-account/target/" />
+    <ignored path="$PROJECT_DIR$/distributed-message/target/" />
+    <ignored path="$PROJECT_DIR$/distributed-message-service/target/" />
+    <ignored path="$PROJECT_DIR$/distributed-shop/target/" />
+    <ignored path="$PROJECT_DIR$/distributed-gateway/target/" />
+    <ignored path="$PROJECT_DIR$/distributed-gateway-api/target/" />
+    <ignored path="$PROJECT_DIR$/distributed-core/target/" />
+    <ignored path="$PROJECT_DIR$/distributed-core/core/target/" />
+    <ignored path="$PROJECT_DIR$/distributed-core/core-service/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="49" column="11" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/distributed-message-service/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="145" column="4" selection-start-line="145" selection-start-column="4" selection-end-line="145" selection-end-column="4" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed-core/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="32" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed-core/core-service/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed-gateway-api/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="83" column="11" selection-start-line="83" selection-start-column="11" selection-end-line="89" selection-end-column="21" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+        <option value="spring-beans.schema" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>distributed.topic</find>
+      <find>jmsListenerContainerQueue</find>
+      <find>Queue Consume</find>
+      <find>Notify Wrapper Register</find>
+      <find>Dalston</find>
+      <find>spring.version</find>
+      <find>TransactionMessageVo</find>
+      <find>ssssssssssssssssssssss</find>
+      <find>Notify</find>
+      <find>DataSource</find>
+      <find>com.distributed.transaction</find>
+      <find>ConfigurationClassPostProcessor</find>
+      <find>transactionManagerPrimary</find>
+      <find>系统异常</find>
+      <find>createTime</find>
+      <find>messageMapping</find>
+      <find>获取消息操作实现接口为空</find>
+      <find>areadly_2_0_0_</find>
+      <find>messageRepository</find>
+      <find>createQuery</find>
+      <find>EntityManagerFactoryBuilder</find>
+      <find>spring.datasource.hikari</find>
+      <find>Connection OK!</find>
+      <find>初始化注入 Hikari 从数据源</find>
+      <find>update</find>
+      <find>hikaricp.version</find>
+      <find>Current</find>
+      <find>useSSL</find>
+      <find>secondaryPersistenceUnit</find>
+      <find>bosPoolName</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>'</replace>
+      <replace>',</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/distributed-core/core-service/src/main/java/com/distributed/transaction/api/repository/BaseInternalRepository.java" />
+        <option value="$PROJECT_DIR$/distributed-core/core-service/src/main/java/com/distributed/transaction/api/repository/BaseRepository.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/PrimaryDataSouceConfig.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/resources/datasource.yml" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/SecondaryDataSourceConfig.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/resources/datasource.properties" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/test/java/com/distributed/transaction/WithinAspectTest.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/service/impl/RechargeOptMessageImpl.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/entity/TransactionMessage.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/aspect/DynamicDataSourceAspect.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/entity/s/TransactionMessage.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/repository/TransactionMessageRepository.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/aspect/TransMessageOptAspect.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/aspect/DynamicDataSource.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/DatabaseType.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/aspect/DatabaseContextHolder.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/MysqlConfig.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/SecondaryRepositoryConfig.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/PrimaryRepositoryConfig.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/PrimaryDataSourceConfig.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/DBProperties.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/repository/test1/TransactionMessageRepository.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/DistributedMessageApplication.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/repository/test2/TransactionMessageRepository.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/repository/test2/TransactionMessageRepository1.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/DataSourceConfig.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/repository/QuerBysqlService.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/entity/m/TransactionMessage.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/annotations/DS.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/annotations/MessageTran.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/SecondaryConfig.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/resources/application-test.properties" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/distributed-gateway/src/main/resources/application-dev.properties" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/PrimaryConfig.java" />
+        <option value="$PROJECT_DIR$/distributed-message-service/src/main/resources/application-dev.properties" />
+        <option value="$PROJECT_DIR$/distributed-core/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/common-distributed/pom.xml" />
+        <option value="$PROJECT_DIR$/distributed-account/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/distributed-account/src/main/resources/application-dev.properties" />
+        <option value="$PROJECT_DIR$/distributed-account/src/main/resources/application-prod.properties" />
+        <option value="$PROJECT_DIR$/distributed-account/src/main/resources/application-test.properties" />
+        <option value="$PROJECT_DIR$/distributed-account/pom.xml" />
+        <option value="$PROJECT_DIR$/distributed-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/distributed-gateway-api/pom.xml" />
+        <option value="$PROJECT_DIR$/distributed-order/pom.xml" />
+        <option value="$PROJECT_DIR$/distributed-registry/pom.xml" />
+        <option value="$PROJECT_DIR$/distributed-shop/pom.xml" />
+        <option value="$PROJECT_DIR$/distributed-message-service/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:/apache-maven-3.5.0-bin/apache-maven-3.5.0" />
+        <option name="userSettingsFile" value="E:\apache-maven-3.5.0-bin\apache-maven-3.5.0\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="distributed-transation" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1604" />
+    <option name="height" value="876" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+    <entry key="Project Default copy">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Ali-Check</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-core" type="462c0819:PsiDirectoryNode" />
+              <item name="core-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-core" type="462c0819:PsiDirectoryNode" />
+              <item name="core-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-core" type="462c0819:PsiDirectoryNode" />
+              <item name="core-service" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-gateway" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-gateway" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-gateway" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-gateway" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-gateway-api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-message-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-order" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-registry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed-transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed-shop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed-transaction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/person-work/distributed-transaction/common-distributed/src/main/java/com/distributed/transaction/api/trans/BaseMessage.java" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.distributed.transaction.repository.test1" />
+      <recent name="com.distributed.transaction.entity.s" />
+      <recent name="com.distributed.transaction.entity.m" />
+      <recent name="com.distributed.transaction.api.config" />
+      <recent name="com.distributed.transaction.api.repository.impl" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\person-work\distributed-transaction\distributed-account\src\main\resources" />
+      <recent name="D:\person-work\distributed-transaction\distributed-message-service\src\main\resources" />
+      <recent name="D:\person-work\distributed-transaction\distributed-message-service\src\main\java\com\distributed\transaction\config" />
+      <recent name="D:\person-work\distributed-transaction\distributed-core\core-service\src\main\java\com\distributed\transaction\api\repository" />
+      <recent name="D:\person-work\distributed-transaction\distributed-gateway\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+    <option name="contentProportion" value="0.26819673" />
+  </component>
+  <component name="RunManager" selected="JUnit.AccountDistributedApplicationTests">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="AccountDistributedApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="distributed-account" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.distributed.transaction.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.distributed.transaction" />
+      <option name="MAIN_CLASS_NAME" value="com.distributed.transaction.AccountDistributedApplicationTests" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="WithinAspectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="distributed-message-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.distributed.transaction.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.distributed.transaction" />
+      <option name="MAIN_CLASS_NAME" value="com.distributed.transaction.WithinAspectTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="WithinAspectTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="distributed-message-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.distributed.transaction.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.distributed.transaction" />
+      <option name="MAIN_CLASS_NAME" value="com.distributed.transaction.WithinAspectTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="distributed-shop [spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:run" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/distributed-shop" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+    </configuration>
+    <configuration name="AccountDistributedApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="distributed-account" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.distributed.transaction.AccountDistributedApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    </configuration>
+    <configuration name="DistributedGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="distributed-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.distributed.transaction.DistributedGatewayApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    </configuration>
+    <configuration name="DistributedMessageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="distributed-message-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.distributed.transaction.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.distributed.transaction.DistributedMessageApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    </configuration>
+    <configuration name="DistributedOrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="distributed-order" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.distributed.transaction.DistributedOrderApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    </configuration>
+    <configuration name="DistributedRegistryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="distributed-registry" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.distributed.transaction.DistributedRegistryApplication" />
+    </configuration>
+    <configuration name="DistributedShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="distributed-shop" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.distributed.transaction.DistributedShopApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.DistributedRegistryApplication" />
+      <item itemvalue="Spring Boot.DistributedOrderApplication" />
+      <item itemvalue="Spring Boot.AccountDistributedApplication" />
+      <item itemvalue="Spring Boot.DistributedShopApplication" />
+      <item itemvalue="Spring Boot.DistributedGatewayApplication" />
+      <item itemvalue="JUnit.WithinAspectTest.test" />
+      <item itemvalue="JUnit.WithinAspectTest" />
+      <item itemvalue="Maven.distributed-shop [spring-boot:run]" />
+      <item itemvalue="Spring Boot.DistributedMessageApplication" />
+      <item itemvalue="JUnit.AccountDistributedApplicationTests" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AccountDistributedApplicationTests" />
+        <item itemvalue="Spring Boot.DistributedMessageApplication" />
+        <item itemvalue="JUnit.WithinAspectTest" />
+        <item itemvalue="JUnit.WithinAspectTest.test" />
+        <item itemvalue="Maven.distributed-shop [spring-boot:run]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+    <option name="sshConnectionType" value="PASSWORD" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c4caa02-103c-4c1b-a170-c3d549a8d003" name="Default" comment="" />
+      <created>1530666541654</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1530666541654</updated>
+      <workItem from="1530666543356" duration="24465000" />
+      <workItem from="1530753063237" duration="2640000" />
+      <workItem from="1530756680191" duration="25055000" />
+      <workItem from="1530846033999" duration="22667000" />
+      <workItem from="1531105904987" duration="1236000" />
+      <workItem from="1531189605663" duration="4190000" />
+      <workItem from="1531450563323" duration="20335000" />
+      <workItem from="1531718210360" duration="13883000" />
+      <workItem from="1531806331950" duration="1142000" />
+      <workItem from="1531818958680" duration="1308000" />
+      <workItem from="1531881257554" duration="23464000" />
+      <workItem from="1531961338832" duration="24702000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="WithinAspectTest - 2018.07.19 at 14h 07m 40s.xml">
+      <configuration name="WithinAspectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WithinAspectTest - 2018.07.19 at 14h 10m 53s.xml">
+      <configuration name="WithinAspectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WithinAspectTest - 2018.07.19 at 14h 13m 54s.xml">
+      <configuration name="WithinAspectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WithinAspectTest - 2018.07.19 at 14h 19m 18s.xml">
+      <configuration name="WithinAspectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WithinAspectTest - 2018.07.19 at 14h 20m 43s.xml">
+      <configuration name="WithinAspectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WithinAspectTest - 2018.07.19 at 14h 24m 20s.xml">
+      <configuration name="WithinAspectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WithinAspectTest - 2018.07.19 at 14h 25m 01s.xml">
+      <configuration name="WithinAspectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WithinAspectTest - 2018.07.19 at 14h 28m 35s.xml">
+      <configuration name="WithinAspectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountDistributedApplicationTests - 2018.07.19 at 15h 31m 58s.xml">
+      <configuration name="AccountDistributedApplicationTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountDistributedApplicationTests - 2018.07.19 at 15h 37m 28s.xml">
+      <configuration name="AccountDistributedApplicationTests" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="165087000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" sideWeight="0.49516907" weight="0.33161953" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.49758455" weight="0.32969153" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.45874125" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32867134" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Java Enterprise" order="8" />
+      <window_info anchor="bottom" id="Run Dashboard" order="10" weight="0.46433565" />
+      <window_info anchor="right" x="0" y="0" width="354" height="676" id="Documentation" sideWeight="0.5024155" side_tool="true" weight="0.32969153" />
+      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40979022" />
+      <window_info anchor="bottom" id="Spring" order="15" weight="0.32867134" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33611825" />
+      <window_info anchor="right" id="Bean Validation" order="3" sideWeight="0.49758455" weight="0.32969153" />
+      <window_info id="Web" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="JProfiler" order="14" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Problems" order="16" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.21958043" />
+      <window_info anchor="bottom" id="Spring" order="15" weight="0.32867134" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32867134" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" x="0" y="0" width="354" height="676" id="Documentation" order="0" sideWeight="0.5024155" side_tool="true" weight="0.32969153" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Problems" order="16" />
+      <window_info anchor="bottom" id="Java Enterprise" order="8" />
+      <window_info anchor="bottom" id="JProfiler" order="14" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven Projects" order="5" sideWeight="0.49516907" weight="0.14460154" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33611825" />
+      <window_info anchor="right" id="Database" order="6" sideWeight="0.49758455" weight="0.32969153" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Web" order="5" side_tool="true" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.45874125" />
+      <window_info anchor="right" id="Bean Validation" order="8" sideWeight="0.49758455" weight="0.32969153" />
+      <window_info anchor="bottom" id="Run Dashboard" order="10" weight="0.46433565" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/distributed-order/src/main/java/com/distributed/transaction/scheduler/RechargeScheduler.java</url>
+          <line>24</line>
+          <properties />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/distributed-account/src/main/java/com/distributed/transaction/controller/RechargeController.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/aspect/TransMessageOptAspect.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/service/core/CoreTransMessageImpl.java</url>
+          <line>22</line>
+          <properties />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/aspect/TransMessageOptAspect.java</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/aspect/DynamicDataSourceAspect.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/aspect/DynamicDataSourceAspect.java</url>
+          <line>63</line>
+          <properties />
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="32" />
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>this.getActualType()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>message.isSuccess()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>bean.getClass()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>clazz.getDeclaredAnnotationMap()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>clazz.getAnnotations()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>clazz.getAnnotatedInterfaces()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>clazz.annotationType</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>clazz.annotationData</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>clazz</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/entity/m/TransactionMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="32" column="103" selection-start-line="32" selection-start-column="103" selection-end-line="32" selection-end-column="103" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/annotations/MessageTran.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/annotations/DS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/MqConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-968">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/SecondaryConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="50" column="22" lean-forward="true" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.18.RELEASE/spring-context-4.3.18.RELEASE-sources.jar!/org/springframework/validation/DataBinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="739" column="43" selection-start-line="739" selection-start-column="40" selection-end-line="739" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/1.5.14.RELEASE/spring-boot-autoconfigure-1.5.14.RELEASE-sources.jar!/org/springframework/boot/autoconfigure/jdbc/DataSourceBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="87" column="49" lean-forward="true" selection-start-line="87" selection-start-column="49" selection-end-line="87" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.18.RELEASE/spring-beans-4.3.18.RELEASE.jar!/org/springframework/beans/BeanUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/DataSourceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar!/com/mysql/jdbc/jdbc2/optional/MysqlDataSource.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/1.5.14.RELEASE/spring-boot-autoconfigure-1.5.14.RELEASE-sources.jar!/org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/javax.sql.DataSource">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>javax.sql.DataSource</OriginalElement>
+          <nodes>
+            <node x="188.0" y="0.0">java.sql.Wrapper</node>
+            <node x="103.5" y="80.0">javax.sql.DataSource</node>
+            <node x="0.0" y="0.0">javax.sql.CommonDataSource</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="javax.sql.DataSource" target="javax.sql.CommonDataSource">
+              <point x="-28.75" y="-15.0" />
+              <point x="132.25" y="55.0" />
+              <point x="84.0" y="55.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="javax.sql.DataSource" target="java.sql.Wrapper">
+              <point x="28.75" y="-15.0" />
+              <point x="189.75" y="55.0" />
+              <point x="238.0" y="55.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-132.5" y="128.0" />
+          <SelectedNodes>
+            <node>javax.sql.DataSource</node>
+            <node>javax.sql.CommonDataSource</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>Non-Project Files</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/2.6.1/HikariCP-2.6.1-sources.jar!/com/zaxxer/hikari/HikariConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3875">
+          <caret line="907" column="40" selection-start-line="907" selection-start-column="40" selection-end-line="907" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/2.6.1/HikariCP-2.6.1-sources.jar!/com/zaxxer/hikari/HikariDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-195">
+          <caret line="65" column="39" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/2.6.1/HikariCP-2.6.1-sources.jar!/com/zaxxer/hikari/pool/HikariPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="543" selection-start-line="543" selection-end-line="543" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/service/core/CoreTransMessageImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/aspect/DynamicDataSourceAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/resources/datasource.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/resources/datasource.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/resources/application-test.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/resources/application-prod.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-shop/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-shop/src/main/java/com/distributed/transaction/DistributedShopApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/javax/sql/CommonDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-259">
+          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/sql/Wrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-691">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/javax/sql/DataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="76" column="58" selection-start-line="76" selection-start-column="58" selection-end-line="76" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/1.5.14.RELEASE/spring-boot-1.5.14.RELEASE-sources.jar!/org/springframework/boot/orm/jpa/EntityManagerFactoryBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="163" column="17" selection-start-line="163" selection-start-column="17" selection-end-line="163" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/1.11.13.RELEASE/spring-data-jpa-1.11.13.RELEASE.jar!/org/springframework/data/jpa/repository/config/EnableJpaRepositories.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/java/com/distributed/transaction/config/PrimaryConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1078">
+          <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/1.11.13.RELEASE/spring-data-jpa-1.11.13.RELEASE-sources.jar!/org/springframework/data/jpa/repository/config/EnableJpaRepositories.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/src/main/resources/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-352">
+          <caret line="113" column="47" selection-start-line="113" selection-start-column="47" selection-end-line="113" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/1.9.2.RELEASE/spring-data-jpa-1.9.2.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-gateway/src/main/resources/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1232">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-gateway/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-account/src/main/resources/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-account/src/main/resources/application-prod.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-account/src/main/resources/application-test.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-account/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-account/src/test/java/com/distributed/transaction/AccountDistributedApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-account/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="104" column="11" selection-start-line="104" selection-start-column="11" selection-end-line="110" selection-end-column="21" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-distributed/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-gateway/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="116" column="21" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-registry/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-shop/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="121" column="21" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-order/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1364">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="49" column="11" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-gateway-api/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="83" column="11" selection-start-line="83" selection-start-column="11" selection-end-line="89" selection-end-column="21" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-core/core-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-core/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed-message-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="145" column="4" selection-start-line="145" selection-start-column="4" selection-end-line="145" selection-end-column="4" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>jdk1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>core</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.6.2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
