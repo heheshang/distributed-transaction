@@ -1,0 +1,17 @@
+# Created by .ignore support plugin (hsz.mobi)
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+target/
+

@@ -34,6 +34,7 @@
         <spring.data.version>1.9.2.RELEASE</spring.data.version>
         <spring.data.commons.version>1.11.2.RELEASE</spring.data.commons.version>
         <hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
+        <lombok.version>1.16.22</lombok.version>
 
         <guava.version>18.0</guava.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
