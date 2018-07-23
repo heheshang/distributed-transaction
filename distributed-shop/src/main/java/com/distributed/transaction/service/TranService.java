@@ -1,5 +1,7 @@
 package com.distributed.transaction.service;
 
+import com.distributed.transaction.api.GateWayReq;
+import com.distributed.transaction.api.GateWayRes;
 import com.distributed.transaction.gateway.BaseGatewatRechargeTransApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,8 +19,8 @@ public class TranService {
     @Autowired
     private BaseGatewatRechargeTransApi baseGatewatRechargeTransApi;
 
-    public Map<String, String> recharge(Map<String, String> map) {
+    public GateWayRes recharge(GateWayReq req) {
 
-        return this.baseGatewatRechargeTransApi.recharge(map);
+        return this.baseGatewatRechargeTransApi.recharge(req);
     }
 }

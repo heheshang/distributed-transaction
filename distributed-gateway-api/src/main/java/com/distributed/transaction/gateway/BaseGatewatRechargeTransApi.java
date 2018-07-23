@@ -1,11 +1,10 @@
 package com.distributed.transaction.gateway;
 
+import com.distributed.transaction.api.GateWayReq;
+import com.distributed.transaction.api.GateWayRes;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.Map;
 
 /**
  * 充值交易接口
@@ -20,9 +19,9 @@ public interface BaseGatewatRechargeTransApi {
     /**
      * 充值
      *
-     * @param params
+     * @param req
      * @return
      */
     @RequestMapping(value = "/gateway/recharge", method = RequestMethod.POST)
-    public Map<String, String> recharge(@RequestParam  Map<String, String> params);
+    public GateWayRes recharge(GateWayReq req);
 }

@@ -1,6 +1,7 @@
 package com.distributed.transaction.controller;
 
-import com.distributed.transaction.gateway.BaseGatewatRechargeTransApi;
+import com.distributed.transaction.api.GateWayReq;
+import com.distributed.transaction.api.GateWayRes;
 import com.distributed.transaction.service.TranService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +24,11 @@ public class TestNotifyController {
     private TranService service;
 
     @PostMapping("/pay")
-    public String pay(@RequestParam Map<String, String> reqMap) {
+    public GateWayRes pay(@RequestParam Map<String, String> reqMap) {
 
-        Map<String,String> map=service.recharge(reqMap);
+        GateWayReq req = new GateWayReq();
+        req.setT(reqMap);
 
-        map.forEach((k, v) -> {
-            log.info("k=[{}],v=[{}]", k, v);
-        });
-        return map.toString();
+        return service.recharge(req);
     }
 }

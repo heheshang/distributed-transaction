@@ -18,20 +18,10 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfig {
 
-    @Bean(name = "primaryDataSource")
-    @Qualifier("primaryDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.primary")
-    public DataSource primaryDataSource() {
-
-        return DataSourceBuilder.create().build();
-    }
-
-    @Bean(name = "secondaryDataSource")
-    @Qualifier("secondaryDataSource")
-    @Primary
-    @ConfigurationProperties(prefix = "spring.datasource.secondary")
-    public DataSource secondaryDataSource() {
-
+    @Bean
+    @Qualifier("dataSource")
+    @ConfigurationProperties(prefix = "spring.datasource")
+    public DataSource dataSource() {
         return DataSourceBuilder.create().build();
     }
 

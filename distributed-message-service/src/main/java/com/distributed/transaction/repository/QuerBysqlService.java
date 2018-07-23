@@ -4,7 +4,6 @@ import com.distributed.transaction.DatabaseType;
 import com.distributed.transaction.annotations.DS;
 import com.distributed.transaction.entity.m.TransactionMessage;
 import com.distributed.transaction.repository.test1.TransactionMessageRepository;
-import com.distributed.transaction.repository.test2.TransactionMessageRepository1;
 import com.distributed.transaction.tran.TransactionMessageVo;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
