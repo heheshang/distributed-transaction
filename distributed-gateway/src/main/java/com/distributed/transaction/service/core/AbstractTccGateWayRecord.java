@@ -3,6 +3,7 @@ package com.distributed.transaction.service.core;
 import com.distributed.transaction.api.gateway.domain.TccGatewayRecord;
 import com.distributed.transaction.api.gateway.repository.TccGatewayRecordRepository;
 import com.distributed.transaction.api.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.gateway.api.GateWayRes;
 import lombok.extern.log4j.Log4j2;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2018-07-24-下午 2:39
  */
 @Log4j2
-public abstract class AbstractTccGateWayRecord implements ITccGateWayRecordService {
+public abstract class AbstractTccGateWayRecord  {
 
     @Autowired
     private TccGatewayRecordRepository tccGatewayRecordRepository;
@@ -22,7 +23,6 @@ public abstract class AbstractTccGateWayRecord implements ITccGateWayRecordServi
     @Autowired
     private DozerBeanMapper mapper;
 
-    @Override
     @Transactional(rollbackFor = Exception.class)
     public TccGatewayRecordVo save(TccGatewayRecordVo vo) {
 
@@ -32,5 +32,5 @@ public abstract class AbstractTccGateWayRecord implements ITccGateWayRecordServi
         return mapper.map(tccGatewayRecordRepository.save(record), TccGatewayRecordVo.class);
     }
 
-    public abstract TccGatewayRecordVo handle(TccGatewayRecordVo vo);
+
 }

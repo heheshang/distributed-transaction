@@ -1,9 +1,14 @@
 package com.distributed.transaction.service.impl;
 
 import com.distributed.transaction.api.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.gateway.api.GateWayRes;
 import com.distributed.transaction.service.core.AbstractTccGateWayRecord;
+import com.distributed.transaction.service.core.ITccGateWayRecordService;
 import com.distributed.transaction.trade.BaseTradeRechargeTransApi;
 import com.distributed.transaction.trade.api.TradeReq;
+import com.distributed.transaction.trade.api.TradeRes;
+import com.distributed.transaction.trade.api.recharge.RechargeMessage;
+import com.distributed.transaction.trade.api.recharge.RechargeParam;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,16 +22,34 @@ import org.springframework.stereotype.Component;
  */
 @Log4j2
 @Component("testPayGateWayService")
-public class TestPayGateWayServiceImpl extends AbstractTccGateWayRecord {
+public class TestPayGateWayServiceImpl extends AbstractTccGateWayRecord implements ITccGateWayRecordService {
 
     @Autowired
     private BaseTradeRechargeTransApi tradeRechargeTransApi;
-    @Override
-    public TccGatewayRecordVo handle(TccGatewayRecordVo vo) {
 
+    @Override
+    public GateWayRes handle(TccGatewayRecordVo vo) {
+
+        vo = super.save(vo);
         TradeReq req = new TradeReq();
-        req.setT(vo);
-        tradeRechargeTransApi.recharge(req);
+        RechargeParam rechargeParam = new RechargeParam();
+        rechargeParam.setTransSeqNo(vo.getId());
+        req.setT(rechargeParam);
+
+        TradeRes<RechargeMessage> tradeRes = tradeRechargeTransApi.recharge(req);
+
+        GateWayRes res = new GateWayRes();
+
+        res.setR(vo);
+
+        res.setData(Boolean.toString(tradeRes.getR().isSuccess()));
+
+        return res;
+    }
+
+    @Override
+    public TccGatewayRecordVo save(TccGatewayRecordVo vo) {
+
         return super.save(vo);
     }
 }

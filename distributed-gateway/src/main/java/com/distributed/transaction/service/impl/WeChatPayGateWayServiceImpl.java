@@ -1,7 +1,11 @@
 package com.distributed.transaction.service.impl;
 
 import com.distributed.transaction.api.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.gateway.api.GateWayRes;
 import com.distributed.transaction.service.core.AbstractTccGateWayRecord;
+import com.distributed.transaction.service.core.ITccGateWayRecordService;
+import com.distributed.transaction.trade.api.TradeReq;
+import com.distributed.transaction.trade.api.recharge.RechargeParam;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,11 +16,19 @@ import org.springframework.stereotype.Component;
  * @date 2018-07-24-下午 2:50
  */
 @Component("weChatPayGateWayService")
-public class WeChatPayGateWayServiceImpl extends AbstractTccGateWayRecord {
+public class WeChatPayGateWayServiceImpl extends AbstractTccGateWayRecord implements ITccGateWayRecordService {
 
     @Override
-    public TccGatewayRecordVo handle(TccGatewayRecordVo vo) {
+    public GateWayRes handle(TccGatewayRecordVo vo) {
+        vo = super.save(vo);
+        TradeReq req = new TradeReq();
+        RechargeParam rechargeParam = new RechargeParam();
+        rechargeParam.setTransSeqNo(vo.getId());
+        req.setT(rechargeParam);
 
-        return super.save(vo);
+//        tradeRechargeTransApi.recharge(req);
+        GateWayRes res = new GateWayRes();
+        res.setR(vo);
+        return res;
     }
 }

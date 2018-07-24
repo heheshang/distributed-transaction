@@ -1,6 +1,7 @@
 package com.distributed.transaction.service.core;
 
 import com.distributed.transaction.api.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.gateway.api.GateWayRes;
 
 /**
  * @author ssk www.8win.com Inc.All rights reserved
@@ -9,5 +10,5 @@ import com.distributed.transaction.api.gateway.vo.TccGatewayRecordVo;
  */
 public interface ITccGateWayRecordService {
 
-    TccGatewayRecordVo save(TccGatewayRecordVo vo);
+    GateWayRes handle(TccGatewayRecordVo vo);
 }
