@@ -1,8 +1,11 @@
-package com.distributed.transaction.api.gateway.service.impl;
+package com.distributed.transaction.service.impl;
 
-import com.distributed.transaction.api.gateway.service.core.AbstractTccGateWayRecord;
 import com.distributed.transaction.api.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.service.core.AbstractTccGateWayRecord;
+import com.distributed.transaction.trade.BaseTradeRechargeTransApi;
+import com.distributed.transaction.trade.api.TradeReq;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,9 +19,14 @@ import org.springframework.stereotype.Component;
 @Component("testPayGateWayService")
 public class TestPayGateWayServiceImpl extends AbstractTccGateWayRecord {
 
+    @Autowired
+    private BaseTradeRechargeTransApi tradeRechargeTransApi;
     @Override
     public TccGatewayRecordVo handle(TccGatewayRecordVo vo) {
 
+        TradeReq req = new TradeReq();
+        req.setT(vo);
+        tradeRechargeTransApi.recharge(req);
         return super.save(vo);
     }
 }

@@ -1,7 +1,7 @@
-package com.distributed.transaction.api.gateway.service.impl;
+package com.distributed.transaction.service.impl;
 
-import com.distributed.transaction.api.gateway.service.core.AbstractTccGateWayRecord;
 import com.distributed.transaction.api.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.service.core.AbstractTccGateWayRecord;
 import org.springframework.stereotype.Component;
 
 /**

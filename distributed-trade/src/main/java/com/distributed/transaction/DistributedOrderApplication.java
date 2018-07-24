@@ -12,9 +12,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = { "com.distributed.transaction.api" })
+@EnableFeignClients(basePackages = { "com.distributed.transaction.trade" })
 //@EnableJpaRepositories(basePackages = "com.hnapay.fcs.gateway.repository")
-@EntityScan(basePackages = "com.hnapay.fcs.gateway.entity")
+@EntityScan(basePackages = "com.distributed.transaction.trade.domain")
 public class DistributedOrderApplication {
 
     public static void main(String[] args) {

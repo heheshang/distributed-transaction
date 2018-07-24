@@ -2,8 +2,8 @@ package com.distributed.transaction.controller;
 
 import com.distributed.transaction.gateway.api.GateWayReq;
 import com.distributed.transaction.gateway.api.GateWayRes;
-import com.distributed.transaction.api.gateway.service.core.AbstractTccGateWayRecord;
 import com.distributed.transaction.api.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.service.core.AbstractTccGateWayRecord;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

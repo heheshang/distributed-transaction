@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @date 2018-07-04-上午 10:52
  */
 @FeignClient("DISTRIBUTED-GATEWAY")
-public interface BaseGatewatRechargeTransApi {
+public interface BaseGatewayRechargeTransApi {
 
     /**
      * 充值

@@ -14,8 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableCaching
 @EnableAsync
 @EnableScheduling
-//@EnableAutoConfiguration
-@EnableFeignClients(basePackages = {"com.distributed.transaction.gateway"})
+@EnableFeignClients(basePackages = {"com.distributed.transaction.gateway","com.distributed.transaction.trade"})
 public class DistributedGatewayApplication {
 
     public static void main(String[] args) {

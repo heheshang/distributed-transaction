@@ -1,4 +1,4 @@
-package com.distributed.transaction.api.gateway.service.core;
+package com.distributed.transaction.service.core;
 
 import com.distributed.transaction.api.gateway.domain.TccGatewayRecord;
 import com.distributed.transaction.api.gateway.repository.TccGatewayRecordRepository;
