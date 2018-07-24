@@ -6,6 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Profile;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
 
 
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 @EnableDiscoveryClient
 @ComponentScan(basePackages = {"com.distributed.transaction"})
 @EnableFeignClients(basePackages = {"com.distributed.transaction.gateway"})
+@EnableScheduling
 public class DistributedShopApplication {
 
     public static void main(String[] args) {

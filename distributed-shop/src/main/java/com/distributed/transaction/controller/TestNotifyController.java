@@ -1,7 +1,7 @@
 package com.distributed.transaction.controller;
 
-import com.distributed.transaction.api.GateWayReq;
-import com.distributed.transaction.api.GateWayRes;
+import com.distributed.transaction.gateway.api.GateWayReq;
+import com.distributed.transaction.gateway.api.GateWayRes;
 import com.distributed.transaction.service.TranService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;

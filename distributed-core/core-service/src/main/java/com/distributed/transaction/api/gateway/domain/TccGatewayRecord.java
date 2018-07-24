@@ -99,4 +99,16 @@ public class TccGatewayRecord {
     @Column(name = "field3", length = 200)
     private String field3;
 
+    /**
+     * 扩展字段3
+     */
+    @Column(name = "field4", length = 200)
+    private String field4;
+
+    /**
+     * 扩展字段3
+     */
+    @Column(name = "field5", length = 200)
+    private String field5;
+
 }

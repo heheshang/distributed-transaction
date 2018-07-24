@@ -20,10 +20,10 @@
         <module>common-distributed</module>
         <module>distributed-account</module>
         <module>distributed-core</module>
-        <module>distributed-gateway-api</module>
+        <module>distributed-api</module>
         <module>distributed-gateway</module>
         <module>distributed-message-service</module>
-        <module>distributed-order</module>
+        <module>distributed-trade</module>
         <module>distributed-shop</module>
         <module>distributed-registry</module>
     </modules>

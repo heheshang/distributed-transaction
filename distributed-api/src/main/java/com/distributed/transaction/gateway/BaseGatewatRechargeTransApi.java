@@ -1,7 +1,7 @@
 package com.distributed.transaction.gateway;
 
-import com.distributed.transaction.api.GateWayReq;
-import com.distributed.transaction.api.GateWayRes;
+import com.distributed.transaction.gateway.api.GateWayReq;
+import com.distributed.transaction.gateway.api.GateWayRes;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

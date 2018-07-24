@@ -1,4 +1,4 @@
-package com.distributed.transaction.api.gateway.vo;
+package com.distributed.transaction.scheduler;
 
 import lombok.Data;
 import lombok.ToString;
@@ -13,7 +13,7 @@ import java.util.Date;
  */
 @Data
 @ToString
-public class TccGatewayRecordVo  {
+public class TccGatewayRecordVo {
 
     private String id;
 

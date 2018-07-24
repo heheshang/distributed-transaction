@@ -1,4 +1,4 @@
-package com.distributed.transaction.api;
+package com.distributed.transaction.gateway.api;
 
 import lombok.Data;
 
