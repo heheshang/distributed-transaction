@@ -8,7 +8,7 @@ import lombok.Data;
  * @date 2018-07-24-下午 4:19
  */
 @Data
-public class TradeReq<T> {
+public class TradeReq<T extends BaseParam> {
 
     private T t;
 }

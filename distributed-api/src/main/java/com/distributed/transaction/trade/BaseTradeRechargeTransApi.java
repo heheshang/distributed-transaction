@@ -2,6 +2,8 @@ package com.distributed.transaction.trade;
 
 import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
+import com.distributed.transaction.trade.api.recharge.RechargeMessage;
+import com.distributed.transaction.trade.api.recharge.RechargeParam;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,6 @@ public interface BaseTradeRechargeTransApi {
      * @return
      */
     @RequestMapping(value = "/trade/recharge", method = RequestMethod.POST)
-    public TradeRes recharge(@RequestBody TradeReq req);
+    public TradeRes<RechargeMessage> recharge(@RequestBody TradeReq<RechargeParam> req);
 
 }

@@ -8,7 +8,7 @@ import lombok.Data;
  * @date 2018-07-24-下午 4:20
  */
 @Data
-public class TradeRes<R> {
+public class TradeRes<R extends BaseMessage> {
 
     private R r;
 }
