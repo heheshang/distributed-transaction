@@ -31,4 +31,10 @@ public class WeChatPayGateWayServiceImpl extends AbstractTccGateWayRecord implem
         res.setR(vo);
         return res;
     }
+
+    @Override
+    public TccGatewayRecordVo save(TccGatewayRecordVo vo) {
+
+        return super.save(vo);
+    }
 }

@@ -1,5 +1,6 @@
 package com.distributed.transaction.controller;
 
+import com.distributed.transaction.trade.api.BaseMessage;
 import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
@@ -28,6 +29,9 @@ public class TradeApiController {
         log.info("交易业务处理开始");
 
         TradeRes res = new TradeRes();
+        RechargeMessage message = new RechargeMessage();
+        message.setSuccess(true);
+        res.setR(message);
         return res;
     }
 }

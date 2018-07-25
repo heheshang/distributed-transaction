@@ -35,6 +35,10 @@ public class TestPayGateWayServiceImpl extends AbstractTccGateWayRecord implemen
         RechargeParam rechargeParam = new RechargeParam();
         rechargeParam.setTransSeqNo(vo.getId());
         req.setT(rechargeParam);
+        TccGatewayRecordVo vo1 = new TccGatewayRecordVo();
+        vo1.setOrderNo("pt1982018072509140000");
+        vo1.setPayKey("4c52295065654407b42797cda80dd07d");
+        super.update(vo1);
 
         TradeRes<RechargeMessage> tradeRes = tradeRechargeTransApi.recharge(req);
 

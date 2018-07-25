@@ -42,7 +42,8 @@ public class QuerBysqlService {
         TransactionMessage message = transactionMessageRepository.findOne(id);
 
         message.setStatus("2222222222222111");
-        transactionMessageRepository.save(message);
+        message.setCreater("xiaozhang");
+//        transactionMessageRepository.save(message);
         return mapper.map(message, TransactionMessageVo.class);
     }
 

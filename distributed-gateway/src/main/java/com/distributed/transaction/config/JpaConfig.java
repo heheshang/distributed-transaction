@@ -32,7 +32,7 @@ public class JpaConfig {
     @Autowired
     private DataSource dataSource;
 
-    @Bean(name = "entityManagerPrimary")
+    @Bean(name = "entityManager")
     public EntityManager entityManager(EntityManagerFactoryBuilder builder) {
 
         return entityManagerFactory(builder).getObject().createEntityManager();
@@ -46,7 +46,7 @@ public class JpaConfig {
                 .properties(getVendorProperties(dataSource))
                 //设置实体类所在位置
                 .packages("com.distributed.transaction.api.gateway.domain")
-                .persistenceUnit("primaryPersistenceUnit")
+//                .persistenceUnit("primaryPersistenceUnit")
                 .build();
     }
 

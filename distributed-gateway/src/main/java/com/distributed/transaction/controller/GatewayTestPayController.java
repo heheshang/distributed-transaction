@@ -4,6 +4,7 @@ import com.distributed.transaction.gateway.api.GateWayReq;
 import com.distributed.transaction.gateway.api.GateWayRes;
 import com.distributed.transaction.api.gateway.vo.TccGatewayRecordVo;
 import com.distributed.transaction.service.core.AbstractTccGateWayRecord;
+import com.distributed.transaction.service.core.ITccGateWayRecordService;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,12 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class GatewayTestPayController {
 
     @Autowired
-    private AbstractTccGateWayRecord testPayGateWayService;
+    private ITccGateWayRecordService testPayGateWayService;
 
     @Autowired
     DozerBeanMapper mapper;
 
-    @RequestMapping(value = "/recharge/notify", method = RequestMethod.POST)
+    @RequestMapping(value = "/recharge", method = RequestMethod.POST)
     public GateWayRes pay(@RequestBody  GateWayReq req) {
 
         GateWayRes res = new GateWayRes();

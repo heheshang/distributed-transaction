@@ -41,7 +41,7 @@ public class WithinAspectTest {
         req.setTransEnum(TransEnum.RECHAEGE);
         TransactionMessageVo vo = new TransactionMessageVo();
         vo.setId("297eb8c4646efd1401646efd32380000");
-        vo.setEditor("张三");
+        vo.setEditor("张三111222");
         vo.setCreater("李四www");
 //        vo.setEditTime(new Date());
 //        vo.setCreateTime(new Date());

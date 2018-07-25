@@ -1,12 +1,6 @@
 package com.distributed.transaction.aspect;
 
-/**
- * 动态数据源AOP切面
- *
- * @author ssk www.8win.com Inc.All rights reserved
- * @version v1.0
- * @date 2018-07-18-下午 5:42
- */
+
 
 import com.distributed.transaction.DatabaseType;
 import com.distributed.transaction.annotations.DS;
@@ -20,9 +14,12 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
-
 /**
  * 动态数据源AOP切面
+ *
+ * @author ssk www.8win.com Inc.All rights reserved
+ * @version v1.0
+ * @date 2018-07-18-下午 5:42
  */
 @Aspect
 @Order(-10)

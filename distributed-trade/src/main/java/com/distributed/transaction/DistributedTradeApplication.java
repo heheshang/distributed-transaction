@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * @author ssk
@@ -15,10 +14,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableFeignClients(basePackages = { "com.distributed.transaction.trade" })
 //@EnableJpaRepositories(basePackages = "com.hnapay.fcs.gateway.repository")
 @EntityScan(basePackages = "com.distributed.transaction.trade.domain")
-public class DistributedOrderApplication {
+public class DistributedTradeApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(DistributedOrderApplication.class, args);
+        SpringApplication.run(DistributedTradeApplication.class, args);
     }
 }

@@ -1,14 +1,13 @@
 package com.distributed.transaction.api.gateway.domain;
 
-import com.distributed.transaction.enums.convert.AreadlyDeadEnumConverter;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.SelectBeforeUpdate;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
-import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,9 +24,10 @@ import java.util.Date;
  * @date 2018-07-19-下午 5:16
  */
 @Entity
+@Table(name = "tcc_gateway_record")
+@SelectBeforeUpdate
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "tcc_gateway_record")
 @Data
 public class TccGatewayRecord {
 

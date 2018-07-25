@@ -22,6 +22,6 @@ public class RechargeScheduler {
     protected void run() {
 
         log.info("定时任务充值测试");
-        tranService.process();
+//        tranService.process();
     }
 }

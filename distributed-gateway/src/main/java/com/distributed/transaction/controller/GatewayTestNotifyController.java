@@ -30,7 +30,7 @@ public class GatewayTestNotifyController {
     @Autowired
     DozerBeanMapper mapper;
 
-    @RequestMapping(value = "/recharge", method = RequestMethod.POST)
+    @RequestMapping(value = "/recharge/notify", method = RequestMethod.POST)
     public GateWayRes pay(@RequestBody GateWayReq req) {
 
         GateWayRes res = new GateWayRes();
