@@ -1,7 +1,5 @@
 package com.distributed.transaction.service.impl;
 
-import com.distributed.transaction.DatabaseType;
-import com.distributed.transaction.annotations.DS;
 import com.distributed.transaction.annotations.MessageTran;
 import com.distributed.transaction.service.IOptMessage;
 import com.distributed.transaction.tran.TranReq;

@@ -37,7 +37,7 @@ public abstract class AbstractTccGateWayRecord {
         log.info("更新网关流水记录");
         TccGatewayRecord record =  tccGatewayRecordRepository.findByOrderNoAndPayKey(vo.getOrderNo(),vo.getPayKey());
 
-        record.setField1("测试222333333");
+        record.setField1("测试22233333333333");
         return mapper.map(tccGatewayRecordRepository.save(record), TccGatewayRecordVo.class);
     }
 

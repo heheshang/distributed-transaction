@@ -1,6 +1,7 @@
 package com.distributed.transaction;
 
 import com.zaxxer.hikari.HikariDataSource;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -27,6 +28,7 @@ import java.sql.SQLException;
 @ComponentScan(basePackages = {"com.distributed.transaction"})
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @SpringBootApplication
+@Log4j2
 public class DistributedMessageApplication {
 
     public static void main(String[] args) {
@@ -34,10 +36,10 @@ public class DistributedMessageApplication {
        ApplicationContext applicationContext= SpringApplication.run(DistributedMessageApplication.class, args);
 
         DataSource dataSource = applicationContext.getBean(DataSource.class);
-        System.out.println("datasource is :" + dataSource);
+        log.info("datasource is :" + dataSource);
         //检查数据库是否是hikar数据库连接池
         if (!(dataSource instanceof HikariDataSource)) {
-            System.err.println(" Wrong datasource type :"
+            log.error(" Wrong datasource type :"
                     + dataSource.getClass().getCanonicalName());
             System.exit(-1);
         }
@@ -47,15 +49,15 @@ public class DistributedMessageApplication {
                     .executeQuery("SELECT 1");
             if (rs.first()) {
 
-                System.out.println("Connection OK!");
+                log.info("Connection OK!");
             } else {
-                System.out.println("Something is wrong");
+                log.error("Something is wrong");
             }
             // connection.close();
             // System.exit(0);
 
         } catch (SQLException e) {
-            System.out.println("FAILED");
+            log.error("FAILED");
             e.printStackTrace();
             System.exit(-2);
             // TODO: handle exception

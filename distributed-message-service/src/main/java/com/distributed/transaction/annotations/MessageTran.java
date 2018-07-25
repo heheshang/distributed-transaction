@@ -19,7 +19,7 @@ import java.lang.annotation.Target;
  * @date 2018-07-05-下午 2:51
  * 设置proxy-target-class为true即使用cglib的方式代理对象，默认是jdk方式代理。
  * <p>
- * dk的动态代理不支持类注入，只支持接口方式注入。
+ * jdk的动态代理不支持类注入，只支持接口方式注入。
  * 在自定义注解上添加{@link Inherited}。如果是第三方的注解，
  * 调整项目接口层或者拿到这个注解通过代码方式加上{@link Inherited}注解,
  */

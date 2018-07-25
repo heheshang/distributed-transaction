@@ -1,14 +1,15 @@
 package com.distributed.transaction.service.recharge;
 
-import com.distributed.transaction.api.trans.ReqT;
-import com.distributed.transaction.api.trans.ResT;
-import com.distributed.transaction.api.trans.recharge.BaseRechargeTransApi;
-import com.distributed.transaction.api.trans.recharge.RechargeMessage;
-import com.distributed.transaction.api.trans.recharge.RechargeParam;
+import com.distributed.transaction.register.TransType;
+import com.distributed.transaction.register.TransTypeEnum;
 import com.distributed.transaction.service.BaseTranService;
+import com.distributed.transaction.trade.BaseTradeRechargeTransApi;
+import com.distributed.transaction.trade.api.TradeReq;
+import com.distributed.transaction.trade.api.TradeRes;
+import com.distributed.transaction.trade.api.recharge.RechargeMessage;
+import com.distributed.transaction.trade.api.recharge.RechargeParam;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.Random;
@@ -18,17 +19,18 @@ import java.util.Random;
  * @version v1.0
  * @date 2018-07-04-下午 2:09
  */
-@Component
+
 @Log4j2
-public class RechargeTranServiceImpl extends BaseTranService {
+@TransType(value = TransTypeEnum.ALI_RECHARGE_PAY)
+public class AliPayTranServiceImpl extends BaseTranService {
 
     @Autowired
-    private BaseRechargeTransApi rechargeTransApi;
+    private BaseTradeRechargeTransApi rechargeTransApi;
 
     @Override
     public void handle() {
         log.info("充值业务处理开始");
-        ReqT reqT = new ReqT();
+        TradeReq reqT = new TradeReq();
 
         RechargeParam param = new RechargeParam();
 
@@ -37,11 +39,11 @@ public class RechargeTranServiceImpl extends BaseTranService {
         param.setPlatformId("order");
         param.setTransSeqNo(String.valueOf(new Random().nextInt(10000)));
 
-        reqT.setParams(param);
+        reqT.setT(param);
 
         log.info("充值业务构建请求参数为 ,[{}]",reqT.toString());
 
-        ResT<RechargeMessage> resT = this.rechargeTransApi.recharge(reqT);
+        TradeRes<RechargeMessage> resT = this.rechargeTransApi.recharge(reqT);
 
         log.info("充值业务相应为 ,[{}]",resT.toString());
     }
