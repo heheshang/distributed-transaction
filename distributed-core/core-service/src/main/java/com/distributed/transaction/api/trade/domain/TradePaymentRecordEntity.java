@@ -11,8 +11,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -31,7 +33,7 @@ public class TradePaymentRecordEntity {
 
     private int version;
 
-    private Timestamp createTime;
+    private Date createTime;
 
     private String status;
 
@@ -39,7 +41,7 @@ public class TradePaymentRecordEntity {
 
     private String creater;
 
-    private Timestamp editTime;
+    private Date editTime;
 
     private String productName;
 
@@ -97,9 +99,9 @@ public class TradePaymentRecordEntity {
 
     private String payWayName;
 
-    private Timestamp paySuccessTime;
+    private Date paySuccessTime;
 
-    private Timestamp completeTime;
+    private Date completeTime;
 
     private String isRefund;
 
@@ -159,12 +161,13 @@ public class TradePaymentRecordEntity {
 
     @Basic
     @Column(name = "create_time")
-    public Timestamp getCreateTime() {
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getCreateTime() {
 
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
 
         this.createTime = createTime;
     }
@@ -207,12 +210,13 @@ public class TradePaymentRecordEntity {
 
     @Basic
     @Column(name = "edit_time")
-    public Timestamp getEditTime() {
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getEditTime() {
 
         return editTime;
     }
 
-    public void setEditTime(Timestamp editTime) {
+    public void setEditTime(Date editTime) {
 
         this.editTime = editTime;
     }
@@ -555,24 +559,26 @@ public class TradePaymentRecordEntity {
 
     @Basic
     @Column(name = "pay_success_time")
-    public Timestamp getPaySuccessTime() {
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getPaySuccessTime() {
 
         return paySuccessTime;
     }
 
-    public void setPaySuccessTime(Timestamp paySuccessTime) {
+    public void setPaySuccessTime(Date paySuccessTime) {
 
         this.paySuccessTime = paySuccessTime;
     }
 
     @Basic
     @Column(name = "complete_time")
-    public Timestamp getCompleteTime() {
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getCompleteTime() {
 
         return completeTime;
     }
 
-    public void setCompleteTime(Timestamp completeTime) {
+    public void setCompleteTime(Date completeTime) {
 
         this.completeTime = completeTime;
     }

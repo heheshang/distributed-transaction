@@ -11,9 +11,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.math.BigDecimal;
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -32,13 +33,13 @@ public class TradePaymentOrderEntity {
 
     private int version;
 
-    private Timestamp createTime;
+    private Date createTime;
 
     private String editor;
 
     private String creater;
 
-    private Timestamp editTime;
+    private Date editTime;
 
     private String status;
 
@@ -54,7 +55,7 @@ public class TradePaymentOrderEntity {
 
     private String merchantNo;
 
-    private Timestamp orderTime;
+    private Date orderTime;
 
     private Date orderDate;
 
@@ -70,7 +71,7 @@ public class TradePaymentOrderEntity {
 
     private Short orderPeriod;
 
-    private Timestamp expireTime;
+    private Date expireTime;
 
     private String payWayCode;
 
@@ -132,12 +133,13 @@ public class TradePaymentOrderEntity {
 
     @Basic
     @Column(name = "create_time")
-    public Timestamp getCreateTime() {
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getCreateTime() {
 
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
 
         this.createTime = createTime;
     }
@@ -168,12 +170,13 @@ public class TradePaymentOrderEntity {
 
     @Basic
     @Column(name = "edit_time")
-    public Timestamp getEditTime() {
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getEditTime() {
 
         return editTime;
     }
 
-    public void setEditTime(Timestamp editTime) {
+    public void setEditTime(Date editTime) {
 
         this.editTime = editTime;
     }
@@ -264,12 +267,13 @@ public class TradePaymentOrderEntity {
 
     @Basic
     @Column(name = "order_time")
-    public Timestamp getOrderTime() {
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getOrderTime() {
 
         return orderTime;
     }
 
-    public void setOrderTime(Timestamp orderTime) {
+    public void setOrderTime(Date orderTime) {
 
         this.orderTime = orderTime;
     }
@@ -360,12 +364,13 @@ public class TradePaymentOrderEntity {
 
     @Basic
     @Column(name = "expire_time")
-    public Timestamp getExpireTime() {
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getExpireTime() {
 
         return expireTime;
     }
 
-    public void setExpireTime(Timestamp expireTime) {
+    public void setExpireTime(Date expireTime) {
 
         this.expireTime = expireTime;
     }
@@ -565,8 +570,8 @@ public class TradePaymentOrderEntity {
     @Override
     public boolean equals(Object o) {
 
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
         TradePaymentOrderEntity that = (TradePaymentOrderEntity) o;
         return version == that.version &&
                 Objects.equals(id, that.id) &&
