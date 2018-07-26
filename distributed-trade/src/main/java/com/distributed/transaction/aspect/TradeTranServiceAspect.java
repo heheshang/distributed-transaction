@@ -32,8 +32,8 @@ public class TradeTranServiceAspect implements Ordered {
     public Object doAroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
 
         log.info("切面处理订单及订单记录开始");
-        Annotation annotation = joinPoint.getClass().getAnnotation(TradeTransType.class);
-        if (annotation != null) {
+        Class<?> className = joinPoint.getTarget().getClass();
+        if (className.isAnnotationPresent(TradeTransType.class)) {
             return interceptor.preHandleMethod(joinPoint);
         } else {
             return joinPoint.proceed();

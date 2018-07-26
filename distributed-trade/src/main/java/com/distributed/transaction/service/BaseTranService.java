@@ -1,8 +1,6 @@
 package com.distributed.transaction.service;
 
 import com.distributed.transaction.exception.DistributedExceprion;
-import com.distributed.transaction.BaseMessage;
-import com.distributed.transaction.BaseParam;
 import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
 import lombok.extern.log4j.Log4j2;
