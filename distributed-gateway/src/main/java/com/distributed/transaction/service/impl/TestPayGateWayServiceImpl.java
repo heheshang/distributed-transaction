@@ -34,7 +34,7 @@ public class TestPayGateWayServiceImpl extends AbstractTccGateWayRecord implemen
         TradeReq req = new TradeReq();
         RechargeParam rechargeParam = new RechargeParam();
         rechargeParam.setTransSeqNo(vo.getId());
-        req.setT(rechargeParam);
+        req.setParams(rechargeParam);
         TccGatewayRecordVo vo1 = new TccGatewayRecordVo();
         vo1.setOrderNo("pt1982018072509140000");
         vo1.setPayKey("4c52295065654407b42797cda80dd07d");
@@ -44,9 +44,9 @@ public class TestPayGateWayServiceImpl extends AbstractTccGateWayRecord implemen
 
         GateWayRes res = new GateWayRes();
 
-        res.setR(vo);
+        res.setMessage(vo);
 
-        res.setData(Boolean.toString(tradeRes.getR().isSuccess()));
+        res.setSuccess(Boolean.TRUE);
 
         return res;
     }

@@ -1,9 +1,9 @@
 package com.distributed.transaction.service;
 
-import com.distributed.transaction.api.trans.BaseMessage;
-import com.distributed.transaction.api.trans.BaseParam;
-import com.distributed.transaction.api.trans.ReqT;
-import com.distributed.transaction.api.trans.ResT;
+import com.distributed.transaction.BaseMessage;
+import com.distributed.transaction.BaseParam;
+import com.distributed.transaction.account.api.AccountReqT;
+import com.distributed.transaction.account.api.AccountResT;
 
 /**
  * 交易统一入口
@@ -20,6 +20,6 @@ public interface ITranProcessApi<P extends BaseParam, M extends BaseMessage> {
      * @param req
      * @return
      */
-    public ResT<M> handle(ReqT<P> req);
+    public AccountResT<M> handle(AccountReqT<P> req);
 
 }

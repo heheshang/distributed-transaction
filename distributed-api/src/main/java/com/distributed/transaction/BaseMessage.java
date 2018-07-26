@@ -1,4 +1,4 @@
-package com.distributed.transaction.trade.api;
+package com.distributed.transaction;
 
 import lombok.Data;
 
@@ -10,9 +10,8 @@ import java.io.Serializable;
  * @date 2018-07-04-上午 10:42
  */
 @Data
-public abstract class BaseMessage implements Serializable {
+public  class BaseMessage implements Serializable {
 
-    private boolean success;
 
     private String errorReason;
 

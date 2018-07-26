@@ -1,10 +1,10 @@
 package com.distributed.transaction.controller;
 
-import com.distributed.transaction.api.trans.ReqT;
-import com.distributed.transaction.api.trans.ResT;
-import com.distributed.transaction.api.trans.recharge.RechargeMessage;
-import com.distributed.transaction.api.trans.recharge.RechargeParam;
+import com.distributed.transaction.account.api.AccountReqT;
+import com.distributed.transaction.account.api.AccountResT;
 import com.distributed.transaction.service.ITranProcessApi;
+import com.distributed.transaction.trade.api.recharge.RechargeMessage;
+import com.distributed.transaction.trade.api.recharge.RechargeParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +23,7 @@ public class RechargeController {
     ITranProcessApi tranProcessApi;
 
     @PostMapping("/api/recharge")
-    public ResT<RechargeMessage> recharge(ReqT<RechargeParam> reqT) {
+    public AccountResT<RechargeMessage> recharge(AccountReqT<RechargeParam> reqT) {
 
 
         return tranProcessApi.handle(reqT);

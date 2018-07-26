@@ -12,6 +12,7 @@
     <groupId>com.distributed.transaction</groupId>
     <artifactId>common-distributed</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <name>common-distributed</name>
     <!-- FIXME change it to the project's website -->
@@ -102,6 +103,11 @@
                    <artifactId>log4j</artifactId>
                 </exclusion>-->
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
         </dependency>
 
     </dependencies>

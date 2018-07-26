@@ -1,8 +1,10 @@
 package com.distributed.transaction.scheduler;
 
-import com.distributed.transaction.register.TranServiceComponentRegister;
-import com.distributed.transaction.register.TransTypeEnum;
-import com.distributed.transaction.service.ITranService;
+import com.distributed.transaction.service.IBaseService;
+import com.distributed.transaction.trade.api.TradeReq;
+import com.distributed.transaction.trade.api.TradeRes;
+import com.distributed.transaction.trade.api.recharge.RechargeParam;
+import com.distributed.transaction.utils.TransTypeEnum;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,11 +19,21 @@ import org.springframework.stereotype.Component;
 @Log4j2
 public class RechargeScheduler {
 
+    @Autowired
+    private IBaseService baseService;
 
     @Scheduled(cron = "0 0/1 4-23 * * ?")
     protected void run() {
-        ITranService service = TranServiceComponentRegister.getTransMessage(TransTypeEnum.TEST_RECHARGE_PAY);
-        log.info("定时任务充值测试");
-        service.process();
+
+        TradeReq tradeReq = new TradeReq();
+        tradeReq.setTransTypeEnum(TransTypeEnum.TEST_RECHARGE_PAY);
+        RechargeParam param = new RechargeParam();
+
+        param.setTransSeqNo("1233333");
+
+        tradeReq.setParams(param);
+
+        TradeRes res = baseService.process(tradeReq);
+        log.info("定时任务返回信息为[{}]", res);
     }
 }

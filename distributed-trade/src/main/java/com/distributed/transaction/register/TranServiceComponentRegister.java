@@ -1,14 +1,23 @@
 package com.distributed.transaction.register;
 
 import com.distributed.transaction.service.ITranService;
+import com.distributed.transaction.service.recharge.AliPayTranServiceImpl;
+import com.distributed.transaction.service.recharge.TestPayTranServiceImpl;
+import com.distributed.transaction.service.recharge.WeChartPayTranServiceImpl;
+import com.distributed.transaction.utils.TransTypeEnum;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Maps;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
 
 /**
  * 交易类型包装器
@@ -20,18 +29,18 @@ import java.util.Map;
 
 @Component
 @Log4j2
-public class TranServiceComponentRegister extends ApplicationObjectSupport {
+public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
 
 
     private final static Map<TransTypeEnum, ITranService> TRANS_MESSAGE_MAP = Maps.newHashMap();
 
 
-    @Override
+   /* @Override
     protected void initApplicationContext(ApplicationContext context) throws BeansException {
 
         super.initApplicationContext(context);
 
-        Map<String, Object> taskBeanMap = context.getBeansWithAnnotation(TransType.class);
+        Map<String, Object> taskBeanMap = context.getBeansWithAnnotation(TradeTransType.class);
 
         taskBeanMap.keySet().forEach(beanName -> {
 
@@ -39,9 +48,9 @@ public class TranServiceComponentRegister extends ApplicationObjectSupport {
 
             Class clazz = bean.getClass();
 
-            if (bean instanceof ITranService && clazz.getAnnotation(TransType.class) != null) {
+            if (bean instanceof ITranService && clazz.getAnnotation(TradeTransType.class) != null) {
 
-                TransType transType = (TransType) clazz.getAnnotation(TransType.class);
+                TradeTransType transType = (TradeTransType) clazz.getAnnotation(TradeTransType.class);
 
 
                 TransTypeEnum tranType = transType.value();
@@ -59,11 +68,45 @@ public class TranServiceComponentRegister extends ApplicationObjectSupport {
             }
 
         });
+    }*/
+
+
+    private static Map<String, Class<? extends ITranService>> servicesMapping = new ConcurrentHashMap<String, Class<? extends ITranService>>() {
+        private static final long serialVersionUID = -8076694302460548904L;
+
+        {
+            put(TransTypeEnum.ALI_RECHARGE_PAY.value, AliPayTranServiceImpl.class);
+            put(TransTypeEnum.WECHAT_RECHARGE_PAY.value, WeChartPayTranServiceImpl.class);
+            put(TransTypeEnum.TEST_RECHARGE_PAY.value, TestPayTranServiceImpl.class);
+
+        }
+    };
+
+    public ITranService getTransMessage(TransTypeEnum transType) {
+
+        try {
+            return tranServiceCache.get(transType.value);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
     }
 
+    @Autowired
+    private ApplicationContext applicationContext;
 
-    public static ITranService getTransMessage(TransTypeEnum transType) {
+    private LoadingCache<String, ITranService> tranServiceCache = CacheBuilder
+            .newBuilder()
+            .maximumSize(20)
+            .build(new CacheLoader<String, ITranService>() {
+        @Override
+        public ITranService load(String key) throws Exception {
 
-        return TRANS_MESSAGE_MAP.get(transType);
-    }
+            log.info("加载注册bean");
+
+            if (!servicesMapping.containsKey(Objects.requireNonNull(TransTypeEnum.getByValue(key)).value)) {
+                return null;
+            }
+            return applicationContext.getBean(servicesMapping.get(key));
+        }
+    });
 }

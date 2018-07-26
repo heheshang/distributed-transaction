@@ -1,16 +1,11 @@
 package com.distributed.transaction.controller;
 
-import com.distributed.transaction.register.TranServiceComponentRegister;
-import com.distributed.transaction.register.TransTypeEnum;
 import com.distributed.transaction.service.IBaseService;
-import com.distributed.transaction.service.ITranService;
-import com.distributed.transaction.trade.api.BaseMessage;
 import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
 import lombok.extern.log4j.Log4j2;
-import org.aspectj.lang.annotation.Around;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,22 +23,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/trade")
 @Log4j2
 public class TradeApiController {
+
     @Autowired
-    private IBaseService service;
+    private IBaseService baseService;
 
     @PostMapping("/recharge")
     public TradeRes<RechargeMessage> recharge(@RequestBody TradeReq<RechargeParam> req) {
 
-        log.info("交易业务处理开始[{}]",req);
+        log.info("交易业务处理开始[{}]", req);
 
-        TradeRes res = new TradeRes();
-        RechargeMessage message = new RechargeMessage();
-        message.setSuccess(true);
-        res.setR(message);
-
-        service.process();
-
-
-        return res;
+        return baseService.process(req);
     }
 }

@@ -18,8 +18,6 @@
     <name>distributed-api</name>
 
 
-
-
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -35,6 +33,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.distributed.transaction</groupId>
+            <artifactId>common-distributed</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

@@ -1,5 +1,6 @@
 package com.distributed.transaction.gateway.api;
 
+import com.distributed.transaction.BaseMessage;
 import lombok.Data;
 import lombok.ToString;
 
@@ -10,9 +11,14 @@ import lombok.ToString;
  */
 @Data
 @ToString
-public class GateWayRes<R> {
+public class GateWayRes<M > {
 
-    private R r;
+    private M message;
 
-    private String data;
+    private Boolean success;
+
+    private String procCode;
+
+    private String procDesc;
+
 }

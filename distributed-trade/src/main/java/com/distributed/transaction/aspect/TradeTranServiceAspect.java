@@ -1,12 +1,16 @@
 package com.distributed.transaction.aspect;
 
+import com.distributed.transaction.interceptor.TradeTransactionInterceptor;
+import com.distributed.transaction.annotations.TradeTransType;
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
+
+import java.lang.annotation.Annotation;
 
 /**
  * 交易记录和交易订单操作切面
@@ -21,11 +25,20 @@ import org.springframework.stereotype.Component;
 public class TradeTranServiceAspect implements Ordered {
 
 
-    @Around("@within(com.distributed.transaction.register.TransType)")
-    public void doAroundAdvice(ProceedingJoinPoint joinPoint) {
+    @Autowired
+    private TradeTransactionInterceptor interceptor;
+
+    @Around("@within(com.distributed.transaction.annotations.TradeTransType)")
+    public Object doAroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
 
         log.info("切面处理订单及订单记录开始");
-        return;
+        Annotation annotation = joinPoint.getClass().getAnnotation(TradeTransType.class);
+        if (annotation != null) {
+            return interceptor.preHandleMethod(joinPoint);
+        } else {
+            return joinPoint.proceed();
+        }
+
     }
 
     @Override

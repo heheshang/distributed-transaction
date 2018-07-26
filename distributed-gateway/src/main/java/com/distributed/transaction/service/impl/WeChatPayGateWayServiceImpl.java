@@ -20,15 +20,22 @@ public class WeChatPayGateWayServiceImpl extends AbstractTccGateWayRecord implem
 
     @Override
     public GateWayRes handle(TccGatewayRecordVo vo) {
+
         vo = super.save(vo);
+
         TradeReq req = new TradeReq();
+
         RechargeParam rechargeParam = new RechargeParam();
+
         rechargeParam.setTransSeqNo(vo.getId());
-        req.setT(rechargeParam);
+
+        req.setParams(rechargeParam);
 
 //        tradeRechargeTransApi.recharge(req);
         GateWayRes res = new GateWayRes();
-        res.setR(vo);
+
+        res.setMessage(vo);
+
         return res;
     }
 

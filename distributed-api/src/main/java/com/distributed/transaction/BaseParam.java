@@ -1,4 +1,4 @@
-package com.distributed.transaction.trade.api;
+package com.distributed.transaction;
 
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import java.util.Date;
  * @date 2018-07-04-上午 10:26
  */
 @Data
-public abstract class BaseParam implements Serializable {
+public  class BaseParam implements Serializable {
 
     //交易时间
     private Date txnTm;

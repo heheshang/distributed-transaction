@@ -1,9 +1,10 @@
 package com.distributed.transaction.service;
 
-import com.distributed.transaction.api.trans.BaseMessage;
-import com.distributed.transaction.api.trans.BaseParam;
-import com.distributed.transaction.api.trans.ReqT;
-import com.distributed.transaction.api.trans.ResT;
+
+import com.distributed.transaction.BaseMessage;
+import com.distributed.transaction.BaseParam;
+import com.distributed.transaction.account.api.AccountReqT;
+import com.distributed.transaction.account.api.AccountResT;
 import com.distributed.transaction.exception.DistributedExceprion;
 import lombok.extern.log4j.Log4j2;
 
@@ -16,14 +17,13 @@ import lombok.extern.log4j.Log4j2;
 public abstract class BaseTranProcessApi<P extends BaseParam, M extends BaseMessage> implements ITranProcessApi<P, M> {
 
     @Override
-    public ResT<M> handle(ReqT<P> req) {
+    public AccountResT<M> handle(AccountReqT<P> req) {
 
-        ResT<M> response = new ResT<M>();
+        AccountResT<M> response = new AccountResT<M>();
         try {
             M message = execute(req.getParams());
-            response.setSuccess(message.isSuccess());
-            response.setProcCode("0000");
-            response.setProcDesc("交易成功");
+            response.setSuccess(Boolean.TRUE);
+
             response.setMessage(message);
         } catch (Exception e) {
 
