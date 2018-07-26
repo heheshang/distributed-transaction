@@ -1,5 +1,6 @@
 package com.distributed.transaction.register;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Documented;
@@ -19,6 +20,7 @@ import java.lang.annotation.Target;
 @Documented
 @Inherited
 @Component
+
 public @interface TransType {
 
     TransTypeEnum value() default TransTypeEnum.TEST_RECHARGE_PAY;

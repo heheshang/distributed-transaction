@@ -2,6 +2,7 @@ package com.distributed.transaction.controller;
 
 import com.distributed.transaction.register.TranServiceComponentRegister;
 import com.distributed.transaction.register.TransTypeEnum;
+import com.distributed.transaction.service.IBaseService;
 import com.distributed.transaction.service.ITranService;
 import com.distributed.transaction.trade.api.BaseMessage;
 import com.distributed.transaction.trade.api.TradeReq;
@@ -9,6 +10,7 @@ import com.distributed.transaction.trade.api.TradeRes;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
 import lombok.extern.log4j.Log4j2;
+import org.aspectj.lang.annotation.Around;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +28,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/trade")
 @Log4j2
 public class TradeApiController {
-
+    @Autowired
+    private IBaseService service;
 
     @PostMapping("/recharge")
     public TradeRes<RechargeMessage> recharge(@RequestBody TradeReq<RechargeParam> req) {
@@ -37,12 +40,9 @@ public class TradeApiController {
         RechargeMessage message = new RechargeMessage();
         message.setSuccess(true);
         res.setR(message);
-        ITranService service = TranServiceComponentRegister.getTransMessage(TransTypeEnum.TEST_RECHARGE_PAY);
-        if (service==null){
-            log.error("没有找到有效的服务");
-        }
 
         service.process();
+
 
         return res;
     }

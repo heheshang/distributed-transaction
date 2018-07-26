@@ -2,7 +2,7 @@ package com.distributed.transaction.service.recharge;
 
 import com.distributed.transaction.register.TransType;
 import com.distributed.transaction.register.TransTypeEnum;
-import com.distributed.transaction.service.BaseTranService;
+import com.distributed.transaction.service.ITranService;
 import com.distributed.transaction.trade.BaseTradeRechargeTransApi;
 import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
@@ -22,17 +22,19 @@ import java.util.Random;
 
 @Log4j2
 @TransType(value = TransTypeEnum.ALI_RECHARGE_PAY)
-public class AliPayTranServiceImpl extends BaseTranService {
+public class AliPayTranServiceImpl implements ITranService<RechargeParam, RechargeMessage> {
 
     @Autowired
     private BaseTradeRechargeTransApi rechargeTransApi;
 
+
     @Override
-    public void handle() {
-        log.info("充值业务处理开始");
+    public RechargeMessage handle(RechargeParam param) {
+
+        log.info("支付宝充值业务处理开始");
         TradeReq reqT = new TradeReq();
 
-        RechargeParam param = new RechargeParam();
+
 
         param.setCustId("1111");
         param.setTxnTm(new Date());
@@ -41,10 +43,11 @@ public class AliPayTranServiceImpl extends BaseTranService {
 
         reqT.setT(param);
 
-        log.info("充值业务构建请求参数为 ,[{}]",reqT.toString());
+        log.info("充值业务构建请求参数为 ,[{}]", reqT.toString());
 
         TradeRes<RechargeMessage> resT = this.rechargeTransApi.recharge(reqT);
 
-        log.info("充值业务相应为 ,[{}]",resT.toString());
+        log.info("充值业务相应为 ,[{}]", resT.toString());
+        return null;
     }
 }
