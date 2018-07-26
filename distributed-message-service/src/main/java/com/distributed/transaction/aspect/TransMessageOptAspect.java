@@ -1,8 +1,8 @@
 package com.distributed.transaction.aspect;
 
 import com.distributed.transaction.entity.s.TransactionMessage;
-import com.distributed.transaction.repository.QuerBysqlService;
-import com.distributed.transaction.repository.test2.TransactionMessageRepository1;
+import com.distributed.transaction.base.QuerBysqlService;
+import com.distributed.transaction.base.test2.TransactionMessageRepository1;
 import com.distributed.transaction.tran.TranReq;
 import com.distributed.transaction.tran.TranRes;
 import com.distributed.transaction.tran.TransactionMessageVo;

@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients(basePackages = { "com.distributed.transaction.api" })
-//@EnableJpaRepositories(basePackages = "com.hnapay.fcs.gateway.repository")
+//@EnableJpaRepositories(basePackages = "com.hnapay.fcs.gateway.base")
 //@EntityScan(basePackages = "com.hnapay.fcs.gateway.entity")
 public class AccountDistributedApplication {
 

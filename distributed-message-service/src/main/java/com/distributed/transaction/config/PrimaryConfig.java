@@ -19,7 +19,7 @@ import java.util.Map;
 
 
 /**
-* 将数据源注入到 实体管理器工厂，配置 repository、domian 的位置
+* 将数据源注入到 实体管理器工厂，配置 base、domian 的位置
 * @author ssk www.8win.com Inc.All rights reserved
 * @date 2018/07/19 下午 1:46
 * @since v1.0
@@ -29,7 +29,7 @@ import java.util.Map;
 @EnableJpaRepositories(
         entityManagerFactoryRef = "entityManagerFactoryPrimary",//配置连接工厂 entityManagerFactory
         transactionManagerRef = "transactionManagerPrimary", //配置 事物管理器  transactionManager
-        basePackages = {"com.distributed.transaction.repository.test1"}//设置dao（repo）所在位置
+        basePackages = {"com.distributed.transaction.base.test1"}//设置dao（repo）所在位置
 )
 public class PrimaryConfig {
 

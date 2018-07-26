@@ -27,7 +27,7 @@ import java.util.Map;
 @EnableJpaRepositories(
         entityManagerFactoryRef="entityManagerFactorySecondary",
         transactionManagerRef="transactionManagerSecondary",
-        basePackages= { "com.distributed.transaction.repository.test2" })
+        basePackages= {"com.distributed.transaction.base.test2"})
 public class SecondaryConfig {
 
     @Autowired

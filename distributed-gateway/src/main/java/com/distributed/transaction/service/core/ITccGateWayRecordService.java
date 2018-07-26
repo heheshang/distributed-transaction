@@ -1,6 +1,6 @@
 package com.distributed.transaction.service.core;
 
-import com.distributed.transaction.api.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.module.gateway.vo.TccGatewayRecordVo;
 import com.distributed.transaction.gateway.api.GateWayRes;
 
 /**

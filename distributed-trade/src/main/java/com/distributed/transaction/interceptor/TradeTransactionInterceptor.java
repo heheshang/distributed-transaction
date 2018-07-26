@@ -1,7 +1,7 @@
 package com.distributed.transaction.interceptor;
 
-import com.distributed.transaction.api.trade.repository.TradePaymentOrderRepository;
-import com.distributed.transaction.api.trade.repository.TradePaymentRecordRepository;
+import com.distributed.transaction.module.trade.repository.TradePaymentOrderRepository;
+import com.distributed.transaction.module.trade.repository.TradePaymentRecordRepository;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -32,7 +32,7 @@ public class TradeTransactionInterceptor {
 
         log.info("切面处理订单记录开始,处理请求为:[{}]", ToStringBuilder.reflectionToString(arg));
 
-        
+
 
         return pjp.proceed();
     }

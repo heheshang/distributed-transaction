@@ -1,8 +1,8 @@
 package com.distributed.transaction.service.core;
 
-import com.distributed.transaction.api.gateway.domain.TccGatewayRecord;
-import com.distributed.transaction.api.gateway.repository.TccGatewayRecordRepository;
-import com.distributed.transaction.api.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.module.gateway.domain.TccGatewayRecord;
+import com.distributed.transaction.module.gateway.repository.TccGatewayRecordRepository;
+import com.distributed.transaction.module.gateway.vo.TccGatewayRecordVo;
 import lombok.extern.log4j.Log4j2;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
