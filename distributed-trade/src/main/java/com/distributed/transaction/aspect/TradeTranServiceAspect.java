@@ -1,7 +1,7 @@
 package com.distributed.transaction.aspect;
 
-import com.distributed.transaction.interceptor.TradeTransactionInterceptor;
 import com.distributed.transaction.annotations.TradeTransType;
+import com.distributed.transaction.interceptor.TradeTransactionInterceptor;
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -9,8 +9,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
-
-import java.lang.annotation.Annotation;
 
 /**
  * 交易记录和交易订单操作切面
