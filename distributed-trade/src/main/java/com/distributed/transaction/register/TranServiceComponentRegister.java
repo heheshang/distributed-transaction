@@ -1,5 +1,7 @@
 package com.distributed.transaction.register;
 
+import com.distributed.transaction.annotations.VerifyProduct;
+import com.distributed.transaction.annotations.VerifyUser;
 import com.distributed.transaction.service.ITranService;
 import com.distributed.transaction.service.recharge.AliPayTranServiceImpl;
 import com.distributed.transaction.service.recharge.TestPayTranServiceImpl;
@@ -12,8 +14,10 @@ import com.google.common.collect.Maps;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
@@ -98,15 +102,54 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
             .newBuilder()
             .maximumSize(20)
             .build(new CacheLoader<String, ITranService>() {
-        @Override
-        public ITranService load(String key) throws Exception {
+                @Override
+                public ITranService load(String key) throws Exception {
 
-            log.info("加载注册bean");
+                    log.info("加载注册bean");
 
-            if (!servicesMapping.containsKey(Objects.requireNonNull(TransTypeEnum.getByValue(key)).value)) {
-                return null;
-            }
-            return applicationContext.getBean(servicesMapping.get(key));
+                    if (!servicesMapping.containsKey(Objects.requireNonNull(TransTypeEnum.getByValue(key)).value)) {
+                        return null;
+                    }
+                    return applicationContext.getBean(servicesMapping.get(key));
+                }
+            });
+
+    private LoadingCache<Method, VerifyUser> verifyUserAnnoCache = CacheBuilder
+            .newBuilder()
+            .build(new CacheLoader<Method, VerifyUser>() {
+                @Override
+                public VerifyUser load(Method method) throws Exception {
+
+                    return AnnotationUtils.findAnnotation(method, VerifyUser.class);
+                }
+            });
+
+    public VerifyUser getVerifyUserAnnoCache(Method method) {
+
+        try {
+            return verifyUserAnnoCache.get(method);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
         }
-    });
+    }
+
+    private LoadingCache<Method, VerifyProduct> verifyProductAnnoCache = CacheBuilder
+            .newBuilder()
+            .build(new CacheLoader<Method, VerifyProduct>() {
+                @Override
+                public VerifyProduct load(Method method) throws Exception {
+
+                    return AnnotationUtils.findAnnotation(method, VerifyProduct.class);
+                }
+            });
+
+
+    public VerifyProduct getVerifyProductAnnoCache(Method method) {
+
+        try {
+            return verifyProductAnnoCache.get(method);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

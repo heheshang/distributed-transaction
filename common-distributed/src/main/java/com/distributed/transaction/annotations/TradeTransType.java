@@ -11,6 +11,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 交易服务注解
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-07-25-下午 3:53
@@ -20,7 +21,6 @@ import java.lang.annotation.Target;
 @Documented
 @Inherited
 @Component
-
 public @interface TradeTransType {
 
     TransTypeEnum value() default TransTypeEnum.TEST_RECHARGE_PAY;

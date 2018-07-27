@@ -1,7 +1,6 @@
 package com.distributed.transaction.aspect;
 
 
-
 import com.distributed.transaction.DatabaseType;
 import com.distributed.transaction.annotations.DS;
 import org.aspectj.lang.JoinPoint;
@@ -14,6 +13,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
+
 /**
  * 动态数据源AOP切面
  *
@@ -27,7 +27,9 @@ import java.lang.reflect.Method;
 public class DynamicDataSourceAspect {
 
 
-    //切换放在mapper接口的方法上，所以这里要配置AOP切面的切入点
+    /**
+     * 切换放在mapper接口的方法上，所以这里要配置AOP切面的切入点
+     */
     @Pointcut("@annotation(com.distributed.transaction.annotations.DS))")
     public void dataSourcePointCut() {
 
