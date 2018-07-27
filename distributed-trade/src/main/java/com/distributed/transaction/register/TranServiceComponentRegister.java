@@ -1,6 +1,6 @@
 package com.distributed.transaction.register;
 
-import com.distributed.transaction.annotations.VerifyProduct;
+import com.distributed.transaction.annotations.VerifyProd;
 import com.distributed.transaction.annotations.VerifyUser;
 import com.distributed.transaction.service.ITranService;
 import com.distributed.transaction.service.recharge.AliPayTranServiceImpl;
@@ -133,18 +133,18 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
         }
     }
 
-    private LoadingCache<Method, VerifyProduct> verifyProductAnnoCache = CacheBuilder
+    private LoadingCache<Method, VerifyProd> verifyProductAnnoCache = CacheBuilder
             .newBuilder()
-            .build(new CacheLoader<Method, VerifyProduct>() {
+            .build(new CacheLoader<Method, VerifyProd>() {
                 @Override
-                public VerifyProduct load(Method method) throws Exception {
+                public VerifyProd load(Method method) throws Exception {
 
-                    return AnnotationUtils.findAnnotation(method, VerifyProduct.class);
+                    return AnnotationUtils.findAnnotation(method, VerifyProd.class);
                 }
             });
 
 
-    public VerifyProduct getVerifyProductAnnoCache(Method method) {
+    public VerifyProd getVerifyProductAnnoCache(Method method) {
 
         try {
             return verifyProductAnnoCache.get(method);

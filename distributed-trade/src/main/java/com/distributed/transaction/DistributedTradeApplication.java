@@ -22,4 +22,28 @@ public class DistributedTradeApplication {
 
         SpringApplication.run(DistributedTradeApplication.class, args);
     }
+
+    /**
+     * 初始化配置：配置观察者
+     * @return
+     */
+/*    @Bean(name="handlerSet")
+    public Set<IMessageHandler> handlerSet() {
+        Set<IMessageHandler> handlerSet = new HashSet<IMessageHandler>();
+        IMessageHandler notifyMessageHandler = SpringBeanUtil.getBean("notifyMessageHandler");
+        IMessageHandler emailMessageHandler = SpringBeanUtil.getBean("emailMessageHandler");
+
+        IMessageProcessor notifyProcessor = SpringBeanUtil.getBean("notifyProcessor");
+        IMessageProcessor emailProcessor = SpringBeanUtil.getBean("emailProcessor");
+
+        // 为异步通知消息处理器注册监听者
+        notifyMessageHandler.registerObserver(notifyProcessor);
+        // 为邮件消息处理器注册监听者
+        emailMessageHandler.registerObserver(emailProcessor);
+
+        handlerSet.add(notifyMessageHandler);
+        handlerSet.add(emailMessageHandler);
+
+        return handlerSet;
+    }*/
 }
