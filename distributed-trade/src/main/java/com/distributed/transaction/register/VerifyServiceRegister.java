@@ -66,7 +66,7 @@ public class VerifyServiceRegister extends ApplicationObjectSupport {
 
     private LoadingCache<String, IChecker> tranServiceCache = CacheBuilder
             .newBuilder()
-            .maximumSize(20)
+            .maximumSize(200)
             .build(new CacheLoader<String, IChecker>() {
 
                 @Override

@@ -1,6 +1,5 @@
 package com.distributed.transaction.trade.api;
 
-import com.distributed.transaction.BaseParam;
 import com.distributed.transaction.utils.TransTypeEnum;
 import lombok.Data;
 
