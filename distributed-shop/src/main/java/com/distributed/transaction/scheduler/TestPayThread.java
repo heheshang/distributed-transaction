@@ -80,7 +80,7 @@ public class TestPayThread implements Runnable {
                 System.out.println(res.toString());
 
                 //模拟生成失败，跳出这次循环，继续下次操作。
-                if (res.getData() == null || "".equals(res.getR().toString())) {
+                if (res.getMessage() == null || "".equals(res.getMessage().toString())) {
                     continue;
                 }
 

@@ -1,7 +1,7 @@
 package com.distributed.transaction.base.test2;
 
 
-import com.distributed.transaction.api.repository.BaseRepository;
+import com.distributed.transaction.base.BaseRepository;
 import com.distributed.transaction.entity.s.TransactionMessage;
 import org.springframework.stereotype.Repository;
 
