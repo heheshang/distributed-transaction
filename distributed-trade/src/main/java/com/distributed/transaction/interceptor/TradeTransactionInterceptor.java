@@ -1,6 +1,7 @@
 package com.distributed.transaction.interceptor;
 
 import com.distributed.transaction.annotations.VerifyProd;
+import com.distributed.transaction.annotations.VerifyProdType;
 import com.distributed.transaction.annotations.VerifyUser;
 import com.distributed.transaction.module.trade.repository.TradePaymentOrderRepository;
 import com.distributed.transaction.module.trade.repository.TradePaymentRecordRepository;
@@ -45,14 +46,19 @@ public class TradeTransactionInterceptor {
 
             VerifyUser verifyUserAnno = register.getVerifyUserAnnoCache(method);
 
-            if (verifyUserAnno != null && verifyUserAnno.value() && verifyUserAnno.check().length>=1) {
+            if (verifyUserAnno != null && verifyUserAnno.value() && verifyUserAnno.check().length >= 1) {
                 log.info("进行用户权限验证 VerifyUser value=[{}],check=[{}]", verifyUserAnno.value(), verifyUserAnno.check());
             }
 
+            VerifyProdType verifyProdTypeAnno = register.verifyProdTypeAnnoCache(method);
+            if (verifyProdTypeAnno != null && verifyProdTypeAnno.value() && verifyProdTypeAnno.type().length >= 1) {
 
-            VerifyProd verifyProductAnno = register.getVerifyProductAnnoCache(method);
+                log.info("进用户产品类型验证 VerifyProd value=[{}],type=[{}]", verifyProdTypeAnno.value(), verifyProdTypeAnno.type());
+            }
 
-            if (verifyProductAnno != null && verifyProductAnno.value() && verifyProductAnno.check().length>=1) {
+            VerifyProd verifyProductAnno = register.getVerifyProdAnnoCache(method);
+
+            if (verifyProductAnno != null && verifyProductAnno.value() && verifyProductAnno.check().length >= 1) {
 
                 log.info("进行用户产品权限验证 VerifyProd value=[{}],check=[{}]", verifyUserAnno.value(), verifyUserAnno.check());
             }

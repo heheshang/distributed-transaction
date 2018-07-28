@@ -1,6 +1,7 @@
 package com.distributed.transaction.register;
 
 import com.distributed.transaction.annotations.VerifyProd;
+import com.distributed.transaction.annotations.VerifyProdType;
 import com.distributed.transaction.annotations.VerifyUser;
 import com.distributed.transaction.service.ITranService;
 import com.distributed.transaction.service.recharge.AliPayTranServiceImpl;
@@ -133,7 +134,7 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
         }
     }
 
-    private LoadingCache<Method, VerifyProd> verifyProductAnnoCache = CacheBuilder
+    private LoadingCache<Method, VerifyProd> verifyProdAnnoCache = CacheBuilder
             .newBuilder()
             .build(new CacheLoader<Method, VerifyProd>() {
                 @Override
@@ -144,12 +145,34 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
             });
 
 
-    public VerifyProd getVerifyProductAnnoCache(Method method) {
+    public VerifyProd getVerifyProdAnnoCache(Method method) {
 
         try {
-            return verifyProductAnnoCache.get(method);
+            return verifyProdAnnoCache.get(method);
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
         }
     }
+
+
+    private LoadingCache<Method, VerifyProdType> verifyProdTypeAnnoCache = CacheBuilder
+            .newBuilder()
+            .build(new CacheLoader<Method, VerifyProdType>() {
+                @Override
+                public VerifyProdType load(Method method) throws Exception {
+
+                    return AnnotationUtils.findAnnotation(method, VerifyProdType.class);
+                }
+            });
+
+
+    public VerifyProdType verifyProdTypeAnnoCache(Method method) {
+
+        try {
+            return verifyProdTypeAnnoCache.get(method);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
