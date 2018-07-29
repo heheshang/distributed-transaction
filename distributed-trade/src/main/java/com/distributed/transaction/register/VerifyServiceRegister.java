@@ -18,9 +18,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 交易类型包装器
+ * 统一校验注册器
  *
  * @author ssk www.8win.com Inc.All rights reserved
  * @date 2018/07/05 下午 3:17
@@ -39,8 +40,7 @@ public class VerifyServiceRegister extends ApplicationObjectSupport {
 
         Map<String, Object> verifyUserBeanMap = context.getBeansWithAnnotation(VerifyUser.class);
 
-        verifyUserBeanMap.keySet().forEach((String beanName) -> {
-
+        for (String beanName : verifyUserBeanMap.keySet()) {
             Object bean = verifyUserBeanMap.get(beanName);
 
             Class clazz = bean.getClass();
@@ -53,18 +53,26 @@ public class VerifyServiceRegister extends ApplicationObjectSupport {
                 UserVerifyEnum[] tranType = verifyUserAnno.check();
 
                 for (UserVerifyEnum verifyEnum : tranType) {
-                    log.info("发现注册 component Register. verifyEnum=[{}]", verifyEnum);
 
-                    tranServiceCache.asMap().put(verifyEnum.getAuthCode(), (IChecker) bean);
+
+                    if (tranServiceCache.asMap().containsKey(verifyEnum.getAuthCode())) {
+
+                        log.error("统一校验包装器 发现注册 bean 被注册不在进行重复注册. verifyEnum=[{}]", verifyEnum);
+
+                    } else {
+
+                        log.info("统一校验包装器 发现注册 bean be register. verifyEnum=[{}]", verifyEnum);
+
+                        tranServiceCache.asMap().put(verifyEnum.getAuthCode(), (IChecker) bean);
+                    }
                 }
 
             }
-
-        });
+        }
     }
 
 
-    private LoadingCache<String, IChecker> tranServiceCache = CacheBuilder
+    public static LoadingCache<String, IChecker> tranServiceCache = CacheBuilder
             .newBuilder()
             .maximumSize(200)
             .build(new CacheLoader<String, IChecker>() {
