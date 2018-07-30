@@ -26,7 +26,8 @@ public class CoreTranServiceImpl extends BaseTranService {
     @Override
     protected TradeRes exec(TradeReq tradeReq) {
 
-        ITranService service = tranServiceComponentRegister.getTransMessage(tradeReq.getTransTypeEnum());
+        ITranService service = tranServiceComponentRegister.getTransMessage(((BaseParam)tradeReq.getParams()).getTransTypeEnum());
+
         TradeRes tradeRes = new TradeRes();
         try {
             BaseMessage message = service.handle((BaseParam) tradeReq.getParams());

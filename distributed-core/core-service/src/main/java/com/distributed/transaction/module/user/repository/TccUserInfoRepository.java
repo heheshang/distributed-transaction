@@ -12,4 +12,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TccUserInfoRepository extends BaseRepository<TccUserInfoEntity, String> {
 
+    /**
+     *
+     * @param userNo
+     * @param status
+     * @return
+     */
+    public TccUserInfoEntity getByUserNoAndStatus(String userNo,String status);
+
 }

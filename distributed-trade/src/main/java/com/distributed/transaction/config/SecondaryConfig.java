@@ -29,7 +29,7 @@ import java.util.Map;
 @EnableJpaRepositories(
         entityManagerFactoryRef = "entityManagerFactorySecondary",
         transactionManagerRef = "transactionManagerSecondary",
-        basePackages = {"com.distributed.transaction.module.user.repository"})
+        basePackages = {"com.distributed.transaction.module.user.repository","com.distributed.transaction.module.product.repository"})
 public class SecondaryConfig {
 
     @Autowired
@@ -52,7 +52,7 @@ public class SecondaryConfig {
         return builder
                 .dataSource(secondaryDataSource)
                 .properties(getVendorProperties(secondaryDataSource))
-                .packages("com.distributed.transaction.module.user.domain")
+                .packages("com.distributed.transaction.module.user.domain","com.distributed.transaction.module.product.domain")
                 .persistenceUnit("secondaryPersistenceUnit")
                 .build();
     }

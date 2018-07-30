@@ -37,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
 
 
-    private final static Map<TransTypeEnum, ITranService> TRANS_MESSAGE_MAP = Maps.newHashMap();
+//    private final static Map<TransTypeEnum, ITranService> TRANS_MESSAGE_MAP = Maps.newHashMap();
 
 
    /* @Override

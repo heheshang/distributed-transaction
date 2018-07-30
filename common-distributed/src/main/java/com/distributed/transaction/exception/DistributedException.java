@@ -41,6 +41,13 @@ public class DistributedException extends RuntimeException {
     }
 
 
+    public DistributedException(String errCode, String errMsg) {
+
+        super();
+        this.errCode = errCode;
+        this.errMsg = errMsg;
+    }
+
     public DistributedException(String errCode, Class errClass) {
 
         super();
