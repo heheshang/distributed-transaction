@@ -22,7 +22,7 @@ public class RechargeScheduler {
     @Autowired
     private IBaseService baseService;
 
-    @Scheduled(cron = "0 0/1 4-23 * * ?")
+    @Scheduled(cron = "0/5 * 4-23 * * ?")
     protected void run() {
 
         TradeReq tradeReq = new TradeReq();

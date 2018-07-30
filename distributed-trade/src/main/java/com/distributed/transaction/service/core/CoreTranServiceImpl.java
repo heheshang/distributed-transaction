@@ -38,7 +38,7 @@ public class CoreTranServiceImpl extends BaseTranService {
            return handleException(tradeReq, e);
 
         }
-        return null;
+        return tradeRes;
     }
 
     @Override
@@ -61,6 +61,7 @@ public class CoreTranServiceImpl extends BaseTranService {
             message.setErrorReason("失败");
             message.setErrorCode("4444");
         }
+        res.setMessage(message);
         res.setSuccess(Boolean.FALSE);
         return res;
     }

@@ -3,12 +3,21 @@ package com.distributed.transaction.exception;
 import lombok.Data;
 
 /**
+ * 在 Spring AOP中调用一个方法来进行数据验证
+ *
+ * 一旦数据验证失败，抛出一个自定义的异常。然而，却抛出了java.lang.reflect.UndeclaredThrowableException
+ *
+ *
+ *
+ *
+ *
+ * 查了一下，因为我的自定义异常继承Exception类。把它改为继承RuntimeException，再抛出的异常就是自己的自定义异常了
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-07-04-下午 1:13
  */
 @Data
-public class DistributedExceprion extends Exception {
+public class DistributedExceprion extends RuntimeException {
 
     /**
      * 模块名，抛出异常的类

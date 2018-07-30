@@ -1,12 +1,18 @@
 package com.distributed.transaction.interceptor;
 
+import com.distributed.transaction.BaseMessage;
+import com.distributed.transaction.BaseParam;
 import com.distributed.transaction.annotations.VerifyProd;
 import com.distributed.transaction.annotations.VerifyProdType;
 import com.distributed.transaction.annotations.VerifyUser;
+import com.distributed.transaction.checker.IChecker;
 import com.distributed.transaction.module.trade.repository.TradePaymentOrderRepository;
 import com.distributed.transaction.module.trade.repository.TradePaymentRecordRepository;
 import com.distributed.transaction.register.TranServiceComponentRegister;
+import com.distributed.transaction.register.VerifyServiceRegister;
+import com.distributed.transaction.utils.UserVerifyEnum;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +40,10 @@ public class TradeTransactionInterceptor {
     @Autowired
     private TranServiceComponentRegister register;
 
+    @Autowired
+    private VerifyServiceRegister verifyServiceRegister;
+
+
     public Object preHandleMethod(ProceedingJoinPoint pjp) throws Throwable {
 
         Object[] arg = pjp.getArgs();
@@ -46,9 +56,23 @@ public class TradeTransactionInterceptor {
 
             VerifyUser verifyUserAnno = register.getVerifyUserAnnoCache(method);
 
+
             if (verifyUserAnno != null && verifyUserAnno.value() && verifyUserAnno.check().length >= 1) {
                 log.info("进行用户权限验证 VerifyUser value=[{}],check=[{}]", verifyUserAnno.value(), verifyUserAnno.check());
+
+                UserVerifyEnum[] verifyEnums = verifyUserAnno.check();
+
+                for (UserVerifyEnum anEnum : verifyEnums) {
+
+                    IChecker checker = verifyServiceRegister.tranServiceCache.asMap().get(anEnum.getAuthCode());
+
+                    checker.exce((BaseParam) arg[0]);
+
+                }
+
+
             }
+
 
             VerifyProdType verifyProdTypeAnno = register.verifyProdTypeAnnoCache(method);
             if (verifyProdTypeAnno != null && verifyProdTypeAnno.value() && verifyProdTypeAnno.type().length >= 1) {
@@ -67,4 +91,6 @@ public class TradeTransactionInterceptor {
 
         return pjp.proceed();
     }
+
+
 }

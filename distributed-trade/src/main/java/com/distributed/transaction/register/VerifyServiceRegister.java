@@ -72,7 +72,7 @@ public class VerifyServiceRegister extends ApplicationObjectSupport {
     }
 
 
-    public static LoadingCache<String, IChecker> tranServiceCache = CacheBuilder
+    public  LoadingCache<String, IChecker> tranServiceCache = CacheBuilder
             .newBuilder()
             .maximumSize(200)
             .build(new CacheLoader<String, IChecker>() {
