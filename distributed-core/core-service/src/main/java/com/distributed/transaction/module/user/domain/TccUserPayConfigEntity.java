@@ -1,4 +1,4 @@
-package com.distributed.transaction.module.user;
+package com.distributed.transaction.module.user.domain;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;

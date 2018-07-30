@@ -12,4 +12,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TradePaymentOrderRepository extends BaseRepository<TradePaymentOrderEntity, String> {
 
+    /**
+     *
+     * @param merchantNo 商户编号
+     * @param merchantOrderNo 商户订单编号
+     * @return
+     */
+    TradePaymentOrderEntity getByMerchantNoAndMerchantOrderNo(String merchantNo,String merchantOrderNo);
+
 }

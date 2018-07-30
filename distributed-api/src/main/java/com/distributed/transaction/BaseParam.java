@@ -20,8 +20,7 @@ public  class BaseParam implements Serializable {
     private String transSeqNo;
 
     //平台ID
-    private String platformId;
+    private String payKey;
 
-    //平台商户ID
-    private String custId;
+
 }

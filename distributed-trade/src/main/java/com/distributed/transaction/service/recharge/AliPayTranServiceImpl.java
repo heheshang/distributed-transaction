@@ -34,9 +34,8 @@ public class AliPayTranServiceImpl implements ITranService<RechargeParam, Rechar
         log.info("支付宝充值业务处理开始");
         TradeReq reqT = new TradeReq();
 
-        param.setCustId("1111");
+        param.setMerchantOrderNo("1111");
         param.setTxnTm(new Date());
-        param.setPlatformId("order");
         param.setTransSeqNo(String.valueOf(new Random().nextInt(10000)));
 
         reqT.setParams(param);

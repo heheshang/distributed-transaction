@@ -10,6 +10,7 @@ import com.distributed.transaction.module.trade.repository.TradePaymentOrderRepo
 import com.distributed.transaction.module.trade.repository.TradePaymentRecordRepository;
 import com.distributed.transaction.register.TranServiceComponentRegister;
 import com.distributed.transaction.register.VerifyServiceRegister;
+import com.distributed.transaction.trade.api.recharge.RechargeParam;
 import com.distributed.transaction.utils.UserVerifyEnum;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
@@ -32,10 +33,7 @@ import java.lang.reflect.Method;
 public class TradeTransactionInterceptor {
 
     @Autowired
-    private TradePaymentOrderRepository tradePaymentOrderRepository;
-
-    @Autowired
-    private TradePaymentRecordRepository tradePaymentRecordRepository;
+    private TradeTranService tradeTranService;
 
     @Autowired
     private TranServiceComponentRegister register;
@@ -88,6 +86,8 @@ public class TradeTransactionInterceptor {
             }
 
         }
+
+        tradeTranService.bulidTradePaymentOrder((BaseParam) arg[0]);
 
         return pjp.proceed();
     }

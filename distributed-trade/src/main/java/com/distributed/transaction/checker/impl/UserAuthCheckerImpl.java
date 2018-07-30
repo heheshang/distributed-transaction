@@ -26,7 +26,9 @@ public class UserAuthCheckerImpl implements IChecker<BaseParam, BaseMessage> {
 
         log.info("用户校验开始");
         RechargeMessage message = new RechargeMessage();
-        throw new DistributedExceprion("1111","2222",this.getClass(),new DistributedExceprion());
+//        throw new DistributedExceprion("1111","2222",this.getClass(),new DistributedExceprion());
+
+        return message;
     }
 
 

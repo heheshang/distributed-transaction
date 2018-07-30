@@ -30,7 +30,7 @@ public class RechargeScheduler {
         RechargeParam param = new RechargeParam();
 
         param.setTransSeqNo("1233333");
-
+        param.setPayKey("8ba459f55ff04f39b0128a3cb4a48f2b");
         tradeReq.setParams(param);
 
         TradeRes res = baseService.process(tradeReq);
