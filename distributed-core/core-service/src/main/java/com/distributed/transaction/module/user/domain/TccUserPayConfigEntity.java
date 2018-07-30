@@ -17,7 +17,7 @@ import java.util.Objects;
  * @date 2018-07-26-下午 5:53
  */
 @Entity
-@Table(name = "tcc_user_pay_config", schema = "pay_product", catalog = "")
+@Table(name = "tcc_user_pay_config", catalog = "")
 @DynamicUpdate
 @DynamicInsert
 public class TccUserPayConfigEntity {

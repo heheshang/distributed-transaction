@@ -1,9 +1,10 @@
+/*
 package com.distributed.transaction.aspect;
 
 
-import com.distributed.transaction.annotations.DataSource;
+import com.distributed.transaction.trade.annos.DataSource;
 import com.distributed.transaction.config.datasource.DatabaseContextHolder;
-import com.distributed.transaction.utils.TradeDataSourceType;
+import com.distributed.transaction.trade.enums.TradeDataSourceType;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -15,23 +16,27 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
+*/
 /**
  * 动态数据源AOP切面
  *
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-07-18-下午 5:42
- */
+ *//*
+
 @Aspect
 @Order(-10)
 @Component
 public class DynamicDataSourceAspect {
 
 
-    /**
+    */
+/**
      * 切换放在mapper接口的方法上，所以这里要配置AOP切面的切入点
-     */
-    @Pointcut("@annotation(com.distributed.transaction.annotations.DataSource))")
+     *//*
+
+    @Pointcut("@annotation(com.distributed.transaction.trade.annos.DataSource)|| @within(com.distributed.transaction.trade.annos.DataSource))")
     public void dataSourcePointCut() {
 
     }
@@ -41,6 +46,7 @@ public class DynamicDataSourceAspect {
     public void before(JoinPoint point) throws Throwable {
 
         Class<?> className = point.getTarget().getClass();
+
         TradeDataSourceType databaseType = TradeDataSourceType.MASTER;
 
         if (className.isAnnotationPresent(DataSource.class)) {
@@ -72,4 +78,4 @@ public class DynamicDataSourceAspect {
         DatabaseContextHolder.clearDB();
     }
 
-}
+}*/
