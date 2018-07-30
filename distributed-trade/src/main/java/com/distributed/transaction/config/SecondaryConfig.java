@@ -17,6 +17,9 @@ import javax.sql.DataSource;
 import java.util.Map;
 
 /**
+ * <span color="red"> 由于事务管理器中,及数据源配置中已经配置了 连接信息,
+ * * 不需要在继承主从切换组件进行数据源切换,jpa 配置的连接工厂会找到相应的数据库连接信息</span>
+ *
  * @author ssk www.8win.com Inc.All rights reserved
  * @date 2018/07/19 下午 1:47
  * @since v1.0
