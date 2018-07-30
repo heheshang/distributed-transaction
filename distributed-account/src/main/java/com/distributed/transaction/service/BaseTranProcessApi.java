@@ -5,7 +5,7 @@ import com.distributed.transaction.BaseMessage;
 import com.distributed.transaction.BaseParam;
 import com.distributed.transaction.account.api.AccountReqT;
 import com.distributed.transaction.account.api.AccountResT;
-import com.distributed.transaction.exception.DistributedExceprion;
+import com.distributed.transaction.exception.DistributedException;
 import lombok.extern.log4j.Log4j2;
 
 /**
@@ -29,8 +29,8 @@ public abstract class BaseTranProcessApi<P extends BaseParam, M extends BaseMess
 
             String errorCode = "";
             String errorDesc = "";
-            if (e instanceof DistributedExceprion) {
-                DistributedExceprion _e = (DistributedExceprion) e;
+            if (e instanceof DistributedException) {
+                DistributedException _e = (DistributedException) e;
                 errorCode = _e.getErrCode();
                 errorDesc = _e.getErrMsg();
             } else {
@@ -47,7 +47,7 @@ public abstract class BaseTranProcessApi<P extends BaseParam, M extends BaseMess
         return response;
     }
 
-    public abstract M execute(P p) throws DistributedExceprion;
+    public abstract M execute(P p) throws DistributedException;
 }
 
 

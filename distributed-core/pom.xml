@@ -18,7 +18,7 @@
         <module>core-service</module>
     </modules>
 
-
+    <name>distributed-core</name>
     <dependencies>
         <dependency>
             <groupId>com.distributed.transaction</groupId>

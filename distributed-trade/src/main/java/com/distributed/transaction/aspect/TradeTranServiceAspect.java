@@ -1,7 +1,7 @@
 package com.distributed.transaction.aspect;
 
 import com.distributed.transaction.annotations.TradeTransType;
-import com.distributed.transaction.exception.DistributedExceprion;
+import com.distributed.transaction.exception.DistributedException;
 import com.distributed.transaction.interceptor.TradeTransactionInterceptor;
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.JoinPoint;
@@ -43,7 +43,7 @@ public class TradeTranServiceAspect implements Ordered {
     }
 
     @AfterThrowing(value = "@within(com.distributed.transaction.annotations.TradeTransType)", throwing = "e")
-    public Object doAfterThrowing(JoinPoint joinPoint, DistributedExceprion e) {
+    public Object doAfterThrowing(JoinPoint joinPoint, DistributedException e) {
 
         log.error("异常了{}", e.getMessage(),e.getErrCode());
         return e;

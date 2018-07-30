@@ -1,5 +1,8 @@
 package com.distributed.transaction.module.user.domain;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +18,8 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "tcc_user_info", schema = "pay_product", catalog = "")
+@DynamicUpdate
+@DynamicInsert
 public class TccUserInfoEntity {
 
     private String id;

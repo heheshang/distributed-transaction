@@ -1,6 +1,6 @@
 package com.distributed.transaction.service.core;
 
-import com.distributed.transaction.exception.DistributedExceprion;
+import com.distributed.transaction.exception.DistributedException;
 import com.distributed.transaction.register.TranServiceComponentRegister;
 import com.distributed.transaction.service.BaseTranService;
 import com.distributed.transaction.service.ITranService;
@@ -42,7 +42,7 @@ public class CoreTranServiceImpl extends BaseTranService {
     }
 
     @Override
-    protected TradeRes check(TradeReq tradeReq) throws DistributedExceprion {
+    protected TradeRes check(TradeReq tradeReq) throws DistributedException {
 
         return null;
     }
@@ -54,9 +54,9 @@ public class CoreTranServiceImpl extends BaseTranService {
         TradeRes res = new TradeRes();
 
 
-        if (e instanceof DistributedExceprion) {
-            message.setErrorReason(((DistributedExceprion) e).getErrMsg());
-            message.setErrorCode(((DistributedExceprion) e).getErrCode());
+        if (e instanceof DistributedException) {
+            message.setErrorReason(((DistributedException) e).getErrMsg());
+            message.setErrorCode(((DistributedException) e).getErrCode());
         } else {
             message.setErrorReason("失败");
             message.setErrorCode("4444");

@@ -1,7 +1,7 @@
 package com.distributed.transaction.service.impl.recharge;
 
 import com.distributed.transaction.annotations.AccountTransType;
-import com.distributed.transaction.exception.DistributedExceprion;
+import com.distributed.transaction.exception.DistributedException;
 import com.distributed.transaction.service.BaseTranProcessApi;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
@@ -18,7 +18,7 @@ import com.distributed.transaction.utils.TransEnum;
 public class RechargeProcessImpl extends BaseTranProcessApi<RechargeParam, RechargeMessage> {
 
     @Override
-    public RechargeMessage execute(RechargeParam param) throws DistributedExceprion {
+    public RechargeMessage execute(RechargeParam param) throws DistributedException {
 
         RechargeMessage message = new RechargeMessage();
 

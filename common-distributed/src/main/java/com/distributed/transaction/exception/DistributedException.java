@@ -17,7 +17,7 @@ import lombok.Data;
  * @date 2018-07-04-下午 1:13
  */
 @Data
-public class DistributedExceprion extends RuntimeException {
+public class DistributedException extends RuntimeException {
 
     /**
      * 模块名，抛出异常的类
@@ -35,26 +35,26 @@ public class DistributedExceprion extends RuntimeException {
      */
     protected String errMsg = null;
 
-    public DistributedExceprion() {
+    public DistributedException() {
 
         super();
     }
 
 
-    public DistributedExceprion(String errCode, Class errClass) {
+    public DistributedException(String errCode, Class errClass) {
 
         super();
         this.errCode = errCode;
         this.errClass = errClass;
     }
 
-    public DistributedExceprion(String errCode, Exception e) {
+    public DistributedException(String errCode, Exception e) {
 
         super(e);
         this.errCode = errCode;
     }
 
-    public DistributedExceprion(String errCode, String errMsg, Class errClass,
+    public DistributedException(String errCode, String errMsg, Class errClass,
                                 Exception e) {
 
         super(errMsg, e);

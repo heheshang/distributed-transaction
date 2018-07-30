@@ -4,7 +4,7 @@ import com.distributed.transaction.BaseMessage;
 import com.distributed.transaction.BaseParam;
 import com.distributed.transaction.annotations.VerifyUser;
 import com.distributed.transaction.checker.IChecker;
-import com.distributed.transaction.exception.DistributedExceprion;
+import com.distributed.transaction.exception.DistributedException;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
@@ -22,11 +22,11 @@ import static com.distributed.transaction.utils.UserVerifyEnum.USER_AUTH;
 public class UserAuthCheckerImpl implements IChecker<BaseParam, BaseMessage> {
 
     @Override
-    public BaseMessage check(BaseParam baseParam) throws DistributedExceprion {
+    public BaseMessage check(BaseParam baseParam) throws DistributedException {
 
         log.info("用户校验开始");
         RechargeMessage message = new RechargeMessage();
-//        throw new DistributedExceprion("1111","2222",this.getClass(),new DistributedExceprion());
+//        throw new DistributedException("1111","2222",this.getClass(),new DistributedException());
 
         return message;
     }

@@ -1,6 +1,6 @@
 package com.distributed.transaction.service;
 
-import com.distributed.transaction.exception.DistributedExceprion;
+import com.distributed.transaction.exception.DistributedException;
 import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
 import lombok.extern.log4j.Log4j2;
@@ -29,7 +29,7 @@ public abstract class BaseTranService implements IBaseService {
 
     protected abstract TradeRes exec(TradeReq tradeReq);
 
-    protected abstract TradeRes check(TradeReq tradeReq) throws DistributedExceprion;
+    protected abstract TradeRes check(TradeReq tradeReq) throws DistributedException;
 
     protected abstract TradeRes handleException(TradeReq tradeReq ,Exception e);
 }
