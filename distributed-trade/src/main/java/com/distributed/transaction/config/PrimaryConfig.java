@@ -86,6 +86,11 @@ public class PrimaryConfig {
         return jpaProperties.getHibernateProperties(dataSource);
     }
 
+    /**
+     * 本地查询或者取得序列号执行存储过程使用
+     * @param builder
+     * @return
+     */
     @Bean(name = "entityManagerPrimary")
     @Primary
     public EntityManager entityManagerPrimary(EntityManagerFactoryBuilder builder) {

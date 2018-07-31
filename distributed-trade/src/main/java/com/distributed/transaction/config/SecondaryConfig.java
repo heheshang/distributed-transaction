@@ -41,7 +41,11 @@ public class SecondaryConfig {
     @Qualifier("secondaryDataSource")
     private DataSource secondaryDataSource;
 
-
+    /**
+     * 本地查询或者取得序列号执行存储过程使用
+     * @param builder
+     * @return
+     */
     @Bean(name = "entityManagerSecondary")
     public EntityManager entityManagerSecondary(EntityManagerFactoryBuilder builder) {
 
