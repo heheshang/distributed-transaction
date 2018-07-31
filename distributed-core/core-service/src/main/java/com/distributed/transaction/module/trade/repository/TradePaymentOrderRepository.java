@@ -20,4 +20,6 @@ public interface TradePaymentOrderRepository extends BaseRepository<TradePayment
      */
     TradePaymentOrderEntity getByMerchantNoAndMerchantOrderNo(String merchantNo,String merchantOrderNo);
 
+
+
 }

@@ -1,7 +1,6 @@
 package com.distributed.transaction.trade.api;
 
 import com.distributed.transaction.BaseParam;
-import com.distributed.transaction.utils.TransTypeEnum;
 import lombok.Data;
 
 /**
@@ -10,7 +9,7 @@ import lombok.Data;
  * @date 2018-07-24-下午 4:19
  */
 @Data
-public class TradeReq<T> {
+public class TradeReq<T extends BaseParam> {
 
     private T params;
 

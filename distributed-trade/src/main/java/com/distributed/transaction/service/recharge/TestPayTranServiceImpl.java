@@ -7,7 +7,7 @@ import com.distributed.transaction.annotations.VerifyUser;
 import com.distributed.transaction.service.ITranService;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
-import com.distributed.transaction.utils.TransTypeEnum;
+import com.distributed.transaction.utils.PayTypeEnum;
 import lombok.extern.log4j.Log4j2;
 
 import static com.distributed.transaction.utils.ProductTypeEnum.RECHARGE;
@@ -21,7 +21,7 @@ import static com.distributed.transaction.utils.UserVerifyEnum.USER_MAIL;
  * @version v1.0
  * @date 2018-07-25-下午 3:04
  */
-@TradeTransType(value = TransTypeEnum.TEST_RECHARGE_PAY)
+@TradeTransType(value = PayTypeEnum.TEST_PAY_HTTP_CLIENT)
 @Log4j2
 public class TestPayTranServiceImpl implements ITranService<RechargeParam, RechargeMessage> {
 
@@ -44,6 +44,7 @@ public class TestPayTranServiceImpl implements ITranService<RechargeParam, Recha
         RechargeMessage message = new RechargeMessage();
 
         message.setErrorCode("000000");
+
         return message;
     }
 

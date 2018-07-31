@@ -87,7 +87,7 @@ public class TradeTransactionInterceptor {
 
         }
 
-        tradeTranService.bulidTradePaymentOrder((BaseParam) arg[0]);
+        arg[0] = tradeTranService.bulidTradePaymentOrder((BaseParam) arg[0]);
 
         return pjp.proceed();
     }

@@ -95,10 +95,7 @@ public class RechargeParam extends BaseParam {
      **/
     private Date expireTime;
 
-    /**
-     * 支付通道编号
-     **/
-    private String payWayCode;
+
 
     /**
      * 支付方式名称
@@ -115,10 +112,7 @@ public class RechargeParam extends BaseParam {
      **/
     private String trxType;
 
-    /**
-     * 支付方式类型编码
-     **/
-    private String payTypeCode;
+
 
     /**
      * 支付方式类型名称

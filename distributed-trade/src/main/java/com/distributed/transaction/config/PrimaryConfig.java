@@ -13,6 +13,8 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Map;
 
@@ -74,7 +76,7 @@ public class PrimaryConfig {
      */
     @Bean(name = "transactionManagerPrimary")
     @Primary
-    PlatformTransactionManager transactionManagerPrimary(EntityManagerFactoryBuilder builder) {
+    public PlatformTransactionManager transactionManagerPrimary(EntityManagerFactoryBuilder builder) {
 
         return new JpaTransactionManager(entityManagerFactoryPrimary(builder).getObject());
     }
@@ -82,6 +84,15 @@ public class PrimaryConfig {
     private Map<String, String> getVendorProperties(DataSource dataSource) {
 
         return jpaProperties.getHibernateProperties(dataSource);
+    }
+
+    @Bean(name = "entityManagerPrimary")
+    @Primary
+    public EntityManager entityManagerPrimary(EntityManagerFactoryBuilder builder) {
+
+        EntityManagerFactory entityManagerFactory = entityManagerFactoryPrimary(builder).getNativeEntityManagerFactory();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        return entityManager;
     }
 
 

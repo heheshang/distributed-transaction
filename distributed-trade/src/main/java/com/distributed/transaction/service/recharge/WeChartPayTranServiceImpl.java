@@ -4,7 +4,7 @@ import com.distributed.transaction.annotations.TradeTransType;
 import com.distributed.transaction.service.ITranService;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
-import com.distributed.transaction.utils.TransTypeEnum;
+import com.distributed.transaction.utils.PayTypeEnum;
 import lombok.extern.log4j.Log4j2;
 
 /**
@@ -12,7 +12,7 @@ import lombok.extern.log4j.Log4j2;
  * @version v1.0
  * @date 2018-07-25-下午 3:04
  */
-@TradeTransType(value = TransTypeEnum.WECHAT_RECHARGE_PAY)
+@TradeTransType(value = PayTypeEnum.WEIXIN_SCANPAY)
 @Log4j2
 public class WeChartPayTranServiceImpl implements ITranService<RechargeParam, RechargeMessage> {
 

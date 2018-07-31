@@ -7,7 +7,7 @@ import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
-import com.distributed.transaction.utils.TransTypeEnum;
+import com.distributed.transaction.utils.PayTypeEnum;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,7 +21,7 @@ import java.util.Random;
  */
 
 @Log4j2
-@TradeTransType(value = TransTypeEnum.ALI_RECHARGE_PAY)
+@TradeTransType(value = PayTypeEnum.ALI_TEST)
 public class AliPayTranServiceImpl implements ITranService<RechargeParam, RechargeMessage> {
 
     @Autowired

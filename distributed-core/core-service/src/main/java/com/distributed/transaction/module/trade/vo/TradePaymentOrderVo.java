@@ -26,6 +26,9 @@ public class TradePaymentOrderVo {
 
     private Date editTime;
 
+    /**
+     * 交易状态
+     */
     private String status;
 
     private String productName;

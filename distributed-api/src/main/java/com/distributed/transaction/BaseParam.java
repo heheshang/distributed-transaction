@@ -1,6 +1,7 @@
 package com.distributed.transaction;
 
-import com.distributed.transaction.utils.TransTypeEnum;
+import com.distributed.transaction.utils.PayTypeEnum;
+import com.distributed.transaction.utils.PayWayEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -23,6 +24,13 @@ public class BaseParam implements Serializable {
     //平台ID
     private String payKey;
 
+    /**
+     * 支付通道编号
+     **/
+    private String payWayCode;
+    /**
+     * 支付方式类型编码
+     **/
+    private String payTypeCode;
 
-    private TransTypeEnum transTypeEnum;
 }

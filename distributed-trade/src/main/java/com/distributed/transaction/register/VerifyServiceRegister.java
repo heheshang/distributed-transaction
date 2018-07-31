@@ -2,23 +2,17 @@ package com.distributed.transaction.register;
 
 import com.distributed.transaction.annotations.VerifyUser;
 import com.distributed.transaction.checker.IChecker;
-import com.distributed.transaction.service.ITranService;
-import com.distributed.transaction.utils.TransTypeEnum;
 import com.distributed.transaction.utils.UserVerifyEnum;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.google.common.collect.Maps;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
-import java.util.Objects;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 统一校验注册器

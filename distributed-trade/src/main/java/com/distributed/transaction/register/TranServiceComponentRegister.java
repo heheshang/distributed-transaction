@@ -7,11 +7,10 @@ import com.distributed.transaction.service.ITranService;
 import com.distributed.transaction.service.recharge.AliPayTranServiceImpl;
 import com.distributed.transaction.service.recharge.TestPayTranServiceImpl;
 import com.distributed.transaction.service.recharge.WeChartPayTranServiceImpl;
-import com.distributed.transaction.utils.TransTypeEnum;
+import com.distributed.transaction.utils.PayTypeEnum;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.google.common.collect.Maps;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -20,7 +19,6 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 
@@ -80,17 +78,17 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
         private static final long serialVersionUID = -8076694302460548904L;
 
         {
-            put(TransTypeEnum.ALI_RECHARGE_PAY.value, AliPayTranServiceImpl.class);
-            put(TransTypeEnum.WECHAT_RECHARGE_PAY.value, WeChartPayTranServiceImpl.class);
-            put(TransTypeEnum.TEST_RECHARGE_PAY.value, TestPayTranServiceImpl.class);
+            put(PayTypeEnum.ALI_TEST.getWay(), AliPayTranServiceImpl.class);
+            put(PayTypeEnum.WEIXIN_SCANPAY.getWay(), WeChartPayTranServiceImpl.class);
+            put(PayTypeEnum.TEST_PAY_HTTP_CLIENT.getWay(), TestPayTranServiceImpl.class);
 
         }
     };
 
-    public ITranService getTransMessage(TransTypeEnum transType) {
+    public ITranService getTransMessage(PayTypeEnum payTypeEnum) {
 
         try {
-            return tranServiceCache.get(transType.value);
+            return tranServiceCache.get(payTypeEnum.getWay());
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
         }
@@ -106,9 +104,15 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
                 @Override
                 public ITranService load(String key) throws Exception {
 
-                    log.info("加载注册bean");
+                    PayTypeEnum payTypeEnum= PayTypeEnum.getEnum(key);
 
-                    if (!servicesMapping.containsKey(Objects.requireNonNull(TransTypeEnum.getByValue(key)).value)) {
+                    log.info("加载注册bean=[{}]",payTypeEnum);
+
+                    if (payTypeEnum==null){
+                        return null;
+                    }
+
+                    if ( !servicesMapping.containsKey(payTypeEnum.getWay())) {
                         return null;
                     }
                     return applicationContext.getBean(servicesMapping.get(key));

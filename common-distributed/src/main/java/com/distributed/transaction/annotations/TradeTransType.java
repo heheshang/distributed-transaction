@@ -1,6 +1,6 @@
 package com.distributed.transaction.annotations;
 
-import com.distributed.transaction.utils.TransTypeEnum;
+import com.distributed.transaction.utils.PayTypeEnum;
 import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Documented;
@@ -12,6 +12,7 @@ import java.lang.annotation.Target;
 
 /**
  * 交易服务注解
+ *
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-07-25-下午 3:53
@@ -23,5 +24,5 @@ import java.lang.annotation.Target;
 @Component
 public @interface TradeTransType {
 
-    TransTypeEnum value() default TransTypeEnum.TEST_RECHARGE_PAY;
+    PayTypeEnum value() default PayTypeEnum.TEST_PAY_HTTP_CLIENT;
 }

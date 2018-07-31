@@ -1,16 +1,21 @@
 package com.distributed.transaction.module.trade.domain;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.SelectBeforeUpdate;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.math.BigDecimal;
@@ -27,6 +32,8 @@ import java.util.Objects;
 @SelectBeforeUpdate
 @DynamicInsert
 @DynamicUpdate
+
+
 public class TradePaymentOrderEntity {
 
     private String id;
@@ -134,6 +141,7 @@ public class TradePaymentOrderEntity {
     @Basic
     @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
     public Date getCreateTime() {
 
         return createTime;
@@ -146,6 +154,7 @@ public class TradePaymentOrderEntity {
 
     @Basic
     @Column(name = "editor")
+
     public String getEditor() {
 
         return editor;
@@ -171,6 +180,7 @@ public class TradePaymentOrderEntity {
     @Basic
     @Column(name = "edit_time")
     @Temporal(TemporalType.TIMESTAMP)
+    @UpdateTimestamp
     public Date getEditTime() {
 
         return editTime;
@@ -178,7 +188,7 @@ public class TradePaymentOrderEntity {
 
     public void setEditTime(Date editTime) {
 
-        this.editTime = editTime;
+        this.editTime = editTime == null ? new Date() : editTime;
     }
 
     @Basic
@@ -557,6 +567,9 @@ public class TradePaymentOrderEntity {
 
     @Basic
     @Column(name = "trx_no")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "TrxNoSeq")
+    @TableGenerator(name = "TrxNoSeq", allocationSize = 1, table = "seq_table", pkColumnName = "SEQ_NAME", valueColumnName = "CURRENT_VALUE")
+    @SequenceGenerator(name = "TrxNoSeq", sequenceName = "TrxNoSeq")
     public String getTrxNo() {
 
         return trxNo;
@@ -570,8 +583,12 @@ public class TradePaymentOrderEntity {
     @Override
     public boolean equals(Object o) {
 
-        if (this == o) {return true;}
-        if (o == null || getClass() != o.getClass()) {return false;}
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         TradePaymentOrderEntity that = (TradePaymentOrderEntity) o;
         return version == that.version &&
                 Objects.equals(id, that.id) &&
