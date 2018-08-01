@@ -1,7 +1,5 @@
 package com.distributed.transaction;
 
-import com.distributed.transaction.utils.PayTypeEnum;
-import com.distributed.transaction.utils.PayWayEnum;
 import lombok.Data;
 
 import java.io.Serializable;

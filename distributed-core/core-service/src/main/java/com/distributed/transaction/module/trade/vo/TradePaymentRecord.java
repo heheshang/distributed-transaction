@@ -13,7 +13,7 @@ import java.util.Date;
  */
 @Data
 @ToString
-public class TradePaymentRecordVo {
+public class TradePaymentRecord {
 
     private String id;
 

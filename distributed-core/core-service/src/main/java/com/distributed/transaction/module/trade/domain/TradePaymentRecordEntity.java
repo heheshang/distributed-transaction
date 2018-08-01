@@ -1,9 +1,11 @@
 package com.distributed.transaction.module.trade.domain;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.SelectBeforeUpdate;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -162,6 +164,7 @@ public class TradePaymentRecordEntity {
     @Basic
     @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
     public Date getCreateTime() {
 
         return createTime;
@@ -211,6 +214,7 @@ public class TradePaymentRecordEntity {
     @Basic
     @Column(name = "edit_time")
     @Temporal(TemporalType.TIMESTAMP)
+    @UpdateTimestamp
     public Date getEditTime() {
 
         return editTime;
@@ -218,7 +222,7 @@ public class TradePaymentRecordEntity {
 
     public void setEditTime(Date editTime) {
 
-        this.editTime = editTime;
+        this.editTime = null == editTime ? new Date() : editTime;
     }
 
     @Basic
@@ -330,7 +334,7 @@ public class TradePaymentRecordEntity {
     }
 
     @Basic
-    @Column(name = "payer_pay_amount")
+    @Column(name = "payer_pay_amount", scale = 2)
     public BigDecimal getPayerPayAmount() {
 
         return payerPayAmount;
@@ -390,7 +394,7 @@ public class TradePaymentRecordEntity {
     }
 
     @Basic
-    @Column(name = "receiver_pay_amount")
+    @Column(name = "receiver_pay_amount", scale = 2)
     public BigDecimal getReceiverPayAmount() {
 
         return receiverPayAmount;
@@ -450,7 +454,7 @@ public class TradePaymentRecordEntity {
     }
 
     @Basic
-    @Column(name = "order_amount")
+    @Column(name = "order_amount", scale = 2)
     public BigDecimal getOrderAmount() {
 
         return orderAmount;
@@ -462,7 +466,7 @@ public class TradePaymentRecordEntity {
     }
 
     @Basic
-    @Column(name = "plat_income")
+    @Column(name = "plat_income", scale = 2)
     public BigDecimal getPlatIncome() {
 
         return platIncome;
@@ -474,7 +478,7 @@ public class TradePaymentRecordEntity {
     }
 
     @Basic
-    @Column(name = "fee_rate")
+    @Column(name = "fee_rate", scale = 3)
     public BigDecimal getFeeRate() {
 
         return feeRate;
@@ -498,7 +502,7 @@ public class TradePaymentRecordEntity {
     }
 
     @Basic
-    @Column(name = "plat_profit")
+    @Column(name = "plat_profit", scale = 2)
     public BigDecimal getPlatProfit() {
 
         return platProfit;
@@ -573,6 +577,7 @@ public class TradePaymentRecordEntity {
     @Basic
     @Column(name = "complete_time")
     @Temporal(TemporalType.TIMESTAMP)
+
     public Date getCompleteTime() {
 
         return completeTime;
@@ -608,7 +613,7 @@ public class TradePaymentRecordEntity {
     }
 
     @Basic
-    @Column(name = "success_refund_amount")
+    @Column(name = "success_refund_amount", scale = 2)
     public BigDecimal getSuccessRefundAmount() {
 
         return successRefundAmount;

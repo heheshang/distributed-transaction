@@ -1,4 +1,4 @@
-package com.distributed.transaction.utils;
+package com.distributed.transaction.enums.verify;
 
 /**
  * 产品权限校验 枚举

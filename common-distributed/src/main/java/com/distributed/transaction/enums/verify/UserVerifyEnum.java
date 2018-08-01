@@ -1,4 +1,4 @@
-package com.distributed.transaction.utils;
+package com.distributed.transaction.enums.verify;
 
 import com.google.common.collect.Maps;
 import org.apache.commons.lang3.StringUtils;

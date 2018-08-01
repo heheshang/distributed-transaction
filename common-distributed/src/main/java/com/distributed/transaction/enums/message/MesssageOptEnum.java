@@ -1,4 +1,4 @@
-package com.distributed.transaction.utils;
+package com.distributed.transaction.enums.message;
 
 /**
  * 操作类型
@@ -7,7 +7,7 @@ package com.distributed.transaction.utils;
  * @version v1.0
  * @date 2018-07-04-上午 11:27
  */
-public enum OptEnum {
+public enum MesssageOptEnum {
     /**
      * 查询
      */
@@ -47,7 +47,7 @@ public enum OptEnum {
         return this.desc;
     }
 
-    OptEnum(String optType, String desc) {
+    MesssageOptEnum(String optType, String desc) {
 
         this.optType = optType;
 

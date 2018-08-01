@@ -1,7 +1,7 @@
 package com.distributed.transaction.annotations;
 
-import com.distributed.transaction.utils.OptEnum;
-import com.distributed.transaction.utils.TransEnum;
+import com.distributed.transaction.enums.message.MesssageOptEnum;
+import com.distributed.transaction.enums.message.TransEnum;
 import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Documented;
@@ -32,5 +32,5 @@ public @interface MessageTran {
 
     TransEnum tran() default TransEnum.RECHAEGE;
 
-    OptEnum opt() default OptEnum.QUERY;
+    MesssageOptEnum opt() default MesssageOptEnum.QUERY;
 }

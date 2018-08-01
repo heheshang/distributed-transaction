@@ -1,6 +1,6 @@
 package com.distributed.transaction.annotations;
 
-import com.distributed.transaction.utils.ProductVerifyEnum;
+import com.distributed.transaction.enums.verify.ProductVerifyEnum;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

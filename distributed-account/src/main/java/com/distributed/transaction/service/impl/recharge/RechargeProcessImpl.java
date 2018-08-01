@@ -5,7 +5,7 @@ import com.distributed.transaction.exception.DistributedException;
 import com.distributed.transaction.service.BaseTranProcessApi;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
-import com.distributed.transaction.utils.TransEnum;
+import com.distributed.transaction.enums.message.TransEnum;
 
 /**
  * 充值处理器

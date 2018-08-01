@@ -42,17 +42,17 @@ public class TradeBizException extends DistributedException {
     /**
      * 支付宝异常
      **/
-    public static final int TRADE_ALIPAY_ERROR = 106;
+    public static final String TRADE_ALIPAY_ERROR = "106";
 
     /**
      * 参数异常
      **/
-    public static final int TRADE_PARAM_ERROR = 107;
+    public static final String TRADE_PARAM_ERROR = "107";
 
     /**
      * 交易系统异常
      **/
-    public static final int TRADE_SYSTEM_ERROR = 108;
+    public static final String TRADE_SYSTEM_ERROR = "108";
 
 
     public TradeBizException() {

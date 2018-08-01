@@ -1,6 +1,6 @@
 package com.distributed.transaction.annotations;
 
-import com.distributed.transaction.utils.PayTypeEnum;
+import com.distributed.transaction.enums.PayTypeEnum;
 import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Documented;

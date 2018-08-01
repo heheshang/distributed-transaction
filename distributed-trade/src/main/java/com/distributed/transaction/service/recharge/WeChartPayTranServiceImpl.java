@@ -4,7 +4,7 @@ import com.distributed.transaction.annotations.TradeTransType;
 import com.distributed.transaction.service.ITranService;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
-import com.distributed.transaction.utils.PayTypeEnum;
+import com.distributed.transaction.enums.PayTypeEnum;
 import lombok.extern.log4j.Log4j2;
 
 /**

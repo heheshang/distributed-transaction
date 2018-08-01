@@ -1,67 +1,40 @@
-
-package com.distributed.transaction.utils;
+package com.distributed.transaction.enums;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-public enum PayTypeEnum {
+/**
+ * @author ssk www.8win.com Inc.All rights reserved
+ * @version v1.0
+ * @date 2018-07-30-下午 2:46
+ */
+public enum PublicEnum {
     /**
      *
      */
-    WEIXIN_SCANPAY("WEIXIN", "微信扫码支付"),
+    YES("是"),
 
-    WEIXIN_H5PAY("WEIXIN_H5PAY", "微信H5支付"),
+    NO("否");
 
-    DIRECT_PAY("DIRECT_PAY", "即时到账"),
-
-    ALI_TEST("ALI_TEST", "支付宝测试"),
-
-    TEST_PAY("TEST_PAY", "测试模拟支付"),
-
-    TEST_PAY_HTTP_CLIENT("TEST_PAY_HTTP_CLIENT", "测试模拟httpclient支付");
-
-    /**
-     * 所属支付方式
-     */
-    private String way;
-
-    public String getWay() {
-
-        return way;
-    }
-
-    public void setWay(String way) {
-
-        this.way = way;
-    }
-
-    /**
-     * 描述
-     */
+    /** 描述 */
     private String desc;
 
-    private PayTypeEnum(String way, String desc) {
-
+    private PublicEnum(String desc) {
         this.desc = desc;
-        this.way = way;
     }
 
     public String getDesc() {
-
         return desc;
     }
 
     public void setDesc(String desc) {
-
         this.desc = desc;
     }
 
     public static Map<String, Map<String, Object>> toMap() {
-
-        PayTypeEnum[] ary = PayTypeEnum.values();
+        PublicEnum[] ary = PublicEnum.values();
         Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
         for (int num = 0; num < ary.length; num++) {
             Map<String, Object> map = new HashMap<String, Object>();
@@ -72,23 +45,20 @@ public enum PayTypeEnum {
         return enumMap;
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public static List toList() {
-
-        PayTypeEnum[] ary = PayTypeEnum.values();
+        PublicEnum[] ary = PublicEnum.values();
         List list = new ArrayList();
         for (int i = 0; i < ary.length; i++) {
             Map<String, String> map = new HashMap<String, String>();
             map.put("desc", ary[i].getDesc());
-            map.put("name", ary[i].name());
             list.add(map);
         }
         return list;
     }
 
-    public static PayTypeEnum getEnum(String name) {
-
-        PayTypeEnum[] arry = PayTypeEnum.values();
+    public static PublicEnum getEnum(String name) {
+        PublicEnum[] arry = PublicEnum.values();
         for (int i = 0; i < arry.length; i++) {
             if (arry[i].name().equalsIgnoreCase(name)) {
                 return arry[i];
@@ -97,32 +67,15 @@ public enum PayTypeEnum {
         return null;
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    public static List getWayList(String way) {
-
-        PayTypeEnum[] ary = PayTypeEnum.values();
-        List list = new ArrayList();
-        for (int i = 0; i < ary.length; i++) {
-            if (ary[i].way.equals(way)) {
-                Map<String, String> map = new HashMap<String, String>();
-                map.put("desc", ary[i].getDesc());
-                map.put("name", ary[i].name());
-                list.add(map);
-            }
-        }
-        return list;
-    }
-
     /**
      * 取枚举的json字符串
      *
      * @return
      */
     public static String getJsonStr() {
-
-        PayTypeEnum[] enums = PayTypeEnum.values();
+        PublicEnum[] enums = PublicEnum.values();
         StringBuffer jsonStr = new StringBuffer("[");
-        for (PayTypeEnum senum : enums) {
+        for (PublicEnum senum : enums) {
             if (!"[".equals(jsonStr.toString())) {
                 jsonStr.append(",");
             }
@@ -131,5 +84,4 @@ public enum PayTypeEnum {
         jsonStr.append("]");
         return jsonStr.toString();
     }
-
 }

@@ -7,14 +7,14 @@ import com.distributed.transaction.annotations.VerifyUser;
 import com.distributed.transaction.service.ITranService;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
-import com.distributed.transaction.utils.PayTypeEnum;
+import com.distributed.transaction.enums.PayTypeEnum;
 import lombok.extern.log4j.Log4j2;
 
-import static com.distributed.transaction.utils.ProductTypeEnum.RECHARGE;
-import static com.distributed.transaction.utils.ProductVerifyEnum.FEE;
-import static com.distributed.transaction.utils.ProductVerifyEnum.PERMISSION;
-import static com.distributed.transaction.utils.UserVerifyEnum.USER_AUTH;
-import static com.distributed.transaction.utils.UserVerifyEnum.USER_MAIL;
+import static com.distributed.transaction.enums.product.ProductTypeEnum.RECHARGE;
+import static com.distributed.transaction.enums.verify.ProductVerifyEnum.FEE;
+import static com.distributed.transaction.enums.verify.ProductVerifyEnum.PERMISSION;
+import static com.distributed.transaction.enums.verify.UserVerifyEnum.USER_AUTH;
+import static com.distributed.transaction.enums.verify.UserVerifyEnum.USER_MAIL;
 
 /**
  * @author ssk www.8win.com Inc.All rights reserved

@@ -9,7 +9,7 @@ import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
-import static com.distributed.transaction.utils.UserVerifyEnum.USER_AUTH;
+import static com.distributed.transaction.enums.verify.UserVerifyEnum.USER_AUTH;
 
 /**
  * @author ssk www.8win.com Inc.All rights reserved

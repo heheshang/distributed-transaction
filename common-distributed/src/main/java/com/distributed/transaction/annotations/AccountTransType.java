@@ -1,6 +1,6 @@
 package com.distributed.transaction.annotations;
 
-import com.distributed.transaction.utils.TransEnum;
+import com.distributed.transaction.enums.message.TransEnum;
 import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Documented;

@@ -1,4 +1,4 @@
-package com.distributed.transaction.utils;
+package com.distributed.transaction.enums.product;
 
 /**
  * 产品类型枚举

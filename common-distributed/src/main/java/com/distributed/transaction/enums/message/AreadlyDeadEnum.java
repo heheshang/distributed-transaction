@@ -1,4 +1,4 @@
-package com.distributed.transaction.utils;
+package com.distributed.transaction.enums.message;
 
 import com.google.common.collect.Maps;
 import org.apache.commons.lang3.StringUtils;
@@ -9,21 +9,18 @@ import java.util.Map;
 /**
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
- * @date 2018-07-05-下午 2:02
+ * @date 2018-07-05-下午 2:13
  */
-public enum ConsumerQueueEnum {
+public enum AreadlyDeadEnum {
     /**
-     * xml
+     * 是否死亡
      */
-    RECHARGE_QUEUE("RECHARGE_QUEUE","充值"),
+    YES("YES","是"),
     /**
-     * json
+     * 否
      */
-    WITHDRAW_QUEUE("WITHDRAW_QUEUE","提现"),
-    /**
-     * 转账
-     */
-    TRANSFER_QUEUE("TRANSFER_QUEUE", "转账"),
+    NO("NO","否"),
+
     ;
 
     private String name;
@@ -40,22 +37,21 @@ public enum ConsumerQueueEnum {
         return this.desc;
     }
 
-    ConsumerQueueEnum(String name, String desc) {
+    AreadlyDeadEnum(String name, String desc) {
 
         this.name = name;
 
         this.desc = desc;
 
     }
-
     private static final Object _LOCK = new Object();
-    private static Map<String, ConsumerQueueEnum> _NAME_MAP;
+    private static Map<String, AreadlyDeadEnum> _NAME_MAP;
     static {
 
         synchronized (_LOCK) {
-            Map<String, ConsumerQueueEnum> nameMap = Maps.newHashMap();
+            Map<String, AreadlyDeadEnum> nameMap = Maps.newHashMap();
 
-            for (ConsumerQueueEnum type : ConsumerQueueEnum.values()) {
+            for (AreadlyDeadEnum type : AreadlyDeadEnum.values()) {
 
                 if (StringUtils.isNotBlank(type.getName())) {
 
@@ -69,11 +65,11 @@ public enum ConsumerQueueEnum {
         }
     }
 
-    public static ConsumerQueueEnum getByName(String name){
-        try {
-            return _NAME_MAP.get(name);
-        } catch (Exception e) {
-            return null;
-        }
-    }
+   public static AreadlyDeadEnum getByName(String name){
+       try {
+           return _NAME_MAP.get(name);
+       } catch (Exception e) {
+           return null;
+       }
+   }
 }

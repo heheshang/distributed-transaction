@@ -7,7 +7,7 @@ import com.distributed.transaction.service.ITranService;
 import com.distributed.transaction.service.recharge.AliPayTranServiceImpl;
 import com.distributed.transaction.service.recharge.TestPayTranServiceImpl;
 import com.distributed.transaction.service.recharge.WeChartPayTranServiceImpl;
-import com.distributed.transaction.utils.PayTypeEnum;
+import com.distributed.transaction.enums.PayTypeEnum;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;

@@ -2,7 +2,7 @@ package com.distributed.transaction.trade.api.recharge;
 
 
 import com.distributed.transaction.BaseParam;
-import com.distributed.transaction.utils.PublicEnum;
+import com.distributed.transaction.enums.PublicEnum;
 import lombok.Data;
 import lombok.ToString;
 

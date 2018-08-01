@@ -1,49 +1,30 @@
 
-package com.distributed.transaction.utils;
+package com.distributed.transaction.enums.trade;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public enum TradeStatusEnum {
-
+/**
+ * 订单来源
+ *
+ * @author ssk www.8win.com Inc.All rights reserved
+ * @date 2018/08/01 上午 10:21
+ * @since v1.0
+ **/
+public enum OrderFromEnum {
     /**
-     * 订单已创建
+     * 用户消费
      */
-    CREATED("订单已创建"),
-
-    /**
-     * 等待支付
-     */
-    WAITING_PAYMENT("等待支付"),
-
-    /**
-     * 等待支付处理结果
-     */
-    WAITING_PAYMENT_RESULT("等待支付处理结果"),
-
-    /**
-     * 交易成功
-     */
-    SUCCESS("交易成功"),
-
-    /**
-     * 交易失败
-     */
-    FAILED("交易失败"),
-
-    /**
-     * 订单已取消
-     */
-    CANCELED("订单已取消");
+    USER_EXPENSE("用户消费");
 
     /**
      * 描述
      */
     private String desc;
 
-    private TradeStatusEnum(String desc) {
+    private OrderFromEnum(String desc) {
 
         this.desc = desc;
     }
@@ -60,7 +41,7 @@ public enum TradeStatusEnum {
 
     public static Map<String, Map<String, Object>> toMap() {
 
-        TradeStatusEnum[] ary = TradeStatusEnum.values();
+        OrderFromEnum[] ary = OrderFromEnum.values();
         Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
         for (int num = 0; num < ary.length; num++) {
             Map<String, Object> map = new HashMap<String, Object>();
@@ -74,20 +55,19 @@ public enum TradeStatusEnum {
     @SuppressWarnings({"rawtypes", "unchecked"})
     public static List toList() {
 
-        TradeStatusEnum[] ary = TradeStatusEnum.values();
+        OrderFromEnum[] ary = OrderFromEnum.values();
         List list = new ArrayList();
         for (int i = 0; i < ary.length; i++) {
             Map<String, String> map = new HashMap<String, String>();
             map.put("desc", ary[i].getDesc());
-            map.put("name", ary[i].name());
             list.add(map);
         }
         return list;
     }
 
-    public static TradeStatusEnum getEnum(String name) {
+    public static OrderFromEnum getEnum(String name) {
 
-        TradeStatusEnum[] arry = TradeStatusEnum.values();
+        OrderFromEnum[] arry = OrderFromEnum.values();
         for (int i = 0; i < arry.length; i++) {
             if (arry[i].name().equalsIgnoreCase(name)) {
                 return arry[i];
@@ -103,9 +83,9 @@ public enum TradeStatusEnum {
      */
     public static String getJsonStr() {
 
-        TradeStatusEnum[] enums = TradeStatusEnum.values();
+        OrderFromEnum[] enums = OrderFromEnum.values();
         StringBuffer jsonStr = new StringBuffer("[");
-        for (TradeStatusEnum senum : enums) {
+        for (OrderFromEnum senum : enums) {
             if (!"[".equals(jsonStr.toString())) {
                 jsonStr.append(",");
             }

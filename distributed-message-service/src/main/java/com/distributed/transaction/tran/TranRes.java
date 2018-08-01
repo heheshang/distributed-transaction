@@ -1,7 +1,7 @@
 package com.distributed.transaction.tran;
 
-import com.distributed.transaction.utils.OptEnum;
-import com.distributed.transaction.utils.TransEnum;
+import com.distributed.transaction.enums.message.MesssageOptEnum;
+import com.distributed.transaction.enums.message.TransEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -24,5 +24,5 @@ public class TranRes<M> implements Serializable {
 
     private TransEnum transEnum;
 
-    private OptEnum optEnum;
+    private MesssageOptEnum optEnum;
 }

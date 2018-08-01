@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Digits;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
@@ -228,7 +229,7 @@ public class TradePaymentOrderEntity {
     }
 
     @Basic
-    @Column(name = "order_amount")
+    @Column(name = "order_amount",scale = 2)
     public BigDecimal getOrderAmount() {
 
         return orderAmount;
@@ -494,7 +495,7 @@ public class TradePaymentOrderEntity {
     }
 
     @Basic
-    @Column(name = "success_refund_amount")
+    @Column(name = "success_refund_amount",scale = 2)
     public BigDecimal getSuccessRefundAmount() {
 
         return successRefundAmount;

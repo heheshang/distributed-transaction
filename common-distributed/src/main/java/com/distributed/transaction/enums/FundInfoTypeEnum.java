@@ -1,4 +1,5 @@
-package com.distributed.transaction.utils;
+
+package com.distributed.transaction.enums;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,19 +7,22 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author ssk www.8win.com Inc.All rights reserved
- * @version v1.0
- * @date 2018-07-30-下午 2:46
- */
-public enum PublicEnum {
-    YES("是"),
-
-    NO("否");
+*
+* @author ssk www.8win.com Inc.All rights reserved
+* @date 2018/08/01 上午 10:02
+* @since v1.0
+**/
+public enum FundInfoTypeEnum {
+    /**
+     *
+     */
+	 PLAT_RECEIVES("平台收款"),
+	 MERCHANT_RECEIVES("商家收款（暂不支持）");
 
     /** 描述 */
     private String desc;
 
-    private PublicEnum(String desc) {
+    private FundInfoTypeEnum(String desc) {
         this.desc = desc;
     }
 
@@ -31,7 +35,7 @@ public enum PublicEnum {
     }
 
     public static Map<String, Map<String, Object>> toMap() {
-        PublicEnum[] ary = PublicEnum.values();
+        FundInfoTypeEnum[] ary = FundInfoTypeEnum.values();
         Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
         for (int num = 0; num < ary.length; num++) {
             Map<String, Object> map = new HashMap<String, Object>();
@@ -44,18 +48,19 @@ public enum PublicEnum {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public static List toList() {
-        PublicEnum[] ary = PublicEnum.values();
+        FundInfoTypeEnum[] ary = FundInfoTypeEnum.values();
         List list = new ArrayList();
         for (int i = 0; i < ary.length; i++) {
             Map<String, String> map = new HashMap<String, String>();
             map.put("desc", ary[i].getDesc());
+            map.put("name", ary[i].name());
             list.add(map);
         }
         return list;
     }
 
-    public static PublicEnum getEnum(String name) {
-        PublicEnum[] arry = PublicEnum.values();
+    public static FundInfoTypeEnum getEnum(String name) {
+        FundInfoTypeEnum[] arry = FundInfoTypeEnum.values();
         for (int i = 0; i < arry.length; i++) {
             if (arry[i].name().equalsIgnoreCase(name)) {
                 return arry[i];
@@ -70,9 +75,9 @@ public enum PublicEnum {
      * @return
      */
     public static String getJsonStr() {
-        PublicEnum[] enums = PublicEnum.values();
+        FundInfoTypeEnum[] enums = FundInfoTypeEnum.values();
         StringBuffer jsonStr = new StringBuffer("[");
-        for (PublicEnum senum : enums) {
+        for (FundInfoTypeEnum senum : enums) {
             if (!"[".equals(jsonStr.toString())) {
                 jsonStr.append(",");
             }

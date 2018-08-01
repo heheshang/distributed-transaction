@@ -3,9 +3,9 @@ package com.distributed.transaction.entity.s;
 import com.distributed.transaction.enums.convert.AreadlyDeadEnumConverter;
 import com.distributed.transaction.enums.convert.ConsumerQueueEnumConverter;
 import com.distributed.transaction.enums.convert.MsgDataTypeEnumConverter;
-import com.distributed.transaction.utils.AreadlyDeadEnum;
-import com.distributed.transaction.utils.ConsumerQueueEnum;
-import com.distributed.transaction.utils.MsgDataTypeEnum;
+import com.distributed.transaction.enums.message.AreadlyDeadEnum;
+import com.distributed.transaction.enums.message.MessageMqQueueEnum;
+import com.distributed.transaction.enums.message.MsgDataTypeEnum;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
@@ -105,7 +105,7 @@ public class TransactionMessage implements Serializable {
      */
     @Column(name = "consumer_queue", nullable = false)
     @Convert(converter = ConsumerQueueEnumConverter.class)
-    private ConsumerQueueEnum consumerQueue;
+    private MessageMqQueueEnum consumerQueue;
 
     /**
      * 消息重发次数

@@ -1,6 +1,6 @@
 package com.distributed.transaction.enums.convert;
 
-import com.distributed.transaction.utils.MsgDataTypeEnum;
+import com.distributed.transaction.enums.message.MsgDataTypeEnum;
 
 import javax.persistence.AttributeConverter;
 

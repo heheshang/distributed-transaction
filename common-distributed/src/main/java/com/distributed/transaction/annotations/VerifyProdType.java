@@ -1,6 +1,6 @@
 package com.distributed.transaction.annotations;
 
-import com.distributed.transaction.utils.ProductTypeEnum;
+import com.distributed.transaction.enums.product.ProductTypeEnum;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

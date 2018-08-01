@@ -1,8 +1,8 @@
 package com.distributed.transaction.service;
 
 import com.distributed.transaction.annotations.MessageTran;
-import com.distributed.transaction.utils.OptEnum;
-import com.distributed.transaction.utils.TransEnum;
+import com.distributed.transaction.enums.message.MesssageOptEnum;
+import com.distributed.transaction.enums.message.TransEnum;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import lombok.extern.log4j.Log4j2;
@@ -26,7 +26,7 @@ import java.util.Map;
 public class TranMessageWrapperRegister extends ApplicationObjectSupport {
 
 
-    private final static Table<TransEnum, OptEnum, IOptMessage> TRANS_MESSAGE_TABLE = HashBasedTable.create();
+    private final static Table<TransEnum, MesssageOptEnum, IOptMessage> TRANS_MESSAGE_TABLE = HashBasedTable.create();
 
 
     @Override
@@ -49,7 +49,7 @@ public class TranMessageWrapperRegister extends ApplicationObjectSupport {
 
                 TransEnum tranCode = messageOpt.tran();
 
-                OptEnum optEnum = messageOpt.opt();
+                MesssageOptEnum optEnum = messageOpt.opt();
 
                 if (TRANS_MESSAGE_TABLE.contains(tranCode, optEnum)) {
                     log.error("transCode and optType  has Exits. tracode=[{}]", tranCode);
@@ -66,7 +66,7 @@ public class TranMessageWrapperRegister extends ApplicationObjectSupport {
     }
 
 
-    public static IOptMessage getTransMessage(TransEnum transCode, OptEnum optEnum) {
+    public static IOptMessage getTransMessage(TransEnum transCode, MesssageOptEnum optEnum) {
 
         return TRANS_MESSAGE_TABLE.get(transCode, optEnum);
     }

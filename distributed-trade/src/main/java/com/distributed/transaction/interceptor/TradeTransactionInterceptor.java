@@ -1,19 +1,14 @@
 package com.distributed.transaction.interceptor;
 
-import com.distributed.transaction.BaseMessage;
 import com.distributed.transaction.BaseParam;
 import com.distributed.transaction.annotations.VerifyProd;
 import com.distributed.transaction.annotations.VerifyProdType;
 import com.distributed.transaction.annotations.VerifyUser;
 import com.distributed.transaction.checker.IChecker;
-import com.distributed.transaction.module.trade.repository.TradePaymentOrderRepository;
-import com.distributed.transaction.module.trade.repository.TradePaymentRecordRepository;
+import com.distributed.transaction.enums.verify.UserVerifyEnum;
 import com.distributed.transaction.register.TranServiceComponentRegister;
 import com.distributed.transaction.register.VerifyServiceRegister;
-import com.distributed.transaction.trade.api.recharge.RechargeParam;
-import com.distributed.transaction.utils.UserVerifyEnum;
 import lombok.extern.log4j.Log4j2;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,9 +82,20 @@ public class TradeTransactionInterceptor {
 
         }
 
-        arg[0] = tradeTranService.bulidTradePaymentOrder((BaseParam) arg[0]);
+        try {
 
-        return pjp.proceed();
+            tradeTranService.bulidTradePaymentOrder((BaseParam) arg[0]);
+
+            log.info("交易业务处理完成,继续执行业务逻辑");
+
+            return pjp.proceed();
+
+        } catch (Exception e) {
+            log.error("交易业务处理异常[{}]", e);
+            throw e;
+        }
+
+
     }
 
 

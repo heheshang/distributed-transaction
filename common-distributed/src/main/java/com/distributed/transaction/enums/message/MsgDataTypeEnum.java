@@ -1,4 +1,4 @@
-package com.distributed.transaction.utils;
+package com.distributed.transaction.enums.message;
 
 import com.google.common.collect.Maps;
 import org.apache.commons.lang3.StringUtils;
@@ -7,21 +7,21 @@ import java.util.Collections;
 import java.util.Map;
 
 /**
+ * 消息数据类型
+ *
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
- * @date 2018-07-05-下午 2:13
+ * @date 2018-07-05-下午 1:12
  */
-public enum AreadlyDeadEnum {
+public enum MsgDataTypeEnum {
     /**
-     * 是否死亡
+     * xml
      */
-    YES("YES","是"),
+    XML("xml", "xml格式"),
     /**
-     * 否
+     * json
      */
-    NO("NO","否"),
-
-    ;
+    JSON("json", "json格式"),;
 
     private String name;
 
@@ -37,21 +37,25 @@ public enum AreadlyDeadEnum {
         return this.desc;
     }
 
-    AreadlyDeadEnum(String name, String desc) {
+    MsgDataTypeEnum(String name, String desc) {
 
         this.name = name;
 
         this.desc = desc;
 
     }
+
+
     private static final Object _LOCK = new Object();
-    private static Map<String, AreadlyDeadEnum> _NAME_MAP;
+
+    private static Map<String, MsgDataTypeEnum> _NAME_MAP;
+
     static {
 
         synchronized (_LOCK) {
-            Map<String, AreadlyDeadEnum> nameMap = Maps.newHashMap();
+            Map<String, MsgDataTypeEnum> nameMap = Maps.newHashMap();
 
-            for (AreadlyDeadEnum type : AreadlyDeadEnum.values()) {
+            for (MsgDataTypeEnum type : MsgDataTypeEnum.values()) {
 
                 if (StringUtils.isNotBlank(type.getName())) {
 
@@ -65,11 +69,12 @@ public enum AreadlyDeadEnum {
         }
     }
 
-   public static AreadlyDeadEnum getByName(String name){
-       try {
-           return _NAME_MAP.get(name);
-       } catch (Exception e) {
-           return null;
-       }
-   }
+    public static MsgDataTypeEnum getByName(String name) {
+
+        try {
+            return _NAME_MAP.get(name);
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }

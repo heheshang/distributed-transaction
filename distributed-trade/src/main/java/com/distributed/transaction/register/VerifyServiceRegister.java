@@ -2,7 +2,7 @@ package com.distributed.transaction.register;
 
 import com.distributed.transaction.annotations.VerifyUser;
 import com.distributed.transaction.checker.IChecker;
-import com.distributed.transaction.utils.UserVerifyEnum;
+import com.distributed.transaction.enums.verify.UserVerifyEnum;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;

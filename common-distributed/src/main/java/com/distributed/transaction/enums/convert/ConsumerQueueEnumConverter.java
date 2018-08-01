@@ -1,6 +1,6 @@
 package com.distributed.transaction.enums.convert;
 
-import com.distributed.transaction.utils.ConsumerQueueEnum;
+import com.distributed.transaction.enums.message.MessageMqQueueEnum;
 
 import javax.persistence.AttributeConverter;
 
@@ -9,18 +9,18 @@ import javax.persistence.AttributeConverter;
  * @version v1.0
  * @date 2018-07-05-下午 1:22
  */
-public class ConsumerQueueEnumConverter implements AttributeConverter<ConsumerQueueEnum, String> {
+public class ConsumerQueueEnumConverter implements AttributeConverter<MessageMqQueueEnum, String> {
 
 
     @Override
-    public String convertToDatabaseColumn(ConsumerQueueEnum attribute) {
+    public String convertToDatabaseColumn(MessageMqQueueEnum attribute) {
 
         return attribute.getName();
     }
 
     @Override
-    public ConsumerQueueEnum convertToEntityAttribute(String dbData) {
+    public MessageMqQueueEnum convertToEntityAttribute(String dbData) {
 
-        return ConsumerQueueEnum.getByName(dbData);
+        return MessageMqQueueEnum.getByName(dbData);
     }
 }

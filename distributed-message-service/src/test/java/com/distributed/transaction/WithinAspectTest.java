@@ -4,11 +4,11 @@ import com.distributed.transaction.service.ITransMessage;
 import com.distributed.transaction.tran.TranReq;
 import com.distributed.transaction.tran.TranRes;
 import com.distributed.transaction.tran.TransactionMessageVo;
-import com.distributed.transaction.utils.AreadlyDeadEnum;
-import com.distributed.transaction.utils.ConsumerQueueEnum;
-import com.distributed.transaction.utils.MsgDataTypeEnum;
-import com.distributed.transaction.utils.OptEnum;
-import com.distributed.transaction.utils.TransEnum;
+import com.distributed.transaction.enums.message.AreadlyDeadEnum;
+import com.distributed.transaction.enums.message.MessageMqQueueEnum;
+import com.distributed.transaction.enums.message.MsgDataTypeEnum;
+import com.distributed.transaction.enums.message.MesssageOptEnum;
+import com.distributed.transaction.enums.message.TransEnum;
 import com.google.common.collect.Maps;
 import lombok.extern.log4j.Log4j2;
 import org.junit.Test;
@@ -17,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Date;
 import java.util.Map;
 
 /**
@@ -37,7 +36,7 @@ public class WithinAspectTest {
     public void test() {
 
         TranReq req = new TranReq();
-      req.setOptEnum(OptEnum.UPDATE);
+      req.setOptEnum(MesssageOptEnum.UPDATE);
         req.setTransEnum(TransEnum.RECHAEGE);
         TransactionMessageVo vo = new TransactionMessageVo();
         vo.setId("297eb8c4646efd1401646efd32380000");
@@ -48,7 +47,7 @@ public class WithinAspectTest {
         vo.setMessageId("");
         vo.setMessageBody("");
         vo.setMsgDataType(MsgDataTypeEnum.JSON);
-        vo.setConsumerQueue(ConsumerQueueEnum.RECHARGE_QUEUE);
+        vo.setConsumerQueue(MessageMqQueueEnum.RECHARGE_QUEUE);
         vo.setMessageSendTimes(0);
         vo.setAreadlyDead(AreadlyDeadEnum.NO);
         vo.setStatus("2222111112221222");

@@ -1,8 +1,8 @@
 package com.distributed.transaction.tran;
 
-import com.distributed.transaction.utils.AreadlyDeadEnum;
-import com.distributed.transaction.utils.ConsumerQueueEnum;
-import com.distributed.transaction.utils.MsgDataTypeEnum;
+import com.distributed.transaction.enums.message.AreadlyDeadEnum;
+import com.distributed.transaction.enums.message.MessageMqQueueEnum;
+import com.distributed.transaction.enums.message.MsgDataTypeEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -58,7 +58,7 @@ public class TransactionMessageVo implements Serializable {
     /**
      * 消费队列
      */
-    private ConsumerQueueEnum consumerQueue;
+    private MessageMqQueueEnum consumerQueue;
 
     /**
      * 消息重发次数

@@ -1,6 +1,7 @@
 package com.distributed.transaction.enums.convert;
 
-import com.distributed.transaction.utils.AreadlyDeadEnum;
+
+import com.distributed.transaction.enums.message.AreadlyDeadEnum;
 
 import javax.persistence.AttributeConverter;
 
@@ -9,7 +10,7 @@ import javax.persistence.AttributeConverter;
  * @version v1.0
  * @date 2018-07-05-下午 1:22
  */
-public class AreadlyDeadEnumConverter implements AttributeConverter<AreadlyDeadEnum,String> {
+public class AreadlyDeadEnumConverter implements AttributeConverter<AreadlyDeadEnum, String> {
 
 
     @Override

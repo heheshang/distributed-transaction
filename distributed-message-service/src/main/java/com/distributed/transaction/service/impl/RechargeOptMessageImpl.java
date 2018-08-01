@@ -4,15 +4,15 @@ import com.distributed.transaction.annotations.MessageTran;
 import com.distributed.transaction.service.IOptMessage;
 import com.distributed.transaction.tran.TranReq;
 import com.distributed.transaction.tran.TranRes;
-import com.distributed.transaction.utils.OptEnum;
-import com.distributed.transaction.utils.TransEnum;
+import com.distributed.transaction.enums.message.MesssageOptEnum;
+import com.distributed.transaction.enums.message.TransEnum;
 
 /**
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-07-05-下午 3:23
  */
-@MessageTran(tran = TransEnum.RECHAEGE,opt = OptEnum.UPDATE)
+@MessageTran(tran = TransEnum.RECHAEGE,opt = MesssageOptEnum.UPDATE)
 public class RechargeOptMessageImpl implements IOptMessage {
 
 
