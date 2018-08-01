@@ -31,9 +31,9 @@ public class GatewayTestPayController {
 
         GateWayRes res = new GateWayRes();
 
-        TccGatewayRecord gatewayRecord = mapper.map(req.getT(),TccGatewayRecord.class);
+        ;
 
-        res.setMessage(testPayGateWayService.handle(gatewayRecord));
+        res.setMessage(testPayGateWayService.handle(req));
 
         return res;
     }

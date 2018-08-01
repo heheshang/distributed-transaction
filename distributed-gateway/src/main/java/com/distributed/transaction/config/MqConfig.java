@@ -17,8 +17,6 @@ import javax.jms.JMSException;
 import javax.jms.Queue;
 import javax.jms.Topic;
 
-import static com.distributed.transaction.enums.message.NotifyDestinationNameEnum.BANK_NOTIFY;
-
 /**
  * active mq 配置
  *
@@ -30,24 +28,20 @@ import static com.distributed.transaction.enums.message.NotifyDestinationNameEnu
 @EnableJms
 public class MqConfig {
 
-   /* @Value("${spring.activemq.queue}")
-    private String queue;*/
 
-   /* @Value("${spring.activemq.topic}")
-    private String topic;*/
-
-    @Bean
-    public Queue queue() {
-
-        return new ActiveMQQueue(BANK_NOTIFY.name());
-    }
 
   /*  @Bean
+    public Queue queue() {
+
+        return new ActiveMQQueue();
+    }
+
+    @Bean
     public Topic topic() {
         //注意:是temp 还是非temp
         return new ActiveMQTopic();
-    }
-*/
+    }*/
+
     @Bean
     public RedeliveryPolicy redeliveryPolicy() {
 
@@ -107,11 +101,10 @@ public class MqConfig {
      * INDIVIDUAL_ACKNOWLEDGE = 4    单条消息确认 activemq 独有
      *
      * @param connectionFactory
-     * @param queue
      * @return
      */
     @Bean
-    public JmsTemplate jmsTemplate(ActiveMQConnectionFactory connectionFactory, Queue queue) {
+    public JmsTemplate jmsTemplate(ActiveMQConnectionFactory connectionFactory/*, Queue queue*/) {
 
         JmsTemplate jmsTemplate = new JmsTemplate();
 
@@ -121,7 +114,7 @@ public class MqConfig {
         jmsTemplate.setConnectionFactory(connectionFactory);
 
         //此处可不设置默认，在发送消息时也可设置队列
-        jmsTemplate.setDefaultDestination(queue);
+//        jmsTemplate.setDefaultDestination(queue);
 
         //客户端签收模式
         jmsTemplate.setSessionAcknowledgeMode(4);

@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GatewayTestNotifyController {
 
     @Autowired
-    private ITccGateWayRecordService testPayGateWayService;
+    private ITccGateWayRecordService testNotifyGateWayService;
 
     @Autowired
     DozerBeanMapper mapper;
@@ -37,6 +37,8 @@ public class GatewayTestNotifyController {
       /*  TccGatewayRecordEntity vo = mapper.map(req.getT(), TccGatewayRecordEntity.class);
 
         res.setMessage(testPayGateWayService.handle(vo));*/
+
+        res = testNotifyGateWayService.handle(req);
 
         return res;
     }

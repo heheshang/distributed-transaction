@@ -1,5 +1,6 @@
 package com.distributed.transaction;
 
+import com.distributed.transaction.enums.message.NotifyDestinationNameEnum;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
@@ -16,7 +17,7 @@ import javax.jms.TextMessage;
 @Component
 @Log4j2
 public class Consumerqueue {
-
+/*
     @JmsListener(destination = "distributed-topic", containerFactory = "jmsListenerContainerTopic")
     public void receiveTopic(String text) {
 
@@ -33,9 +34,9 @@ public class Consumerqueue {
     public void reviceQueue(String text) {
 
         System.out.println("Queue Consumer:" + text);
-    }
+    }*/
 
-    @JmsListener(destination = "queue1",containerFactory = "jmsQueueListener")
+    @JmsListener(destination = "BANK_NOTIFY",containerFactory = "notifyBankJmsQueueListener")
     public void reciveQueue1(final TextMessage text, Session session) throws JMSException {
         try {
 

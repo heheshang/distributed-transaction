@@ -2,6 +2,7 @@ package com.distributed.transaction.service.impl;
 
 import com.distributed.transaction.enums.PayTypeEnum;
 import com.distributed.transaction.enums.PayWayEnum;
+import com.distributed.transaction.gateway.api.GateWayReq;
 import com.distributed.transaction.gateway.api.GateWayRes;
 import com.distributed.transaction.module.gateway.vo.TccGatewayRecord;
 import com.distributed.transaction.service.core.AbstractTccGateWayRecord;
@@ -34,27 +35,29 @@ public class TestPayGateWayServiceImpl extends AbstractTccGateWayRecord implemen
     private BaseTradeRechargeTransApi tradeRechargeTransApi;
 
     @Override
-    public GateWayRes handle(TccGatewayRecord vo) {
+    public GateWayRes handle(GateWayReq gateWayReq) {
 
-        vo = super.save(vo);
+        TccGatewayRecord gatewayRecord = this.mapper.map(gateWayReq.getT(), TccGatewayRecord.class);
+
+        gatewayRecord = super.save(gatewayRecord);
 
         TradeReq req = new TradeReq();
 
         RechargeParam rechargeParam = new RechargeParam();
 
-        rechargeParam.setTransSeqNo(vo.getId());
+        rechargeParam.setTransSeqNo(gatewayRecord.getId());
 
-        rechargeParam.setMerchantOrderNo(vo.getOrderNo());
+        rechargeParam.setMerchantOrderNo(gatewayRecord.getOrderNo());
 
-        rechargeParam.setPayKey(vo.getPayKey());
+        rechargeParam.setPayKey(gatewayRecord.getPayKey());
 
         rechargeParam.setPayTypeCode(PayTypeEnum.TEST_PAY_HTTP_CLIENT.getWay());
 
         rechargeParam.setPayWayCode(PayWayEnum.TEST_PAY_HTTP_CLIENT.name());
 
-        rechargeParam.setOrderAmount(new BigDecimal(vo.getOrderPrice()));
+        rechargeParam.setOrderAmount(new BigDecimal(gatewayRecord.getOrderPrice()));
 
-        rechargeParam.setOrderIp(vo.getOrderIp());
+        rechargeParam.setOrderIp(gatewayRecord.getOrderIp());
 
 //        rechargeParam.setExpireTime();
 

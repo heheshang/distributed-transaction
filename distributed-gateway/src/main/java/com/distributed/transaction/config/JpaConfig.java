@@ -1,3 +1,4 @@
+/*
 package com.distributed.transaction.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,13 @@ import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 import java.util.Map;
 
+*/
 /**
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-07-13-下午 2:31
- */
+ *//*
+
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
@@ -65,3 +68,4 @@ public class JpaConfig {
     }
 
 }
+*/

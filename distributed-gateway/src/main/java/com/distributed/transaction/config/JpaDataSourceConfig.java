@@ -1,4 +1,3 @@
-/*
 package com.distributed.transaction.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,24 +9,29 @@ import org.springframework.context.annotation.Primary;
 
 import javax.sql.DataSource;
 
-
-*/
 /**
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
- * @date 2018-07-13-下午 2:29
- *//*
-
+ * @date 2018-07-30-下午 3:28
+ */
 @Configuration
-public class DataSourceConfig {
+public class JpaDataSourceConfig {
 
-    @Bean
-    @Qualifier("dataSource")
-    @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource() {
+    @Bean(name = "primaryDataSource")
+    @Primary
+    @Qualifier("primaryDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.primary")
+    public DataSource primaryDatasource() {
+
         return DataSourceBuilder.create().build();
     }
 
+    @Bean(name = "secondaryDataSource")
+    @Qualifier("secondaryDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.secondary")
+    public DataSource secondaryDataSource() {
+
+        return DataSourceBuilder.create().build();
+    }
 
 }
-*/

@@ -1,7 +1,8 @@
 package com.distributed.transaction.service.impl;
 
-import com.distributed.transaction.module.gateway.vo.TccGatewayRecord;
+import com.distributed.transaction.gateway.api.GateWayReq;
 import com.distributed.transaction.gateway.api.GateWayRes;
+import com.distributed.transaction.module.gateway.vo.TccGatewayRecord;
 import com.distributed.transaction.service.core.AbstractTccGateWayRecord;
 import com.distributed.transaction.service.core.ITccGateWayRecordService;
 import com.distributed.transaction.trade.api.TradeReq;
@@ -19,22 +20,24 @@ import org.springframework.stereotype.Component;
 public class WeChatPayGateWayServiceImpl extends AbstractTccGateWayRecord implements ITccGateWayRecordService {
 
     @Override
-    public GateWayRes handle(TccGatewayRecord vo) {
+    public GateWayRes handle(GateWayReq gateWayReq) {
 
-        vo = super.save(vo);
+        TccGatewayRecord gatewayRecord = this.mapper.map(gateWayReq.getT(), TccGatewayRecord.class);
+
+        gatewayRecord = super.save(gatewayRecord);
 
         TradeReq req = new TradeReq();
 
         RechargeParam rechargeParam = new RechargeParam();
 
-        rechargeParam.setTransSeqNo(vo.getId());
+        rechargeParam.setTransSeqNo(gatewayRecord.getId());
 
         req.setParams(rechargeParam);
 
 //        tradeRechargeTransApi.recharge(req);
         GateWayRes res = new GateWayRes();
 
-        res.setMessage(vo);
+        res.setMessage(gatewayRecord);
 
         return res;
     }
