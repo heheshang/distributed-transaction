@@ -163,4 +163,19 @@ public class RechargeParam extends BaseParam {
      * 扩展字段5
      **/
     private String field5;
+
+    /**
+     * 交易状态
+     */
+    private String status;
+
+    /**
+     * 交易号
+     */
+    private String trxNo;
+
+    /**
+     * 银行订单号
+     */
+    private String bankOrderNo;
 }

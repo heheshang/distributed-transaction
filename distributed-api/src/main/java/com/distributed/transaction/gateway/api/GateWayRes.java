@@ -1,6 +1,5 @@
 package com.distributed.transaction.gateway.api;
 
-import com.distributed.transaction.BaseMessage;
 import lombok.Data;
 import lombok.ToString;
 

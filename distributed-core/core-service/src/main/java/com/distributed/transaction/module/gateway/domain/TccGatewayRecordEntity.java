@@ -29,7 +29,7 @@ import java.util.Date;
 @DynamicInsert
 @DynamicUpdate
 @Data
-public class TccGatewayRecord {
+public class TccGatewayRecordEntity {
 
     /**
      * 主键ID

@@ -172,7 +172,7 @@ public class TradePaymentRecordEntity {
 
     public void setCreateTime(Date createTime) {
 
-        this.createTime = createTime;
+        this.createTime = createTime == null ? new Date() : createTime;
     }
 
     @Basic

@@ -26,7 +26,7 @@ import java.util.Map;
         entityManagerFactoryRef = "entityManagerFactory",
         transactionManagerRef = "transactionManager",
         //设置Repository所在位置
-        basePackages = {"com.distributed.transaction.api.gateway.repository"})
+        basePackages = {"com.distributed.transaction.module.gateway.repository"})
 public class JpaConfig {
 
     @Autowired
@@ -45,7 +45,7 @@ public class JpaConfig {
                 .dataSource(dataSource)
                 .properties(getVendorProperties(dataSource))
                 //设置实体类所在位置
-                .packages("com.distributed.transaction.api.gateway.domain")
+                .packages("com.distributed.transaction.module.gateway.domain")
 //                .persistenceUnit("primaryPersistenceUnit")
                 .build();
     }

@@ -3,10 +3,10 @@ package com.distributed.transaction.controller;
 
 import com.distributed.transaction.gateway.api.GateWayReq;
 import com.distributed.transaction.gateway.api.GateWayRes;
-import com.distributed.transaction.module.gateway.vo.TccGatewayRecordVo;
 import com.distributed.transaction.service.core.ITccGateWayRecordService;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,14 +29,14 @@ public class GatewayTestNotifyController {
     @Autowired
     DozerBeanMapper mapper;
 
-    @RequestMapping(value = "/recharge/notify", method = RequestMethod.POST)
-    public GateWayRes pay(@RequestBody GateWayReq req) {
+    @RequestMapping(value = "/notify/{payWayCode}", method = RequestMethod.POST )
+    public GateWayRes pay(@PathVariable("payWayCode") String payWayCode, @RequestBody GateWayReq req) {
 
         GateWayRes res = new GateWayRes();
 
-        TccGatewayRecordVo vo = mapper.map(req.getT(), TccGatewayRecordVo.class);
+      /*  TccGatewayRecordEntity vo = mapper.map(req.getT(), TccGatewayRecordEntity.class);
 
-        res.setMessage(testPayGateWayService.handle(vo));
+        res.setMessage(testPayGateWayService.handle(vo));*/
 
         return res;
     }

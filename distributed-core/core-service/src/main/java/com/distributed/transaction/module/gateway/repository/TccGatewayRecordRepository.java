@@ -1,6 +1,6 @@
 package com.distributed.transaction.module.gateway.repository;
 
-import com.distributed.transaction.module.gateway.domain.TccGatewayRecord;
+import com.distributed.transaction.module.gateway.domain.TccGatewayRecordEntity;
 import com.distributed.transaction.base.BaseRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Repository;
  * @date 2018-07-20-下午 1:56
  */
 @Repository
-public interface TccGatewayRecordRepository extends BaseRepository<TccGatewayRecord, String>  {
+public interface TccGatewayRecordRepository extends BaseRepository<TccGatewayRecordEntity, String>  {
 
-    public TccGatewayRecord findByOrderNoAndPayKey(String orderNo, String payKey);
+    public TccGatewayRecordEntity findByOrderNoAndPayKey(String orderNo, String payKey);
 
 
 }

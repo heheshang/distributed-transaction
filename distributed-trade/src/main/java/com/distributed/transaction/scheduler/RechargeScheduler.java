@@ -26,7 +26,7 @@ public class RechargeScheduler {
     @Autowired
     private IBaseService baseService;
 
-    @Scheduled(cron = "0 0/1 * * * ? ")
+//    @Scheduled(cron = "0 0/1 * * * ? ")
     protected void run() {
 
         TradeReq tradeReq = new TradeReq();

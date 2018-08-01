@@ -1,8 +1,8 @@
 package com.distributed.transaction.service.core;
 
-import com.distributed.transaction.module.gateway.domain.TccGatewayRecord;
+import com.distributed.transaction.module.gateway.domain.TccGatewayRecordEntity;
 import com.distributed.transaction.module.gateway.repository.TccGatewayRecordRepository;
-import com.distributed.transaction.module.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.module.gateway.vo.TccGatewayRecord;
 import lombok.extern.log4j.Log4j2;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,22 +23,22 @@ public abstract class AbstractTccGateWayRecord {
     private DozerBeanMapper mapper;
 
     @Transactional(rollbackFor = Exception.class)
-    public TccGatewayRecordVo save(TccGatewayRecordVo vo) {
+    public TccGatewayRecord save(TccGatewayRecord vo) {
 
         log.info("保存网关流水记录");
-        TccGatewayRecord record = mapper.map(vo, TccGatewayRecord.class);
+        TccGatewayRecordEntity record = mapper.map(vo, TccGatewayRecordEntity.class);
 
-        return mapper.map(tccGatewayRecordRepository.save(record), TccGatewayRecordVo.class);
+        return mapper.map(tccGatewayRecordRepository.save(record), TccGatewayRecord.class);
     }
 
     @Transactional
-    public TccGatewayRecordVo update(TccGatewayRecordVo vo) {
+    public TccGatewayRecord update(TccGatewayRecord vo) {
 
         log.info("更新网关流水记录");
-        TccGatewayRecord record =  tccGatewayRecordRepository.findByOrderNoAndPayKey(vo.getOrderNo(),vo.getPayKey());
+        TccGatewayRecordEntity record =  tccGatewayRecordRepository.findByOrderNoAndPayKey(vo.getOrderNo(),vo.getPayKey());
 
-        record.setField1("测试22233333333333");
-        return mapper.map(tccGatewayRecordRepository.save(record), TccGatewayRecordVo.class);
+//        record.setField1("测试22233333333333");
+        return mapper.map(tccGatewayRecordRepository.save(record), TccGatewayRecord.class);
     }
 
 }

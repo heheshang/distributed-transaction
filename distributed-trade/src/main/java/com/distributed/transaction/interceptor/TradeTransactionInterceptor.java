@@ -84,11 +84,11 @@ public class TradeTransactionInterceptor {
 
         try {
 
-            tradeTranService.bulidTradePaymentOrder((BaseParam) arg[0]);
+            arg[0] = tradeTranService.bulidTradePaymentOrder((BaseParam) arg[0]);
 
             log.info("交易业务处理完成,继续执行业务逻辑");
 
-            return pjp.proceed();
+            return pjp.proceed(arg);
 
         } catch (Exception e) {
             log.error("交易业务处理异常[{}]", e);

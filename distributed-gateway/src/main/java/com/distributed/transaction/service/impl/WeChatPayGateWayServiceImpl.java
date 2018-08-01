@@ -1,6 +1,6 @@
 package com.distributed.transaction.service.impl;
 
-import com.distributed.transaction.module.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.module.gateway.vo.TccGatewayRecord;
 import com.distributed.transaction.gateway.api.GateWayRes;
 import com.distributed.transaction.service.core.AbstractTccGateWayRecord;
 import com.distributed.transaction.service.core.ITccGateWayRecordService;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 public class WeChatPayGateWayServiceImpl extends AbstractTccGateWayRecord implements ITccGateWayRecordService {
 
     @Override
-    public GateWayRes handle(TccGatewayRecordVo vo) {
+    public GateWayRes handle(TccGatewayRecord vo) {
 
         vo = super.save(vo);
 
@@ -40,7 +40,7 @@ public class WeChatPayGateWayServiceImpl extends AbstractTccGateWayRecord implem
     }
 
     @Override
-    public TccGatewayRecordVo save(TccGatewayRecordVo vo) {
+    public TccGatewayRecord save(TccGatewayRecord vo) {
 
         return super.save(vo);
     }

@@ -67,7 +67,7 @@ public class TradeTranService<P extends BaseParam> {
 
 
     @Transactional(rollbackFor = Exception.class)
-    public boolean bulidTradePaymentOrder(P p) throws TradeBizException{
+    public RechargeParam bulidTradePaymentOrder(P p) throws TradeBizException {
 
         RechargeParam param = (RechargeParam) p;
 
@@ -98,34 +98,47 @@ public class TradeTranService<P extends BaseParam> {
         vo.setPayWayCode(tccPayWay.getPayWayCode());
         vo.setFundIntoType(userPayConfig.getFundIntoType());
         vo.setStatus(TradeStatusEnum.WAITING_PAYMENT.name());
+        vo.setMerchantNo(userInfoEntity.getUserNo());
+        vo.setMerchantName(userInfoEntity.getUserName());
 
-        this.bulidTradePayOrderVo(vo);
+        TradePaymentOrder paymentOrder = this.bulidTradePayOrderVo(vo);
 
-        this.sealTccTradePaymentRecord(vo, payWay);
+        TradePaymentRecord paymentRecord = this.sealTccTradePaymentRecord(paymentOrder, payWay);
 
-        return true;
+        param.setBankOrderNo(paymentRecord.getBankOrderNo());
+
+        param.setTrxNo(paymentRecord.getTrxNo());
+
+        param.setStatus(paymentRecord.getStatus());
+
+        param.setMerchantNo(paymentOrder.getMerchantNo());
+
+        param.setMerchantOrderNo(paymentOrder.getMerchantOrderNo());
+
+
+        return param;
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void bulidTradePayOrderVo(TradePaymentOrder vo) {
+    public TradePaymentOrder bulidTradePayOrderVo(TradePaymentOrder paymentOrder) {
 
-        TradePaymentOrderEntity tradeOrder = tradePaymentOrderRepository.getByMerchantNoAndMerchantOrderNo(vo.getMerchantNo(), vo.getMerchantOrderNo());
+        TradePaymentOrderEntity tradeOrder = tradePaymentOrderRepository.getByMerchantNoAndMerchantOrderNo(paymentOrder.getMerchantNo(), paymentOrder.getMerchantOrderNo());
 
         if (tradeOrder == null) {
 
-            vo.setPayTypeName(PayTypeEnum.getEnum(vo.getPayTypeCode()) == null ? "" : PayTypeEnum.getEnum(vo.getPayTypeCode()).getDesc());
+            paymentOrder.setPayTypeName(PayTypeEnum.getEnum(paymentOrder.getPayTypeCode()) == null ? "" : PayTypeEnum.getEnum(paymentOrder.getPayTypeCode()).getDesc());
 
-            vo.setPayWayName(PayWayEnum.getEnum(vo.getPayWayCode()) == null ? "" : PayWayEnum.getEnum(vo.getPayWayCode()).getDesc());
+            paymentOrder.setPayWayName(PayWayEnum.getEnum(paymentOrder.getPayWayCode()) == null ? "" : PayWayEnum.getEnum(paymentOrder.getPayWayCode()).getDesc());
 
-            TradePaymentOrderEntity tradePaymentOrderEntity = mapper.map(vo, TradePaymentOrderEntity.class);
+            TradePaymentOrderEntity tradePaymentOrderEntity = mapper.map(paymentOrder, TradePaymentOrderEntity.class);
 
 
-            tradePaymentOrderRepository.save(tradePaymentOrderEntity);
+            tradeOrder = tradePaymentOrderRepository.save(tradePaymentOrderEntity);
 
         } else {
 
             // 订单存在
-            if (tradeOrder.getOrderAmount().compareTo(vo.getOrderAmount()) != 0) {
+            if (tradeOrder.getOrderAmount().compareTo(paymentOrder.getOrderAmount()) != 0) {
                 throw new TradeBizException(TradeBizException.TRADE_ORDER_ERROR, "错误的订单");
             }
 
@@ -133,16 +146,16 @@ public class TradeTranService<P extends BaseParam> {
                 throw new TradeBizException(TradeBizException.TRADE_ORDER_ERROR, "订单已支付成功,无需重复支付");
             }
 
-            tradeOrder.setPayTypeCode(PayTypeEnum.getEnum(vo.getPayTypeCode()) == null ? "" : PayTypeEnum.getEnum(vo.getPayTypeCode()).getWay());
-            tradeOrder.setPayTypeName(PayTypeEnum.getEnum(vo.getPayTypeCode()) == null ? "" : PayTypeEnum.getEnum(vo.getPayTypeCode()).getDesc());
-            tradeOrder.setPayWayCode(PayWayEnum.getEnum(vo.getPayWayCode()) == null ? "" : PayWayEnum.getEnum(vo.getPayWayCode()).name());
-            tradeOrder.setPayWayName(PayWayEnum.getEnum(vo.getPayWayCode()) == null ? "" : PayWayEnum.getEnum(vo.getPayWayCode()).getDesc());
+            tradeOrder.setPayTypeCode(PayTypeEnum.getEnum(paymentOrder.getPayTypeCode()) == null ? "" : PayTypeEnum.getEnum(paymentOrder.getPayTypeCode()).getWay());
+            tradeOrder.setPayTypeName(PayTypeEnum.getEnum(paymentOrder.getPayTypeCode()) == null ? "" : PayTypeEnum.getEnum(paymentOrder.getPayTypeCode()).getDesc());
+            tradeOrder.setPayWayCode(PayWayEnum.getEnum(paymentOrder.getPayWayCode()) == null ? "" : PayWayEnum.getEnum(paymentOrder.getPayWayCode()).name());
+            tradeOrder.setPayWayName(PayWayEnum.getEnum(paymentOrder.getPayWayCode()) == null ? "" : PayWayEnum.getEnum(paymentOrder.getPayWayCode()).getDesc());
 
-            tradePaymentOrderRepository.save(tradeOrder);
+            tradeOrder = tradePaymentOrderRepository.save(tradeOrder);
         }
 
 
-//        return mapper.map(tradePaymentOrderEntity, TradePaymentOrder.class);
+        return mapper.map(tradeOrder, TradePaymentOrder.class);
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -163,10 +176,12 @@ public class TradeTranService<P extends BaseParam> {
         switch (payWayEnum) {
             case TEST_PAY_HTTP_CLIENT:
                 recordVo.setBankOrderNo(trxNo);
+                recordVo.setBankReturnMsg("模拟支付");
                 break;
             default:
                 String bankOrderNo = String.valueOf(entityManagerPrimary.createNativeQuery(" select FUN_SEQ('BANK_ORDER_NO_SEQ')").getSingleResult());
                 recordVo.setBankOrderNo(bankOrderNo);
+
                 break;
         }
 

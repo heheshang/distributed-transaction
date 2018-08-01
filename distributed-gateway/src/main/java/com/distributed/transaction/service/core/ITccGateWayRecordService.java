@@ -1,6 +1,6 @@
 package com.distributed.transaction.service.core;
 
-import com.distributed.transaction.module.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.module.gateway.vo.TccGatewayRecord;
 import com.distributed.transaction.gateway.api.GateWayRes;
 
 /**
@@ -10,5 +10,5 @@ import com.distributed.transaction.gateway.api.GateWayRes;
  */
 public interface ITccGateWayRecordService {
 
-    GateWayRes handle(TccGatewayRecordVo vo);
+    GateWayRes handle(TccGatewayRecord vo);
 }

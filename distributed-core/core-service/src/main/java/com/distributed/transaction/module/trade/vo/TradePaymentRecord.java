@@ -32,8 +32,14 @@ public class TradePaymentRecord {
 
     private String merchantOrderNo;
 
+    /**
+     * 交易号
+     */
     private String trxNo;
 
+    /**
+     * 银行订单号
+     */
     private String bankOrderNo;
 
     private String bankTrxNo;

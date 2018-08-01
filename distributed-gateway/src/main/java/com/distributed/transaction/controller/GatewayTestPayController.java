@@ -2,7 +2,7 @@ package com.distributed.transaction.controller;
 
 import com.distributed.transaction.gateway.api.GateWayReq;
 import com.distributed.transaction.gateway.api.GateWayRes;
-import com.distributed.transaction.module.gateway.vo.TccGatewayRecordVo;
+import com.distributed.transaction.module.gateway.vo.TccGatewayRecord;
 import com.distributed.transaction.service.core.ITccGateWayRecordService;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +31,9 @@ public class GatewayTestPayController {
 
         GateWayRes res = new GateWayRes();
 
-        TccGatewayRecordVo  vo = mapper.map(req.getT(),TccGatewayRecordVo.class);
+        TccGatewayRecord gatewayRecord = mapper.map(req.getT(),TccGatewayRecord.class);
 
-        res.setMessage(testPayGateWayService.handle(vo));
+        res.setMessage(testPayGateWayService.handle(gatewayRecord));
 
         return res;
     }

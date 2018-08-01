@@ -13,7 +13,7 @@ import java.util.Date;
  */
 @Data
 @ToString
-public class TccGatewayRecordVo  {
+public class TccGatewayRecord {
 
     private String id;
 
