@@ -18,22 +18,28 @@ public enum PublicEnum {
 
     NO("否");
 
-    /** 描述 */
+    /**
+     * 描述
+     */
     private String desc;
 
     PublicEnum(String desc) {
+
         this.desc = desc;
     }
 
     public String getDesc() {
+
         return desc;
     }
 
     public void setDesc(String desc) {
+
         this.desc = desc;
     }
 
     public static Map<String, Map<String, Object>> toMap() {
+
         PublicEnum[] ary = PublicEnum.values();
         Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
         for (int num = 0; num < ary.length; num++) {
@@ -45,8 +51,9 @@ public enum PublicEnum {
         return enumMap;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static List toList() {
+
         PublicEnum[] ary = PublicEnum.values();
         List list = new ArrayList();
         for (int i = 0; i < ary.length; i++) {
@@ -58,6 +65,7 @@ public enum PublicEnum {
     }
 
     public static PublicEnum getEnum(String name) {
+
         PublicEnum[] arry = PublicEnum.values();
         for (int i = 0; i < arry.length; i++) {
             if (arry[i].name().equalsIgnoreCase(name)) {
@@ -73,6 +81,7 @@ public enum PublicEnum {
      * @return
      */
     public static String getJsonStr() {
+
         PublicEnum[] enums = PublicEnum.values();
         StringBuffer jsonStr = new StringBuffer("[");
         for (PublicEnum senum : enums) {

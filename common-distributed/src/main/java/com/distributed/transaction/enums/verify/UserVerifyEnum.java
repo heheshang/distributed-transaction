@@ -26,6 +26,7 @@ public enum UserVerifyEnum {
 
 
     private String authCode;
+
     private String desc;
 
     public String getAuthCode() {
@@ -47,6 +48,7 @@ public enum UserVerifyEnum {
     }
 
     private static final Object _LOCK = new Object();
+
     private static Map<String, UserVerifyEnum> _NAME_MAP;
 
     static {
@@ -69,6 +71,7 @@ public enum UserVerifyEnum {
     }
 
     public static UserVerifyEnum getByName(String name) {
+
         try {
             return _NAME_MAP.get(name);
         } catch (Exception e) {

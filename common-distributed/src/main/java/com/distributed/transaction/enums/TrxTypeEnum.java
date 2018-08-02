@@ -7,85 +7,95 @@ import java.util.List;
 import java.util.Map;
 
 /**
-*  交易类型枚举类
-* @author ssk www.8win.com Inc.All rights reserved
-* @date 2018/08/01 上午 10:18
-* @since v1.0
-**/
+ * 交易类型枚举类
+ *
+ * @author ssk www.8win.com Inc.All rights reserved
+ * @date 2018/08/01 上午 10:18
+ * @since v1.0
+ **/
 public enum TrxTypeEnum {
-	/**
-	 *
-	 */
-	ERRORHANKLE("差错处理"),
+    /**
+     *
+     */
+    ERRORHANKLE("差错处理"),
 
-	REMIT("打款"),
+    REMIT("打款"),
 
-	EXPENSE("消费");
+    EXPENSE("消费");
 
-	/** 描述 */
-	private String desc;
+    /**
+     * 描述
+     */
+    private String desc;
 
-	TrxTypeEnum(String desc) {
-		this.desc = desc;
-	}
+    TrxTypeEnum(String desc) {
 
-	public String getDesc() {
-		return desc;
-	}
+        this.desc = desc;
+    }
 
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
+    public String getDesc() {
 
-	public static Map<String, Map<String, Object>> toMap() {
-		TrxTypeEnum[] ary = TrxTypeEnum.values();
-		Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
-		for (int num = 0; num < ary.length; num++) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			String key = ary[num].name();
-			map.put("desc", ary[num].getDesc());
-			enumMap.put(key, map);
-		}
-		return enumMap;
-	}
+        return desc;
+    }
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static List toList() {
-		TrxTypeEnum[] ary = TrxTypeEnum.values();
-		List list = new ArrayList();
-		for (int i = 0; i < ary.length; i++) {
-			Map<String, String> map = new HashMap<String, String>();
-			map.put("desc", ary[i].getDesc());
-			list.add(map);
-		}
-		return list;
-	}
+    public void setDesc(String desc) {
 
-	public static TrxTypeEnum getEnum(String name) {
-		TrxTypeEnum[] arry = TrxTypeEnum.values();
-		for (int i = 0; i < arry.length; i++) {
-			if (arry[i].name().equalsIgnoreCase(name)) {
-				return arry[i];
-			}
-		}
-		return null;
-	}
+        this.desc = desc;
+    }
 
-	/**
-	 * 取枚举的json字符串
-	 *
-	 * @return
-	 */
-	public static String getJsonStr() {
-		TrxTypeEnum[] enums = TrxTypeEnum.values();
-		StringBuffer jsonStr = new StringBuffer("[");
-		for (TrxTypeEnum senum : enums) {
-			if (!"[".equals(jsonStr.toString())) {
-				jsonStr.append(",");
-			}
-			jsonStr.append("{id:'").append(senum).append("',desc:'").append(senum.getDesc()).append("'}");
-		}
-		jsonStr.append("]");
-		return jsonStr.toString();
-	}
+    public static Map<String, Map<String, Object>> toMap() {
+
+        TrxTypeEnum[] ary = TrxTypeEnum.values();
+        Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
+        for (int num = 0; num < ary.length; num++) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            String key = ary[num].name();
+            map.put("desc", ary[num].getDesc());
+            enumMap.put(key, map);
+        }
+        return enumMap;
+    }
+
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    public static List toList() {
+
+        TrxTypeEnum[] ary = TrxTypeEnum.values();
+        List list = new ArrayList();
+        for (int i = 0; i < ary.length; i++) {
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("desc", ary[i].getDesc());
+            list.add(map);
+        }
+        return list;
+    }
+
+    public static TrxTypeEnum getEnum(String name) {
+
+        TrxTypeEnum[] arry = TrxTypeEnum.values();
+        for (int i = 0; i < arry.length; i++) {
+            if (arry[i].name().equalsIgnoreCase(name)) {
+                return arry[i];
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 取枚举的json字符串
+     *
+     * @return
+     */
+    public static String getJsonStr() {
+
+        TrxTypeEnum[] enums = TrxTypeEnum.values();
+        StringBuffer jsonStr = new StringBuffer("[");
+        for (TrxTypeEnum senum : enums) {
+            if (!"[".equals(jsonStr.toString())) {
+                jsonStr.append(",");
+            }
+            jsonStr.append("{id:'").append(senum).append("',desc:'").append(senum.getDesc()).append("'}");
+        }
+        jsonStr.append("]");
+        return jsonStr.toString();
+    }
 }
