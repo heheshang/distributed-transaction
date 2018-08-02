@@ -10,7 +10,7 @@ import com.distributed.transaction.exception.DistributedException;
  */
 public interface IChecker<P extends BaseParam, M extends BaseMessage> {
 
-    public M check(P p) throws DistributedException;
+    M check(P p) throws DistributedException;
 
 
     default M exce(P p) throws DistributedException {

@@ -18,6 +18,6 @@ public interface TccUserInfoRepository extends BaseRepository<TccUserInfoEntity,
      * @param status
      * @return
      */
-    public TccUserInfoEntity getByUserNoAndStatus(String userNo,String status);
+    TccUserInfoEntity getByUserNoAndStatus(String userNo, String status);
 
 }

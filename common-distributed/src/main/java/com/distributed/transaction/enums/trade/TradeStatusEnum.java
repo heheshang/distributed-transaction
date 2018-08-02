@@ -43,7 +43,7 @@ public enum TradeStatusEnum {
      */
     private String desc;
 
-    private TradeStatusEnum(String desc) {
+    TradeStatusEnum(String desc) {
 
         this.desc = desc;
     }

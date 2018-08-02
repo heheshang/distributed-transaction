@@ -10,7 +10,7 @@ import com.distributed.transaction.BaseParam;
  */
 public interface ITranService<P extends BaseParam, M extends BaseMessage> {
 
-    public M handle(P p);
+    M handle(P p);
 
 
 }

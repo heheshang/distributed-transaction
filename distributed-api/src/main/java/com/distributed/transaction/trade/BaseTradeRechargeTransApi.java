@@ -25,6 +25,6 @@ public interface BaseTradeRechargeTransApi {
      * @return
      */
     @RequestMapping(value = "/trade/recharge", method = RequestMethod.POST)
-    public TradeRes<RechargeMessage> recharge( TradeReq<RechargeParam> req);
+    TradeRes<RechargeMessage> recharge(TradeReq<RechargeParam> req);
 
 }

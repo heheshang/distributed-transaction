@@ -30,7 +30,7 @@ public enum PayWayEnum {
      */
     private String desc;
 
-    private PayWayEnum(String desc) {
+    PayWayEnum(String desc) {
 
         this.desc = desc;
     }

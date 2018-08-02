@@ -102,7 +102,7 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
             .maximumSize(20)
             .build(new CacheLoader<String, ITranService>() {
                 @Override
-                public ITranService load(String key) throws Exception {
+                public ITranService load(String key) {
 
                     PayTypeEnum payTypeEnum= PayTypeEnum.getEnum(key);
 
@@ -123,7 +123,7 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
             .newBuilder()
             .build(new CacheLoader<Method, VerifyUser>() {
                 @Override
-                public VerifyUser load(Method method) throws Exception {
+                public VerifyUser load(Method method) {
 
                     return AnnotationUtils.findAnnotation(method, VerifyUser.class);
                 }
@@ -142,7 +142,7 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
             .newBuilder()
             .build(new CacheLoader<Method, VerifyProd>() {
                 @Override
-                public VerifyProd load(Method method) throws Exception {
+                public VerifyProd load(Method method) {
 
                     return AnnotationUtils.findAnnotation(method, VerifyProd.class);
                 }
@@ -163,7 +163,7 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
             .newBuilder()
             .build(new CacheLoader<Method, VerifyProdType>() {
                 @Override
-                public VerifyProdType load(Method method) throws Exception {
+                public VerifyProdType load(Method method) {
 
                     return AnnotationUtils.findAnnotation(method, VerifyProdType.class);
                 }

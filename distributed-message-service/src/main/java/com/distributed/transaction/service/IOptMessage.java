@@ -12,5 +12,5 @@ import com.distributed.transaction.tran.TranRes;
  */
 public interface IOptMessage {
 
-    public TranRes process(TranReq req, TranRes res);
+    TranRes process(TranReq req, TranRes res);
 }

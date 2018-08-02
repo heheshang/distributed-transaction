@@ -73,11 +73,7 @@ public class MerchantApiUtil {
         }
 
         String sign = getSign(paramMap, paySecret);
-        if(signStr.equals(sign)){
-            return true;
-        }else{
-            return false;
-        }
+        return signStr.equals(sign);
     }
 
     /**

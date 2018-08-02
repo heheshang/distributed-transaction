@@ -10,7 +10,7 @@ import com.distributed.transaction.trade.api.TradeRes;
  */
 public interface IBaseService {
 
-    public TradeRes process(TradeReq tradeReq);
+    TradeRes process(TradeReq tradeReq);
 
 
 }

@@ -9,5 +9,5 @@ package com.distributed.transaction.service;
  */
 public interface ITransMessage<TranReq, TranRes> {
 
-    public TranRes handle(TranReq req) throws Exception;
+    TranRes handle(TranReq req) throws Exception;
 }

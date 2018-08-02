@@ -23,7 +23,7 @@ public enum MessageStatusEnum {
 	/** 描述 */
 	private String desc;
 
-	private MessageStatusEnum(String desc) {
+	MessageStatusEnum(String desc) {
 		this.desc = desc;
 	}
 

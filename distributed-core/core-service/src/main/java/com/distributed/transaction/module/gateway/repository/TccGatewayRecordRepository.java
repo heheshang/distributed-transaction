@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TccGatewayRecordRepository extends BaseRepository<TccGatewayRecordEntity, String>  {
 
-    public TccGatewayRecordEntity findByOrderNoAndPayKey(String orderNo, String payKey);
+    TccGatewayRecordEntity findByOrderNoAndPayKey(String orderNo, String payKey);
 
 
 }

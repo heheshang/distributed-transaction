@@ -78,7 +78,7 @@ public class MqConfig {
     }
 
     @Bean
-    public JmsListenerContainerFactory<?> jmsListenerContainerQueue(ActiveMQConnectionFactory connectionFactory) throws JMSException {
+    public JmsListenerContainerFactory<?> jmsListenerContainerQueue(ActiveMQConnectionFactory connectionFactory) {
 
         DefaultJmsListenerContainerFactory bean = new DefaultJmsListenerContainerFactory();
         //TODO 客户端签收模式

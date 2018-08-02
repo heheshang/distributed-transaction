@@ -72,7 +72,7 @@ public class VerifyServiceRegister extends ApplicationObjectSupport {
             .build(new CacheLoader<String, IChecker>() {
 
                 @Override
-                public IChecker load(String key) throws Exception {
+                public IChecker load(String key) {
                     return null;
                 }
             });

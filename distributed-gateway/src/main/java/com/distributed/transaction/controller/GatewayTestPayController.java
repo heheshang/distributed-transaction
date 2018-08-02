@@ -31,8 +31,6 @@ public class GatewayTestPayController {
 
         GateWayRes res = new GateWayRes();
 
-        ;
-
         res.setMessage(testPayGateWayService.handle(req));
 
         return res;

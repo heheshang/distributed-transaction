@@ -12,12 +12,12 @@ public interface ITransactionMessageScheduled  {
     /**
      * 处理状态为"待确认" 但已超时的消息
      */
-    public void handleWaitingConfirmTimeOutMessages();
+    void handleWaitingConfirmTimeOutMessages();
 
     /**
      * 处理状态为"发送中" 但已超时的消息
      */
-    public void handleSendingTimeOutMessages();
+    void handleSendingTimeOutMessages();
 
 
 }

@@ -10,7 +10,6 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
 /**
- *
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-08-02-下午 5:10
@@ -27,12 +26,11 @@ public class ScheduledRunner implements ApplicationRunner {
     private ITransactionMessageScheduled transactionMessageScheduled;
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
 
         log.info("启动完成,运行超时清理任务");
 
         try {
-
 
             threadPool.execute(() -> {
                 for (; ; ) {
@@ -64,7 +62,7 @@ public class ScheduledRunner implements ApplicationRunner {
                 }
             });
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
             log.error("启动完成,运行超时清理任务异常啦,  error[{}]", e);
         }

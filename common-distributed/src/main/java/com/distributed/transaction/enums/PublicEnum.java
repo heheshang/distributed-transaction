@@ -21,7 +21,7 @@ public enum PublicEnum {
     /** 描述 */
     private String desc;
 
-    private PublicEnum(String desc) {
+    PublicEnum(String desc) {
         this.desc = desc;
     }
 

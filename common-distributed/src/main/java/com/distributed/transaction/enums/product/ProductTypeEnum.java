@@ -24,6 +24,5 @@ public enum ProductTypeEnum {
      * 代付
      */
     PAY
-    ;
 
 }

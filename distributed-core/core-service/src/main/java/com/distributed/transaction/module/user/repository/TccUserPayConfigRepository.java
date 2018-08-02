@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TccUserPayConfigRepository extends BaseRepository<TccUserPayConfigEntity, String> {
 
-    public TccUserPayConfigEntity getByPayKey(String payKey);
+    TccUserPayConfigEntity getByPayKey(String payKey);
 }

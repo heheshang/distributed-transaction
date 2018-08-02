@@ -24,7 +24,7 @@ public enum OrderFromEnum {
      */
     private String desc;
 
-    private OrderFromEnum(String desc) {
+    OrderFromEnum(String desc) {
 
         this.desc = desc;
     }

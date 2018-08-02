@@ -14,7 +14,7 @@ public abstract class BaseTransMessage implements ITransMessage<TranReq, TranRes
 
 
     @Override
-    public TranRes handle(TranReq req) throws Exception {
+    public TranRes handle(TranReq req) {
 
         TranRes res = new TranRes();
 

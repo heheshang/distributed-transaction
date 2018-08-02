@@ -22,7 +22,7 @@ public enum FundInfoTypeEnum {
     /** 描述 */
     private String desc;
 
-    private FundInfoTypeEnum(String desc) {
+    FundInfoTypeEnum(String desc) {
         this.desc = desc;
     }
 

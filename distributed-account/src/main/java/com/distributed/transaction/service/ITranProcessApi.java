@@ -20,6 +20,6 @@ public interface ITranProcessApi<P extends BaseParam, M extends BaseMessage> {
      * @param req
      * @return
      */
-    public AccountResT<M> handle(AccountReqT<P> req);
+    AccountResT<M> handle(AccountReqT<P> req);
 
 }

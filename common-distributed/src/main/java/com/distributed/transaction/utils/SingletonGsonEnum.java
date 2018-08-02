@@ -17,7 +17,7 @@ public enum SingletonGsonEnum {
 
     private Gson gson = null;
 
-    private SingletonGsonEnum() {
+    SingletonGsonEnum() {
 
         gson = new Gson();
     }

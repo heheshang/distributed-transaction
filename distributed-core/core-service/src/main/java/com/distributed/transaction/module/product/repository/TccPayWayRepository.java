@@ -21,5 +21,5 @@ public interface TccPayWayRepository extends BaseRepository<TccPayWayEntity, Str
      * @return
      */
     @Query("select t from TccPayWayEntity t where t.payProductCode=:payProductCode and t.payWayCode=:payWayCode and t.payTypeCode=:payTypeCode and t.status='ACTIVE'")
-    public TccPayWayEntity getByPayWayTypeCode(@Param("payProductCode") String payProductCode, @Param("payWayCode") String payWayCode, @Param("payTypeCode") String payTypeCode);
+    TccPayWayEntity getByPayWayTypeCode(@Param("payProductCode") String payProductCode, @Param("payWayCode") String payWayCode, @Param("payTypeCode") String payTypeCode);
 }

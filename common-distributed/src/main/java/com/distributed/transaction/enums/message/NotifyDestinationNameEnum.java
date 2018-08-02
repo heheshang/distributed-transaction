@@ -32,7 +32,7 @@ public enum NotifyDestinationNameEnum {
 	/** 描述 */
 	private String desc;
 
-	private NotifyDestinationNameEnum(String desc) {
+	NotifyDestinationNameEnum(String desc) {
 		this.desc = desc;
 	}
 

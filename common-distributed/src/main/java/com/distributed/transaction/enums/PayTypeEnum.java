@@ -43,7 +43,7 @@ public enum PayTypeEnum {
      */
     private String desc;
 
-    private PayTypeEnum(String way, String desc) {
+    PayTypeEnum(String way, String desc) {
 
         this.desc = desc;
         this.way = way;

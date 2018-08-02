@@ -25,7 +25,7 @@ public enum TrxTypeEnum {
 	/** 描述 */
 	private String desc;
 
-	private TrxTypeEnum(String desc) {
+	TrxTypeEnum(String desc) {
 		this.desc = desc;
 	}
 

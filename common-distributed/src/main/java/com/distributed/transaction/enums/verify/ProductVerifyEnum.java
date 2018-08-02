@@ -23,5 +23,5 @@ public enum ProductVerifyEnum {
     /**
      * 风控
      */
-    RISK;
+    RISK
 }
