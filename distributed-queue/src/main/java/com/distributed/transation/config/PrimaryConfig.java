@@ -1,9 +1,7 @@
-package com.distributed.transaction.config;
+package com.distributed.transation.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -15,11 +13,8 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Map;
-
 
 
 /**
@@ -35,7 +30,6 @@ import java.util.Map;
         transactionManagerRef = "transactionManagerPrimary", //配置 事物管理器  transactionManager
         basePackages = {"com.distributed.transaction.module.message.repository"}//设置dao（repo）所在位置
 )
-
 public class PrimaryConfig {
 
     @Autowired
@@ -85,18 +79,6 @@ public class PrimaryConfig {
     private Map<String, String> getVendorProperties(DataSource dataSource) {
         return jpaProperties.getHibernateProperties(dataSource);
     }
-    /**
-     * 本地查询或者取得序列号执行存储过程使用
-     * @param builder
-     * @return
-     */
-    @Bean(name = "entityManagerPrimary")
-    @Primary
-    public EntityManager entityManagerPrimary(EntityManagerFactoryBuilder builder) {
 
-        EntityManagerFactory entityManagerFactory = entityManagerFactoryPrimary(builder).getNativeEntityManagerFactory();
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        return entityManager;
-    }
 
 }

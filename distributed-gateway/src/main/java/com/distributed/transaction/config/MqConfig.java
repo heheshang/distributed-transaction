@@ -132,7 +132,7 @@ public class MqConfig {
     /**
      * 定义一个消息监听器连接工厂，这里定义的是点对点模式的监听器连接工厂
      */
-    @Bean(name = "notifyBankJmsQueueListener")
+    @Bean(name = "bankJmsQueueListener")
     public DefaultJmsListenerContainerFactory jmsQueueListenerContainerFactory(ActiveMQConnectionFactory connectionFactory) {
 
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();

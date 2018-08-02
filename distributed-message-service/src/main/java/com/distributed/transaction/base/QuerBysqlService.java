@@ -2,8 +2,10 @@ package com.distributed.transaction.base;
 
 import com.distributed.transaction.DatabaseType;
 import com.distributed.transaction.annotations.DS;
-import com.distributed.transaction.entity.m.TransactionMessage;
-import com.distributed.transaction.base.test1.TransactionMessageRepository;
+import com.distributed.transaction.enums.message.MessageStatusEnum;
+import com.distributed.transaction.module.message.domain.TransactionMessageEntity;
+import com.distributed.transaction.module.message.repository.TransactionMessageRepository;
+import com.distributed.transaction.module.message.vo.TransactionMessage;
 import com.distributed.transaction.tran.TransactionMessageVo;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +31,7 @@ public class QuerBysqlService {
     @Transactional
     public TransactionMessageVo save(TransactionMessageVo vo) {
 
-        TransactionMessage message = mapper.map(vo, TransactionMessage.class);
+        TransactionMessageEntity message = mapper.map(vo, TransactionMessageEntity.class);
         transactionMessageRepository.save(message);
 
         return mapper.map(transactionMessageRepository.save(message), TransactionMessageVo.class);
@@ -39,9 +41,9 @@ public class QuerBysqlService {
     @Transactional
     public TransactionMessageVo update(String id) {
 
-        TransactionMessage message = transactionMessageRepository.findOne(id);
+        TransactionMessageEntity message = transactionMessageRepository.findOne(id);
 
-        message.setStatus("2222222222222111");
+        message.setStatus(MessageStatusEnum.WAITING_CONFIRM);
         message.setCreater("xiaozhang");
 //        transactionMessageRepository.save(message);
         return mapper.map(message, TransactionMessageVo.class);

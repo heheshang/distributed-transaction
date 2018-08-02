@@ -1,4 +1,4 @@
-package com.distributed.transaction;
+package com.distributed.transation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,14 +8,14 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableDiscoveryClient
 @EnableScheduling
-@EnableFeignClients(basePackages = {"com.distributed.transaction.gateway","com.distributed.transaction.trade"})
+@EnableDiscoveryClient
+@EnableFeignClients
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-public class DistributedGatewayApplication {
+public class DistributedQueueApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(DistributedGatewayApplication.class, args);
+        SpringApplication.run(DistributedQueueApplication.class, args);
     }
 }

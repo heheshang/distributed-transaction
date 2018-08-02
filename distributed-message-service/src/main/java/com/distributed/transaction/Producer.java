@@ -1,3 +1,4 @@
+/*
 package com.distributed.transaction;
 
 import com.distributed.transaction.enums.message.NotifyDestinationNameEnum;
@@ -17,9 +18,11 @@ import javax.jms.Session;
 import javax.jms.Topic;
 
 
+*/
 /**
  *
- */
+ *//*
+
 @Component
 @EnableScheduling
 @Log4j2
@@ -31,8 +34,10 @@ public class Producer {
     @Autowired
     private Queue queue;
 
- /*   @Autowired
-    private Topic topic;*/
+ */
+/*   @Autowired
+    private Topic topic;*//*
+
 
     private static int count = 0;
 //
@@ -60,11 +65,14 @@ public class Producer {
 
     }
 
- /*   private void sendMessage(final String message){
+ */
+/*   private void sendMessage(final String message){
 
         log.info("{} " ,jmsTemplate.getDeliveryMode());
 
         jmsTemplate.convertAndSend("queue1",message);
 
-    }*/
+    }*//*
+
 }
+*/

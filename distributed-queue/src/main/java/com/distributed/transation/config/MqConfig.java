@@ -1,9 +1,8 @@
-package com.distributed.transaction.config;
+package com.distributed.transation.config;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.RedeliveryPolicy;
 import org.apache.activemq.command.ActiveMQQueue;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
@@ -36,12 +35,7 @@ public class MqConfig {
         return new ActiveMQQueue(BANK_NOTIFY.name());
     }
 
-  /*  @Bean
-    public Topic topic() {
-        //注意:是temp 还是非temp
-        return new ActiveMQTopic();
-    }
-*/
+
     @Bean
     public RedeliveryPolicy redeliveryPolicy() {
 
@@ -133,7 +127,7 @@ public class MqConfig {
     /**
      * 定义一个消息监听器连接工厂，这里定义的是点对点模式的监听器连接工厂
      */
-    @Bean(name = "notifyBankJmsQueueListener")
+    @Bean(name = "bankQueueJmsListener")
     public DefaultJmsListenerContainerFactory jmsQueueListenerContainerFactory(ActiveMQConnectionFactory connectionFactory) {
 
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();

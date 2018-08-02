@@ -2,22 +2,12 @@ package com.distributed.transaction;
 
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -25,7 +15,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @EnableDiscoveryClient
-@ComponentScan(basePackages = {"com.distributed.transaction"})
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @SpringBootApplication
 @Log4j2

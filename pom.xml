@@ -26,6 +26,7 @@
         <module>distributed-trade</module>
         <module>distributed-shop</module>
         <module>distributed-registry</module>
+        <module>distributed-queue</module>
     </modules>
 
     <properties>
