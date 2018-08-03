@@ -30,6 +30,7 @@ public class BankJmsQueueListenerService {
     private BankMessageService bankMessageService;
 
 
+
     @JmsListener(destination = "BANK_NOTIFY", containerFactory = "bankQueueJmsListener")
     public synchronized void reciveBankMessage(final TextMessage message, Session session) throws JMSException {
 
@@ -44,7 +45,6 @@ public class BankJmsQueueListenerService {
             task.setBankMessageService(bankMessageService);
 
             threadPool.execute(task);
-
 
             log.info("BANK_NOTIFY:" + message.getText());
 

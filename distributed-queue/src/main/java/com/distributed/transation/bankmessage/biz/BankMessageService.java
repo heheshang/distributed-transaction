@@ -58,9 +58,8 @@ public class BankMessageService {
         //调用 trade 服务完成交易
         tradeRechargeTransApi.bankMessageHandle(tradeReq);
 
-        TransactionMessageEntity entity = transactionMessageRepository.getByMessageId(messageId);
+        transactionMessageRepository.deleteByMessageId(messageId);
 
-        entity.setField2("测试");
     }
 
 }
