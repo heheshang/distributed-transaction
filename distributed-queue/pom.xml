@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>distributed-transation</artifactId>
-        <groupId>com.distributed.transation</groupId>
+        <artifactId>distributed-transaction</artifactId>
+        <groupId>com.distributed.transaction</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.distributed.transation</groupId>
+    <groupId>com.distributed.transaction.queue</groupId>
     <artifactId>distributed-queue</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -97,7 +97,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.distributed.transaction</groupId>
+            <groupId>com.distributed.transaction.api</groupId>
             <artifactId>distributed-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

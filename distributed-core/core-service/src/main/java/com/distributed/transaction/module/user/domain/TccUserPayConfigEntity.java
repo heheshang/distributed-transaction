@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -20,7 +21,7 @@ import java.util.Objects;
 @Table(name = "tcc_user_pay_config", catalog = "")
 @DynamicUpdate
 @DynamicInsert
-public class TccUserPayConfigEntity {
+public class TccUserPayConfigEntity implements Serializable {
 
     private String id;
 

@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>distributed-transation</artifactId>
-        <groupId>com.distributed.transation</groupId>
+        <artifactId>distributed-transaction</artifactId>
+        <groupId>com.distributed.transaction</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
 
-    <groupId>com.distributed.transaction</groupId>
+    <groupId>com.distributed.transaction.trade</groupId>
     <artifactId>distributed-trade</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -35,7 +35,7 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>com.distributed.transaction</groupId>
+            <groupId>com.distributed.transaction.common</groupId>
             <artifactId>common-distributed</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -96,7 +96,7 @@
             <version>3.3.6</version>
         </dependency>
         <dependency>
-            <groupId>com.distributed.transaction</groupId>
+            <groupId>com.distributed.transaction.api</groupId>
             <artifactId>distributed-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

@@ -13,13 +13,19 @@ import java.util.Date;
 @Data
 public class BaseParam implements Serializable {
 
-    //交易时间
+    /**
+     * 交易时间
+     */
     private Date txnTm;
 
-    //网关流水号
+    /**
+     * 支付流水号
+     */
     private String transSeqNo;
 
-    //平台ID
+    /**
+     * 平台支付秘钥
+     */
     private String payKey;
 
     /**

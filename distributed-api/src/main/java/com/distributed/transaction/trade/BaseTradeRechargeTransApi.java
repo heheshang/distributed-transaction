@@ -2,6 +2,8 @@ package com.distributed.transaction.trade;
 
 import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
+import com.distributed.transaction.trade.api.banknotify.BankNotifyMessage;
+import com.distributed.transaction.trade.api.banknotify.BankNotifyParam;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
 import org.springframework.cloud.netflix.feign.FeignClient;
@@ -26,5 +28,14 @@ public interface BaseTradeRechargeTransApi {
      */
     @RequestMapping(value = "/trade/recharge", method = RequestMethod.POST)
     TradeRes<RechargeMessage> recharge(TradeReq<RechargeParam> req);
+
+    /**
+     * 处理银行通知接口
+     *
+     * @param tradeReq
+     * @return
+     */
+    @RequestMapping(value = "/bank/notify/", method = RequestMethod.POST)
+    TradeRes<BankNotifyMessage> bankMessageHandle(TradeReq<BankNotifyParam> tradeReq);
 
 }

@@ -4,6 +4,7 @@ import com.distributed.transaction.gateway.api.GateWayReq;
 import com.distributed.transaction.gateway.api.GateWayRes;
 import com.distributed.transaction.service.core.AbstractTccGateWayRecord;
 import com.distributed.transaction.service.core.ITccGateWayRecordService;
+import com.google.common.collect.Maps;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
@@ -21,12 +22,17 @@ public class TestNotifyGateWayServiceImpl extends AbstractTccGateWayRecord imple
     @Override
     public GateWayRes handle(GateWayReq req) {
 
-        int result = super.saveMessage((Map<String, String>) req.getT());
+        Map<String, String> bankNotify = Maps.newHashMap();
+
+        bankNotify.putAll((Map<? extends String, ? extends String>) req.getT());
+
+        bankNotify.put("payWayCode", req.getPayWayEnum().name());
+
+        int result = super.saveMessage(bankNotify);
 
         GateWayRes gateWayRes = new GateWayRes();
 
-        gateWayRes.setSuccess(true);
-
+        gateWayRes.setSuccess(result == 1);
 
         return gateWayRes;
     }

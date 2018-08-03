@@ -20,6 +20,7 @@ import java.util.Date;
 @ToString
 public class RechargeParam extends BaseParam {
 
+
     /**
      * 商品名称
      **/

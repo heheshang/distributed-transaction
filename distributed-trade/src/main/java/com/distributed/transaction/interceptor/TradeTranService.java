@@ -71,7 +71,7 @@ public class TradeTranService<P extends BaseParam> {
 
         RechargeParam param = (RechargeParam) p;
 
-        TccUserPayConfigEntity userPayConfig = tccUserPayConfigRepository.getByPayKey(p.getPayKey());
+        TccUserPayConfigEntity userPayConfig = tccUserPayConfigRepository.getByPayKey(param.getPayKey());
 
         if (userPayConfig == null) {
             throw new DistributedException("2222", "33333");

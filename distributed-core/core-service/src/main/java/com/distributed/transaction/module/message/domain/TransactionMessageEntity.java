@@ -20,7 +20,6 @@ import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -155,9 +154,5 @@ public class TransactionMessageEntity implements Serializable {
     @Column(name = "field3", length = 200)
     private String field3;
 
-    @PreUpdate
-    private void preUpdate() {
 
-        this.createTime = new Date();
-    }
 }

@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -15,7 +16,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "tcc_pay_way", schema = "pay_product", catalog = "")
-public class TccPayWayEntity {
+public class TccPayWayEntity implements Serializable {
 
     private String id;
 

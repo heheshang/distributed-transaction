@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
@@ -29,7 +30,7 @@ import java.util.Objects;
 @SelectBeforeUpdate
 @DynamicInsert
 @DynamicUpdate
-public class TradePaymentRecordEntity {
+public class TradePaymentRecordEntity implements Serializable {
 
     private String id;
 

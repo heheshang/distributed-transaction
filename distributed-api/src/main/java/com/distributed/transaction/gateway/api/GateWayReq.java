@@ -1,5 +1,6 @@
 package com.distributed.transaction.gateway.api;
 
+import com.distributed.transaction.enums.PayWayEnum;
 import lombok.Data;
 
 /**
@@ -11,4 +12,6 @@ import lombok.Data;
 public class GateWayReq<T> {
 
     private T t;
+
+    private PayWayEnum payWayEnum;
 }

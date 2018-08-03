@@ -68,11 +68,15 @@ public abstract class AbstractTccGateWayRecord {
     @Transactional(rollbackFor = Exception.class)
     public int saveMessage(Map<String, String> notifyMap) {
 
+
         TransactionMessage message = new TransactionMessage();
 
         String messageId = UUID.randomUUID().toString().replace("-", "");
 
+        notifyMap.put("messageId", messageId);
+
         String messageBody = SingletonGsonEnum.instences.getGson().toJson(notifyMap);
+
 
         message.setEditor("gateway");
         message.setCreater("gateway");

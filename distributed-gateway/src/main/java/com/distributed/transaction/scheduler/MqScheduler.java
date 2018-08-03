@@ -1,3 +1,4 @@
+/*
 package com.distributed.transaction.scheduler;
 
 import com.distributed.transaction.gateway.api.GateWayReq;
@@ -10,11 +11,13 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
+*/
 /**
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-08-01-下午 5:29
- */
+ *//*
+
 @EnableScheduling
 @Component
 public class MqScheduler {
@@ -39,3 +42,4 @@ public class MqScheduler {
         testNotifyGateWayService.handle(gateWayReq);
     }
 }
+*/

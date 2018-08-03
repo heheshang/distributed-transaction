@@ -12,4 +12,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TransactionMessageRepository extends BaseRepository<TransactionMessageEntity, String> {
 
+    /**
+     * @param messageId
+     */
+    void deleteByMessageId(String messageId);
+
+    /**
+     * @param messageId
+     * @return
+     */
+    TransactionMessageEntity getByMessageId(String messageId);
+
 }

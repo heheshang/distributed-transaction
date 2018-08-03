@@ -13,6 +13,8 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Map;
 
@@ -80,5 +82,17 @@ public class PrimaryConfig {
         return jpaProperties.getHibernateProperties(dataSource);
     }
 
+    /**
+     * 本地查询或者取得序列号执行存储过程使用
+     * @param builder
+     * @return
+     */
+    @Bean(name = "entityManagerPrimary")
+    @Primary
+    public EntityManager entityManagerPrimary(EntityManagerFactoryBuilder builder) {
 
+        EntityManagerFactory entityManagerFactory = entityManagerFactoryPrimary(builder).getNativeEntityManagerFactory();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        return entityManager;
+    }
 }

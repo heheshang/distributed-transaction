@@ -12,7 +12,9 @@ import java.util.List;
  **/
 
 public enum SingletonGsonEnum {
-
+    /**
+     * 单例
+     */
     instences;
 
     private Gson gson = null;

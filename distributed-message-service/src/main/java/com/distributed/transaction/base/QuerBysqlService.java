@@ -5,7 +5,6 @@ import com.distributed.transaction.annotations.DS;
 import com.distributed.transaction.enums.message.MessageStatusEnum;
 import com.distributed.transaction.module.message.domain.TransactionMessageEntity;
 import com.distributed.transaction.module.message.repository.TransactionMessageRepository;
-import com.distributed.transaction.module.message.vo.TransactionMessage;
 import com.distributed.transaction.tran.TransactionMessageVo;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;

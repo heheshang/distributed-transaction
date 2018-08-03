@@ -1,6 +1,7 @@
 package com.distributed.transaction.controller;
 
 
+import com.distributed.transaction.enums.PayWayEnum;
 import com.distributed.transaction.gateway.api.GateWayReq;
 import com.distributed.transaction.gateway.api.GateWayRes;
 import com.distributed.transaction.service.core.ITccGateWayRecordService;
@@ -29,17 +30,12 @@ public class GatewayTestNotifyController {
     @Autowired
     DozerBeanMapper mapper;
 
-    @RequestMapping(value = "/notify/{payWayCode}", method = RequestMethod.POST )
+    @RequestMapping(value = "/notify/{payWayCode}", method = RequestMethod.POST)
     public GateWayRes pay(@PathVariable("payWayCode") String payWayCode, @RequestBody GateWayReq req) {
 
-        GateWayRes res = new GateWayRes();
+        req.setPayWayEnum(PayWayEnum.getEnum(payWayCode));
 
-      /*  TccGatewayRecordEntity vo = mapper.map(req.getT(), TccGatewayRecordEntity.class);
+        return testNotifyGateWayService.handle(req);
 
-        res.setMessage(testPayGateWayService.handle(vo));*/
-
-        res = testNotifyGateWayService.handle(req);
-
-        return res;
     }
 }
