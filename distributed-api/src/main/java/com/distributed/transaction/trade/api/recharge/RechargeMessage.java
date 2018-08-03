@@ -5,6 +5,7 @@ import com.distributed.transaction.BaseMessage;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -14,7 +15,7 @@ import java.math.BigDecimal;
  */
 @Data
 @ToString
-public class RechargeMessage extends BaseMessage {
+public class RechargeMessage extends BaseMessage implements Serializable {
 
 
     /**

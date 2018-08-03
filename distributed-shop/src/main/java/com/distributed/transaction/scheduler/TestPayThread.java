@@ -172,6 +172,7 @@ public class TestPayThread implements Runnable {
         notifyMap.put("out_trade_no", bankOrderNo);
         notifyMap.put("transaction_id", timeEnd);
         notifyMap.put("payWayCode", "TEST_PAY_HTTP_CLIENT");
+        notifyMap.put("payTypeCode", "TEST_PAY_HTTP_CLIENT");
 
         return notifyMap;
     }

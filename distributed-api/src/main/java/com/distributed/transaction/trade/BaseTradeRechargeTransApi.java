@@ -35,7 +35,7 @@ public interface BaseTradeRechargeTransApi {
      * @param tradeReq
      * @return
      */
-    @RequestMapping(value = "/bank/notify/", method = RequestMethod.POST)
+    @RequestMapping(value = "/bank/message", method = RequestMethod.POST)
     TradeRes<BankNotifyMessage> bankMessageHandle(TradeReq<BankNotifyParam> tradeReq);
 
 }

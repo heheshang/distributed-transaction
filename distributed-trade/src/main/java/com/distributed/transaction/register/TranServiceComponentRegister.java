@@ -3,11 +3,12 @@ package com.distributed.transaction.register;
 import com.distributed.transaction.annotations.VerifyProd;
 import com.distributed.transaction.annotations.VerifyProdType;
 import com.distributed.transaction.annotations.VerifyUser;
+import com.distributed.transaction.enums.PayTypeEnum;
 import com.distributed.transaction.service.ITranService;
+import com.distributed.transaction.service.banknotify.TestBankNotifyServiceImpl;
 import com.distributed.transaction.service.recharge.AliPayTranServiceImpl;
 import com.distributed.transaction.service.recharge.TestPayTranServiceImpl;
 import com.distributed.transaction.service.recharge.WeChartPayTranServiceImpl;
-import com.distributed.transaction.enums.PayTypeEnum;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -32,49 +33,10 @@ import java.util.concurrent.ExecutionException;
 
 @Component
 @Log4j2
-public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
+public class TranServiceComponentRegister {
 
 
-//    private final static Map<TransTypeEnum, ITranService> TRANS_MESSAGE_MAP = Maps.newHashMap();
-
-
-   /* @Override
-    protected void initApplicationContext(ApplicationContext context) throws BeansException {
-
-        super.initApplicationContext(context);
-
-        Map<String, Object> taskBeanMap = context.getBeansWithAnnotation(TradeTransType.class);
-
-        taskBeanMap.keySet().forEach(beanName -> {
-
-            Object bean = taskBeanMap.get(beanName);
-
-            Class clazz = bean.getClass();
-
-            if (bean instanceof ITranService && clazz.getAnnotation(TradeTransType.class) != null) {
-
-                TradeTransType transType = (TradeTransType) clazz.getAnnotation(TradeTransType.class);
-
-
-                TransTypeEnum tranType = transType.value();
-
-
-                if (TRANS_MESSAGE_MAP.containsKey(tranType)) {
-                    log.error("tranType  has Exits. tranType=[{}]", tranType);
-                    throw new RuntimeException("transCode and optType  has Exits. ");
-                }
-
-                TRANS_MESSAGE_MAP.put(tranType, (ITranService) taskBeanMap.get(beanName));
-
-                log.info("TranServiceComponentRegister component Register. tranType=[{}]", tranType);
-
-            }
-
-        });
-    }*/
-
-
-    private static Map<String, Class<? extends ITranService>> servicesMapping = new ConcurrentHashMap<String, Class<? extends ITranService>>() {
+    private static Map<String, Class<? extends ITranService>> gatewayTradeTransServicesMapping = new ConcurrentHashMap<String, Class<? extends ITranService>>() {
         private static final long serialVersionUID = -8076694302460548904L;
 
         {
@@ -85,10 +47,30 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
         }
     };
 
-    public ITranService getTransMessage(PayTypeEnum payTypeEnum) {
+    private static Map<String, Class<? extends ITranService>> bankNotifyTransServicesMapping = new ConcurrentHashMap<String, Class<? extends ITranService>>() {
+        private static final long serialVersionUID = -8076694302460548904L;
+
+        {
+
+            put(PayTypeEnum.TEST_PAY_HTTP_CLIENT.getWay(), TestBankNotifyServiceImpl.class);
+
+        }
+    };
+
+    public ITranService getBankNotifyTransServiceService(PayTypeEnum payTypeEnum) {
 
         try {
-            return tranServiceCache.get(payTypeEnum.getWay());
+            return bankNotifyTransServiceCache.get(payTypeEnum.getWay());
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public ITranService getGatewayTradeTransService(PayTypeEnum payTypeEnum) {
+
+        try {
+            return gatewayTradeTransServiceCache.get(payTypeEnum.getWay());
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
         }
@@ -97,27 +79,52 @@ public class TranServiceComponentRegister /*extends ApplicationObjectSupport*/ {
     @Autowired
     private ApplicationContext applicationContext;
 
-    private LoadingCache<String, ITranService> tranServiceCache = CacheBuilder
+    private LoadingCache<String, ITranService> gatewayTradeTransServiceCache = CacheBuilder
             .newBuilder()
             .maximumSize(20)
             .build(new CacheLoader<String, ITranService>() {
                 @Override
                 public ITranService load(String key) {
 
-                    PayTypeEnum payTypeEnum= PayTypeEnum.getEnum(key);
+                    PayTypeEnum payTypeEnum = PayTypeEnum.getEnum(key);
 
-                    log.info("加载注册bean=[{}]",payTypeEnum);
+                    log.info("加载注册gatewayTradeTransService bean=[{}]", payTypeEnum);
 
-                    if (payTypeEnum==null){
+                    if (payTypeEnum == null) {
                         return null;
                     }
 
-                    if ( !servicesMapping.containsKey(payTypeEnum.getWay())) {
+                    if (!gatewayTradeTransServicesMapping.containsKey(payTypeEnum.getWay())) {
                         return null;
                     }
-                    return applicationContext.getBean(servicesMapping.get(key));
+                    return applicationContext.getBean(gatewayTradeTransServicesMapping.get(key));
                 }
             });
+
+
+
+    private LoadingCache<String, ITranService> bankNotifyTransServiceCache = CacheBuilder
+            .newBuilder()
+            .maximumSize(20)
+            .build(new CacheLoader<String, ITranService>() {
+                @Override
+                public ITranService load(String key) {
+
+                    PayTypeEnum payTypeEnum = PayTypeEnum.getEnum(key);
+
+                    log.info("加载注册bankNotifyTransService bean=[{}]", payTypeEnum);
+
+                    if (payTypeEnum == null) {
+                        return null;
+                    }
+
+                    if (!bankNotifyTransServicesMapping.containsKey(payTypeEnum.getWay())) {
+                        return null;
+                    }
+                    return applicationContext.getBean(bankNotifyTransServicesMapping.get(key));
+                }
+            });
+
 
     private LoadingCache<Method, VerifyUser> verifyUserAnnoCache = CacheBuilder
             .newBuilder()

@@ -132,7 +132,6 @@ public class TradeTranService<P extends BaseParam> {
 
             TradePaymentOrderEntity tradePaymentOrderEntity = mapper.map(paymentOrder, TradePaymentOrderEntity.class);
 
-
             tradeOrder = tradePaymentOrderRepository.save(tradePaymentOrderEntity);
 
         } else {
@@ -141,7 +140,7 @@ public class TradeTranService<P extends BaseParam> {
             if (tradeOrder.getOrderAmount().compareTo(paymentOrder.getOrderAmount()) != 0) {
                 throw new TradeBizException(TradeBizException.TRADE_ORDER_ERROR, "错误的订单");
             }
-
+            //订单交易状态为成功
             if (TradeStatusEnum.SUCCESS.name().equals(tradeOrder.getStatus())) {
                 throw new TradeBizException(TradeBizException.TRADE_ORDER_ERROR, "订单已支付成功,无需重复支付");
             }
@@ -226,6 +225,7 @@ public class TradeTranService<P extends BaseParam> {
         recordVo.setStatus(TradeStatusEnum.WAITING_PAYMENT.name());
 
         TradePaymentRecordEntity entity = tradePaymentRecordRepository.save(mapper.map(recordVo, TradePaymentRecordEntity.class));
+
         log.info("sealTccTradePaymentRecord 封装交易记录结束");
 
         return mapper.map(entity, TradePaymentRecord.class);

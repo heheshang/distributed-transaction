@@ -6,6 +6,7 @@ import com.distributed.transaction.enums.PublicEnum;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -18,7 +19,7 @@ import java.util.Date;
  */
 @Data
 @ToString
-public class RechargeParam extends BaseParam {
+public class RechargeParam extends BaseParam implements Serializable {
 
 
     /**

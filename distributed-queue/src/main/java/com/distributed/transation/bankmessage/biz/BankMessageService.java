@@ -42,17 +42,21 @@ public class BankMessageService {
 
         String messageId = bankNotifyMap.get("messageId");
 
-        String payWayCode = bankNotifyMap.get("payWayCode");
+        String payTypeCode = bankNotifyMap.get("payTypeCode");
 
         TradeReq tradeReq = new TradeReq();
 
-        BankNotifyParam bankNotify = new BankNotifyParam(bankNotifyMap);
+        BankNotifyParam bankNotify = new BankNotifyParam();
 
-        bankNotify.setPayWayCode(payWayCode);
+        bankNotify.setPayWayCode(payTypeCode);
+
+        bankNotify.setPayTypeCode(payTypeCode);
+
+        bankNotify.getNotifyMap().putAll(bankNotifyMap);
 
         tradeReq.setParams(bankNotify);
         //调用 trade 服务完成交易
-//        tradeRechargeTransApi.bankMessageHandle(tradeReq);
+        tradeRechargeTransApi.bankMessageHandle(tradeReq);
 
         TransactionMessageEntity entity = transactionMessageRepository.getByMessageId(messageId);
 

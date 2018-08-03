@@ -30,7 +30,7 @@ public class TranService {
 
         gateWayReq.setT(param);
 
-        return this.baseGatewatRechargeTransApi.bankNotify(param.get("payWayCode"), gateWayReq);
+        return this.baseGatewatRechargeTransApi.bankNotify(param.get("payTypeCode"), gateWayReq);
     }
 
 }

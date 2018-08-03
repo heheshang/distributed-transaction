@@ -1,5 +1,6 @@
 package com.distributed.transaction.service;
 
+import com.distributed.transaction.enums.trade.TradeRequestTypeEnum;
 import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
 
@@ -10,7 +11,12 @@ import com.distributed.transaction.trade.api.TradeRes;
  */
 public interface IBaseService {
 
-    TradeRes process(TradeReq tradeReq);
+    /**
+     * @param requestTypeEnum 请求类型
+     * @param tradeReq 请求对象
+     * @return
+     */
+    TradeRes process(TradeRequestTypeEnum requestTypeEnum, TradeReq tradeReq);
 
 
 }

@@ -4,8 +4,8 @@ import com.distributed.transaction.enums.trade.TradeRequestTypeEnum;
 import com.distributed.transaction.service.IBaseService;
 import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
-import com.distributed.transaction.trade.api.recharge.RechargeMessage;
-import com.distributed.transaction.trade.api.recharge.RechargeParam;
+import com.distributed.transaction.trade.api.banknotify.BankNotifyMessage;
+import com.distributed.transaction.trade.api.banknotify.BankNotifyParam;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,25 +14,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 交易控制器
- *
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
- * @date 2018-07-24-下午 4:24
+ * @date 2018-08-03-下午 2:35
  */
 @RestController
-@RequestMapping("/trade")
+@RequestMapping("/bank")
 @Log4j2
-public class TradeApiController {
+public class BankMessageApiController {
 
     @Autowired
     private IBaseService baseService;
 
-    @PostMapping("/recharge")
-    public TradeRes<RechargeMessage> recharge(@RequestBody TradeReq<RechargeParam> req) {
+    @PostMapping("/message")
+    public TradeRes<BankNotifyMessage> handleMessage(@RequestBody TradeReq<BankNotifyParam> tradeReq) {
 
-        log.info("交易业务处理开始[{}]", req);
+        log.info("银行异步通知业务处理开始[{}]", tradeReq);
 
-        return baseService.process(TradeRequestTypeEnum.GATEWAY_TRADE, req);
+        return baseService.process(TradeRequestTypeEnum.BANK_NOTIFY, tradeReq);
     }
 }

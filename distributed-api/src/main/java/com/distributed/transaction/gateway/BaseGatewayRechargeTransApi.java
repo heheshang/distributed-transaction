@@ -31,6 +31,6 @@ public interface BaseGatewayRechargeTransApi {
      * @param req
      * @return
      */
-    @RequestMapping(value = "/gateway/notify/{payWayCode}", method = RequestMethod.POST)
-    GateWayRes bankNotify(@PathVariable("payWayCode") String payWayCode, GateWayReq req);
+    @RequestMapping(value = "/gateway/notify/{payTypeCode}", method = RequestMethod.POST)
+    GateWayRes bankNotify(@PathVariable("payTypeCode") String payTypeCode, GateWayReq req);
 }

@@ -2,7 +2,6 @@ package com.distributed.transaction.trade.api.banknotify;
 
 import com.distributed.transaction.BaseParam;
 import com.google.common.collect.Maps;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 
@@ -17,7 +16,6 @@ import java.util.Map;
  */
 @Data
 @ToString
-@AllArgsConstructor
 public class BankNotifyParam extends BaseParam {
 
     private Map<String, String> notifyMap = Maps.newHashMap();

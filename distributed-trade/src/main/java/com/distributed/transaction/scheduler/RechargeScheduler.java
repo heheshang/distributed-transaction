@@ -1,14 +1,14 @@
 package com.distributed.transaction.scheduler;
 
+import com.distributed.transaction.enums.PayTypeEnum;
+import com.distributed.transaction.enums.PayWayEnum;
+import com.distributed.transaction.enums.trade.TradeRequestTypeEnum;
 import com.distributed.transaction.service.IBaseService;
 import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
-import com.distributed.transaction.enums.PayTypeEnum;
-import com.distributed.transaction.enums.PayWayEnum;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -69,7 +69,7 @@ public class RechargeScheduler {
 
         tradeReq.setParams(param);
 
-        TradeRes res = baseService.process(tradeReq);
+        TradeRes res = baseService.process(TradeRequestTypeEnum.GATEWAY_TRADE, tradeReq);
         log.info("定时任务返回信息为[{}]", res);
     }
 }
