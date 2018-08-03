@@ -21,7 +21,7 @@ import java.util.Map;
 
 /**
 * 将数据源注入到 实体管理器工厂，配置 base、domian 的位置
-* @author ssk www.8win.com Inc.All rights reserved
+* @author ssk www.distributed.com Inc.All rights reserved
 * @date 2018/07/19 下午 1:46
 * @since v1.0
 **/

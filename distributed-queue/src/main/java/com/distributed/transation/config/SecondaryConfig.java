@@ -18,7 +18,7 @@ import java.util.Map;
 
 /**
 *
-* @author ssk www.8win.com Inc.All rights reserved
+* @author ssk www.distributed.com Inc.All rights reserved
 * @date 2018/07/19 下午 1:47
 * @since v1.0
 **/

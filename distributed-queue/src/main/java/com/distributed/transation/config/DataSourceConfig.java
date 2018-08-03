@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 /**
 *
-* @author ssk www.8win.com Inc.All rights reserved
+* @author ssk www.distributed.com Inc.All rights reserved
 * @date 2018/07/19 下午 12:29
 * @since v1.0
 **/

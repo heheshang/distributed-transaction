@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 银行消息处理线程
  *
- * @author ssk www.8win.com Inc.All rights reserved
+ * @author ssk www.distributed.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-08-03-上午 9:44
  */

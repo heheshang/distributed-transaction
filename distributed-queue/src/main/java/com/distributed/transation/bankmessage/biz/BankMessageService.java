@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * 银行通知异步处理业务逻辑
  *
- * @author ssk www.8win.com Inc.All rights reserved
+ * @author ssk www.distributed.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-08-03-上午 10:40
  */

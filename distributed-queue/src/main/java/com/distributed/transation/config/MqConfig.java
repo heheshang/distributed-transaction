@@ -19,7 +19,7 @@ import static com.distributed.transaction.enums.message.NotifyDestinationNameEnu
 /**
  * active mq 配置
  *
- * @author ssk www.8win.com Inc.All rights reserved
+ * @author ssk www.distributed.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-07-04-下午 3:55
  */
