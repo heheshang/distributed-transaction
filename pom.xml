@@ -27,6 +27,7 @@
         <module>distributed-shop</module>
         <module>distributed-registry</module>
         <module>distributed-queue</module>
+        <module>tcc-transaction</module>
     </modules>
 
     <properties>
