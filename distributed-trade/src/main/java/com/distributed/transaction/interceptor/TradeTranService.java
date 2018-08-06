@@ -173,14 +173,16 @@ public class TradeTranService<P extends BaseParam> {
         }
 
         switch (payWayEnum) {
+
             case TEST_PAY_HTTP_CLIENT:
                 recordVo.setBankOrderNo(trxNo);
                 recordVo.setBankReturnMsg("模拟支付");
                 break;
+
             default:
+
                 String bankOrderNo = String.valueOf(entityManagerPrimary.createNativeQuery(" select FUN_SEQ('BANK_ORDER_NO_SEQ')").getSingleResult());
                 recordVo.setBankOrderNo(bankOrderNo);
-
                 break;
         }
 

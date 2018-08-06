@@ -134,6 +134,10 @@ public class TestBankNotifyServiceImpl implements ITranService<BankNotifyParam, 
 
             log.info("保存消息数据 支付成功的商户订单[{}],商户号[{}],银行订单号bankNo=[{}]",tradeRecordEntity.getMerchantOrderNo(),tradeRecordEntity.getMerchantNo(),bankNo);
 
+            //调用支付成功处理方法
+
+
+            //调用消息微服务==>发送消息
 
 
         }else {

@@ -51,6 +51,7 @@ public class TradeTransactionInterceptor {
 
 
             if (verifyUserAnno != null && verifyUserAnno.value() && verifyUserAnno.check().length >= 1) {
+
                 log.info("进行用户权限验证 VerifyUser value=[{}],check=[{}]", verifyUserAnno.value(), verifyUserAnno.check());
 
                 UserVerifyEnum[] verifyEnums = verifyUserAnno.check();

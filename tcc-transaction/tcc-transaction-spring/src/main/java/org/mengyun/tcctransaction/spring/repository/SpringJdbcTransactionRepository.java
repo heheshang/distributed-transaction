@@ -11,10 +11,12 @@ import java.sql.Connection;
  */
 public class SpringJdbcTransactionRepository extends JdbcTransactionRepository {
 
+    @Override
     protected Connection getConnection() {
         return DataSourceUtils.getConnection(this.getDataSource());
     }
 
+    @Override
     protected void releaseConnection(Connection con) {
         DataSourceUtils.releaseConnection(con, this.getDataSource());
     }
