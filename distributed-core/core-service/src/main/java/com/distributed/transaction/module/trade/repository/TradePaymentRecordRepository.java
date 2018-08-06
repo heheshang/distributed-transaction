@@ -12,4 +12,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TradePaymentRecordRepository extends BaseRepository<TradePaymentRecordEntity, String> {
 
+    /**
+     * 根据银行订单号和支付流水号获取交易记录信息
+     * @param bankNo 银行订单号
+     * @param trxNo 支付流水号
+     * @return
+     */
+    TradePaymentRecordEntity getByBankOrderNoAndTrxNo(String bankNo, String trxNo);
 }

@@ -1,4 +1,4 @@
-package com.distributed.transaction.module.bean.request;
+package com.distributed.transaction.base.request;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;

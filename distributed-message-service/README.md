@@ -1,5 +1,5 @@
 
-### go_test1 数据库
+### pay_message1 数据库
 ```sql
 /*
 Navicat MySQL Data Transfer
@@ -7,7 +7,7 @@ Navicat MySQL Data Transfer
 Source Server         : localhost
 Source Server Version : 50722
 Source Host           : localhost:3306
-Source Database       : go_test1
+Source Database       : pay_message1
 
 Target Server Type    : MYSQL
 Target Server Version : 50722

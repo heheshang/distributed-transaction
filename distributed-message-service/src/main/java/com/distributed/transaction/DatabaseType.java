@@ -14,11 +14,11 @@ public enum DatabaseType {
     /**
      *
      */
-    MASTER("go_test"),
+    MASTER("pay_message"),
     /**
      *
      */
-    SLAVE1("go_test1");
+    SLAVE1("pay_message1");
 
 
     public String name;

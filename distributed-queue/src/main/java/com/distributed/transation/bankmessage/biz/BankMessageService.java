@@ -1,6 +1,5 @@
 package com.distributed.transation.bankmessage.biz;
 
-import com.distributed.transaction.module.message.domain.TransactionMessageEntity;
 import com.distributed.transaction.module.message.repository.TransactionMessageRepository;
 import com.distributed.transaction.trade.BaseTradeRechargeTransApi;
 import com.distributed.transaction.trade.api.TradeReq;
@@ -57,7 +56,7 @@ public class BankMessageService {
         tradeReq.setParams(bankNotify);
         //调用 trade 服务完成交易
         tradeRechargeTransApi.bankMessageHandle(tradeReq);
-
+        //删除消息日志信息
         transactionMessageRepository.deleteByMessageId(messageId);
 
     }

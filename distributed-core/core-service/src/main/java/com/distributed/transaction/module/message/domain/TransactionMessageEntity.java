@@ -31,7 +31,6 @@ import java.util.Date;
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-07-05-上午 11:19
- * {@link org.hibernate.annotations.DynamicUpdate} 必须配合{@link org.springframework.transaction.annotation.Transactional} 在方法上使用才可以
  */
 @Entity
 @DynamicInsert

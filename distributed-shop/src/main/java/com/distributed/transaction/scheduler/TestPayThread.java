@@ -71,13 +71,18 @@ public class TestPayThread implements Runnable {
                 String merchantOrderNo = "pt" + Thread.currentThread().getId() + sdf.format(new Date()) + 000 + i;
                 // 构建订单的请求参数
                 TccGatewayRecordVo requestVo = getInitRequestMap(merchantOrderNo, payKey, paySecret);
-                // 请求网关创建订单
 
+                // 请求网关创建订单
                 GateWayReq req = new GateWayReq();
                 req.setT(requestVo);
 
                 GateWayRes res = service.recharge(req);
-                System.out.println(res.toString());
+                log.info("gateway 服务返回消息为:{}", res.toString());
+
+
+                Map<String, String> resmap = (Map<String, String>) res.getMessage();
+
+                String trxNo = resmap.get("trxNo");
 
                 //模拟生成失败，跳出这次循环，继续下次操作。
                 if (res.getMessage() == null || "".equals(res.getMessage().toString())) {
@@ -92,7 +97,7 @@ public class TestPayThread implements Runnable {
                 }
 
                 //模拟构建银行扣款成功结果通知
-                Map<String, String> notifyMap = getNotifyRequestMap(merchantOrderNo);
+                Map<String, String> notifyMap = getNotifyRequestMap(merchantOrderNo, trxNo);
 
                 GateWayRes gateWayRes = service.notify(notifyMap);
 
@@ -163,7 +168,7 @@ public class TestPayThread implements Runnable {
      * @param bankOrderNo
      * @return
      */
-    private static Map<String, String> getNotifyRequestMap(String bankOrderNo) {
+    private static Map<String, String> getNotifyRequestMap(String bankOrderNo, String trxNo) {
 
         Map<String, String> notifyMap = new HashMap<String, String>();
         notifyMap.put("result_code", "SUCCESS");
@@ -173,6 +178,7 @@ public class TestPayThread implements Runnable {
         notifyMap.put("transaction_id", timeEnd);
         notifyMap.put("payWayCode", "TEST_PAY_HTTP_CLIENT");
         notifyMap.put("payTypeCode", "TEST_PAY_HTTP_CLIENT");
+        notifyMap.put("trxNo", trxNo);
 
         return notifyMap;
     }

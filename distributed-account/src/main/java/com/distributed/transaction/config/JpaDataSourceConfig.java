@@ -17,11 +17,11 @@ import javax.sql.DataSource;
 @Configuration
 public class JpaDataSourceConfig {
 
-    @Bean(name = "primaryDataSource")
+    @Bean(name = "accountPrimaryDataSource")
     @Primary
-    @Qualifier("primaryDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.primary")
-    public DataSource primaryDatasource() {
+    @Qualifier("accountPrimaryDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.account")
+    public DataSource accountPrimaryDataSource() {
 
         return DataSourceBuilder.create().build();
     }
@@ -30,15 +30,6 @@ public class JpaDataSourceConfig {
     @Qualifier("secondaryDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.secondary")
     public DataSource secondaryDataSource() {
-
-        return DataSourceBuilder.create().build();
-    }
-
-
-    @Bean(name = "tertiaryDataSource")
-    @Qualifier("tertiaryDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.tertiary")
-    public DataSource tertiaryDataSource() {
 
         return DataSourceBuilder.create().build();
     }

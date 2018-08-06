@@ -25,7 +25,7 @@ import java.util.Map;
 
 
 # 数据库基本配置
-#spring.datasource.url=jdbc:mysql://127.0.0.1:3306/go_test?characterEncoding=utf8&useSSL=false
+#spring.datasource.url=jdbc:mysql://127.0.0.1:3306/pay_message?characterEncoding=utf8&useSSL=false
 #spring.datasource.username=root
 #spring.datasource.password=123456
 #spring.datasource.driver-class-name=com.mysql.jdbc.Driver

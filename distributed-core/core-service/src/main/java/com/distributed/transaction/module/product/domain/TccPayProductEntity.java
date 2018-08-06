@@ -1,5 +1,6 @@
 package com.distributed.transaction.module.product.domain;
 
+import com.distributed.transaction.annotations.VerifyUser;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -8,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -77,6 +79,7 @@ public class TccPayProductEntity implements Serializable {
 
     @Basic
     @Column(name = "version")
+    @Version
     public long getVersion() {
 
         return version;

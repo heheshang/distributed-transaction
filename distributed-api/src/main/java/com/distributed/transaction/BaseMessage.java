@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @date 2018-07-04-上午 10:42
  */
 @Data
-public  class BaseMessage implements Serializable {
+public class BaseMessage implements Serializable {
 
 
     private String errorReason;

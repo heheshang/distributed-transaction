@@ -42,6 +42,12 @@ public class CoreTranServiceImpl extends BaseTranService {
 
             TradeRes tradeRes = new TradeRes();
 
+            tradeRes.setSuccess(Boolean.TRUE);
+
+            tradeRes.setProcCode("0000");
+
+            tradeRes.setProcDesc("交易处理成功");
+
             BaseMessage message = service.handle(tradeReq.getParams());
 
             tradeRes.setMessage(message);

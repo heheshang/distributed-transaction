@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -152,6 +153,7 @@ public class TradePaymentRecordEntity implements Serializable {
 
     @Basic
     @Column(name = "version")
+    @Version
     public int getVersion() {
 
         return version;

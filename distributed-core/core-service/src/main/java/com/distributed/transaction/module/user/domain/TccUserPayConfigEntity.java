@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -93,6 +94,7 @@ public class TccUserPayConfigEntity implements Serializable {
 
     @Basic
     @Column(name = "version")
+    @Version
     public long getVersion() {
 
         return version;
