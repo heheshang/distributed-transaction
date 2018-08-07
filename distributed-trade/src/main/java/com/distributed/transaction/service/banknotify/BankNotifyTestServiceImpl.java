@@ -10,7 +10,8 @@ import com.distributed.transaction.module.trade.domain.TradePaymentRecordEntity;
 import com.distributed.transaction.module.trade.repository.TradePaymentRecordRepository;
 import com.distributed.transaction.module.trade.vo.TradePaymentRecord;
 import com.distributed.transaction.service.ITranService;
-import com.distributed.transaction.service.message.TransactionMessageService;
+import com.distributed.transaction.service.message.AccountingTransactionMessageServiceImpl;
+import com.distributed.transaction.service.trade.TradePaymentBizServiceImpl;
 import com.distributed.transaction.trade.api.banknotify.BankNotifyMessage;
 import com.distributed.transaction.trade.api.banknotify.BankNotifyParam;
 import com.distributed.transaction.utils.DateUtils;
@@ -30,7 +31,7 @@ import java.util.Date;
  */
 @Component
 @Log4j2
-public class TestBankNotifyServiceImpl implements ITranService<BankNotifyParam, BankNotifyMessage> {
+public class BankNotifyTestServiceImpl implements ITranService<BankNotifyParam, BankNotifyMessage> {
 
     @Autowired
     private DozerBeanMapper mapper;
@@ -39,10 +40,13 @@ public class TestBankNotifyServiceImpl implements ITranService<BankNotifyParam, 
     private TradePaymentRecordRepository tradePaymentRecordRepository;
 
     @Autowired
-    private TransactionMessageService transactionMessageService;
+    private AccountingTransactionMessageServiceImpl transactionMessageService;
 
     @Autowired
     private TransactionMessageRepository transactionMessageRepository;
+
+    @Autowired
+    private TradePaymentBizServiceImpl tradePaymentBizService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -136,7 +140,7 @@ public class TestBankNotifyServiceImpl implements ITranService<BankNotifyParam, 
 
             //调用支付成功处理方法
 
-
+            tradePaymentBizService.completeSuccessOrder(tradePaymentRecord,bankTrxNo,bankReturnMsg);
             //调用消息微服务==>发送消息
 
 

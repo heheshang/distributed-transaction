@@ -14,7 +14,7 @@ import lombok.extern.log4j.Log4j2;
  */
 @TradeTransType(value = PayTypeEnum.WEIXIN_SCANPAY)
 @Log4j2
-public class WeChartPayTranServiceImpl implements ITranService<RechargeParam, RechargeMessage> {
+public class WeChartPayTranRechargeServiceImpl implements ITranService<RechargeParam, RechargeMessage> {
 
 
     @Override

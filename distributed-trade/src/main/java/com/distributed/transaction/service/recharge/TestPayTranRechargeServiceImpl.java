@@ -27,7 +27,7 @@ import static com.distributed.transaction.enums.verify.UserVerifyEnum.USER_MAIL;
  */
 @TradeTransType(value = PayTypeEnum.TEST_PAY_HTTP_CLIENT)
 @Log4j2
-public class TestPayTranServiceImpl implements ITranService<RechargeParam, RechargeMessage> {
+public class TestPayTranRechargeServiceImpl implements ITranService<RechargeParam, RechargeMessage> {
 
     @Autowired
     private DozerBeanMapper mapper;

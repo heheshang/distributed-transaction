@@ -5,10 +5,10 @@ import com.distributed.transaction.annotations.VerifyProdType;
 import com.distributed.transaction.annotations.VerifyUser;
 import com.distributed.transaction.enums.PayTypeEnum;
 import com.distributed.transaction.service.ITranService;
-import com.distributed.transaction.service.banknotify.TestBankNotifyServiceImpl;
-import com.distributed.transaction.service.recharge.AliPayTranServiceImpl;
-import com.distributed.transaction.service.recharge.TestPayTranServiceImpl;
-import com.distributed.transaction.service.recharge.WeChartPayTranServiceImpl;
+import com.distributed.transaction.service.banknotify.BankNotifyTestServiceImpl;
+import com.distributed.transaction.service.recharge.AliPayTranRechargeServiceImpl;
+import com.distributed.transaction.service.recharge.TestPayTranRechargeServiceImpl;
+import com.distributed.transaction.service.recharge.WeChartPayTranRechargeServiceImpl;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -40,9 +40,9 @@ public class TranServiceComponentRegister {
         private static final long serialVersionUID = -8076694302460548904L;
 
         {
-            put(PayTypeEnum.ALI_TEST.getWay(), AliPayTranServiceImpl.class);
-            put(PayTypeEnum.WEIXIN_SCANPAY.getWay(), WeChartPayTranServiceImpl.class);
-            put(PayTypeEnum.TEST_PAY_HTTP_CLIENT.getWay(), TestPayTranServiceImpl.class);
+            put(PayTypeEnum.ALI_TEST.getWay(), AliPayTranRechargeServiceImpl.class);
+            put(PayTypeEnum.WEIXIN_SCANPAY.getWay(), WeChartPayTranRechargeServiceImpl.class);
+            put(PayTypeEnum.TEST_PAY_HTTP_CLIENT.getWay(), TestPayTranRechargeServiceImpl.class);
 
         }
     };
@@ -52,7 +52,7 @@ public class TranServiceComponentRegister {
 
         {
 
-            put(PayTypeEnum.TEST_PAY_HTTP_CLIENT.getWay(), TestBankNotifyServiceImpl.class);
+            put(PayTypeEnum.TEST_PAY_HTTP_CLIENT.getWay(), BankNotifyTestServiceImpl.class);
 
         }
     };

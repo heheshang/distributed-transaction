@@ -22,7 +22,7 @@ import java.util.Random;
 
 @Log4j2
 @TradeTransType(value = PayTypeEnum.ALI_TEST)
-public class AliPayTranServiceImpl implements ITranService<RechargeParam, RechargeMessage> {
+public class AliPayTranRechargeServiceImpl implements ITranService<RechargeParam, RechargeMessage> {
 
     @Autowired
     private BaseTradeRechargeTransApi rechargeTransApi;
