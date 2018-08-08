@@ -27,7 +27,7 @@ public class HttpClientConfig {
 
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
 
-        connectionManager.setMaxTotal(400);
+        connectionManager.setMaxTotal(500);
         connectionManager.setDefaultMaxPerRoute(200);
         return connectionManager;
     }
@@ -36,8 +36,8 @@ public class HttpClientConfig {
     public HttpClientBuilder httpClientBuilder(PoolingHttpClientConnectionManager connectionManager) {
 
         RequestConfig requestConfig = RequestConfig.custom()
-                .setConnectTimeout(3000).setSocketTimeout(1500)
-                .setConnectionRequestTimeout(1500).build();
+                .setConnectTimeout(5000).setSocketTimeout(2500)
+                .setConnectionRequestTimeout(2500).build();
 
         HttpClientBuilder builder= HttpClientBuilder.create();
 
@@ -46,6 +46,7 @@ public class HttpClientConfig {
         builder.setDefaultRequestConfig(requestConfig);
 
         builder.setRetryHandler(new DefaultHttpRequestRetryHandler(0,false));
+
 
         return builder;
     }
