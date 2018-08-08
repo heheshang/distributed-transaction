@@ -97,16 +97,17 @@ public class TestPayThread implements Runnable {
                 }
 
                 //模拟构建银行扣款成功结果通知
-                Map<String, String> notifyMap = getNotifyRequestMap(merchantOrderNo, trxNo);
+                Map<String, String> notifyMap = getNotifyRequestMap(trxNo);
 
                 GateWayRes gateWayRes = service.notify(notifyMap);
 
                 // String notifyResultStr = SimpleHttpUtils.httpGet("http://192.168.1.162:8082/roncoo-pay-web-gateway/scanPayNotify/notify/TEST_PAY_HTTP_CLIENT", notifyMap);
                 log.info("支付完成返回,[{}]", gateWayRes.toString());
-
+                latch.countDown();
             }
+        } catch (Exception e) {
+            log.error(e);
         } finally {
-
             latch.countDown();
         }
     }
@@ -165,20 +166,20 @@ public class TestPayThread implements Runnable {
     /**
      * 模拟构建银行扣款成功结果通知
      *
-     * @param bankOrderNo
      * @return
      */
-    private static Map<String, String> getNotifyRequestMap(String bankOrderNo, String trxNo) {
+    private static Map<String, String> getNotifyRequestMap(String trxNo) {
 
         Map<String, String> notifyMap = new HashMap<String, String>();
         notifyMap.put("result_code", "SUCCESS");
         String timeEnd = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
         notifyMap.put("time_end", timeEnd);
-        notifyMap.put("out_trade_no", bankOrderNo);
+        notifyMap.put("out_trade_no", trxNo);
         notifyMap.put("transaction_id", timeEnd);
         notifyMap.put("payWayCode", "TEST_PAY_HTTP_CLIENT");
         notifyMap.put("payTypeCode", "TEST_PAY_HTTP_CLIENT");
         notifyMap.put("trxNo", trxNo);
+        notifyMap.put("bankOrderNo", trxNo);
 
         return notifyMap;
     }

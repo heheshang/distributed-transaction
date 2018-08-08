@@ -26,8 +26,6 @@ public class TestNotifyGateWayServiceImpl extends AbstractTccGateWayRecord imple
 
         bankNotify.putAll((Map<? extends String, ? extends String>) req.getT());
 
-        bankNotify.put("payWayCode", req.getPayWayEnum().name());
-        bankNotify.put("payTypeCode", req.getPayTypeEnum().getWay());
 
         int result = super.saveMessage(bankNotify);
 

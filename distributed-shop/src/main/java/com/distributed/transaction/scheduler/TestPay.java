@@ -39,7 +39,7 @@ public class TestPay {
 
     private static LinkedBlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>();
 
-    @Scheduled(cron = "0 0/1 4-23 * * ?")
+    @Scheduled(cron = "0 0/20 4-23 * * ?")
     protected void run() {
 
         ExecutorService threadPool = new ThreadPoolExecutor(

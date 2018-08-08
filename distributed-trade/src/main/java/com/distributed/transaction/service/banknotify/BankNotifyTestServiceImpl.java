@@ -3,6 +3,8 @@ package com.distributed.transaction.service.banknotify;
 import com.distributed.transaction.enums.PayWayEnum;
 import com.distributed.transaction.enums.trade.TradeStatusEnum;
 import com.distributed.transaction.exception.TradeBizException;
+import com.distributed.transaction.message.BaseMessageManagerApi;
+import com.distributed.transaction.message.api.MessageReqT;
 import com.distributed.transaction.module.message.domain.TransactionMessageEntity;
 import com.distributed.transaction.module.message.repository.TransactionMessageRepository;
 import com.distributed.transaction.module.message.vo.TransactionMessage;
@@ -48,38 +50,41 @@ public class BankNotifyTestServiceImpl implements ITranService<BankNotifyParam, 
     @Autowired
     private TradePaymentBizServiceImpl tradePaymentBizService;
 
+    @Autowired
+    private BaseMessageManagerApi baseMessageManagerApi;
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public BankNotifyMessage handle(BankNotifyParam bankNotifyParam) {
 
         log.info("接收到queue服务支付结果通知 [{}]", bankNotifyParam.toString());
 
-        String bankNo = bankNotifyParam.getNotifyMap().get("out_trade_no");
+        String merChantOrderNo = bankNotifyParam.getNotifyMap().get("out_trade_no");
         String trxNo = bankNotifyParam.getNotifyMap().get("trxNo");
         String payWayCode = bankNotifyParam.getNotifyMap().get("payWayCode");
         String resultCode = bankNotifyParam.getNotifyMap().get("result_code");
+        String bankNo = bankNotifyParam.getNotifyMap().get("trxNo");
 
-
-        log.info("------[接收到要处理的银行订单{}],支付记录订单[{}]--------[开始处理时间{}]------", bankNo, trxNo, DateUtils.formatDate(new Date(), "yyyy-MM-dd HH:mm:ss SSS"));
+        log.info("------[接收到要处理的银行订单{}],支付记录订单[{}]--------[开始处理时间{}]------", merChantOrderNo, trxNo, DateUtils.formatDate(new Date(), "yyyy-MM-dd HH:mm:ss SSS"));
 
         //根据银行订单号和支付交易记录流水号获取交易记录信息
-        TradePaymentRecordEntity tradeRecordEntity = tradePaymentRecordRepository.getByBankOrderNoAndTrxNo(bankNo, trxNo);
+        TradePaymentRecordEntity tradeRecordEntity = tradePaymentRecordRepository.getByTrxNoAndBankOrderNo(trxNo, bankNo);
 
 
         if (tradeRecordEntity == null) {
-            log.error("非法订单，订单{}不存在支付流水号:{}", bankNo, trxNo);
+            log.error("非法订单，订单{}不存在支付流水号:{}", merChantOrderNo, trxNo);
             throw new TradeBizException(TradeBizException.TRADE_ORDER_ERROR, ",非法订单,订单不存在");
         }
 
         // 幂等判断
         if (TradeStatusEnum.SUCCESS.name().equals(tradeRecordEntity.getStatus())) {
-            log.info("订单{}为成功状态,不做业务处理", bankNo);
+            log.info("订单{}为成功状态,不做业务处理", merChantOrderNo);
             return new BankNotifyMessage();
         }
 
         // 判断交易状态是否为等待支付 状态
         if (!TradeStatusEnum.WAITING_PAYMENT.name().equals(tradeRecordEntity.getStatus())) {
-            log.info("订单{}状态为非等待支付状态,不做业务处理", bankNo);
+            log.info("订单{}状态为非等待支付状态,不做业务处理", merChantOrderNo);
             return new BankNotifyMessage();
         }
 
@@ -124,7 +129,7 @@ public class BankNotifyTestServiceImpl implements ITranService<BankNotifyParam, 
 
         if (orderIsSuccess){
 
-            log.info("开始处理支付成功的商户订单[{}],商户号[{}],银行订单号bankNo=[{}]",tradeRecordEntity.getMerchantOrderNo(),tradeRecordEntity.getMerchantNo(),bankNo);
+            log.info("开始处理支付成功的商户订单[{}],商户号[{}],银行订单号bankNo=[{}]",tradeRecordEntity.getMerchantOrderNo(),tradeRecordEntity.getMerchantNo(),trxNo);
 
             TradePaymentRecord tradePaymentRecord = mapper.map(tradeRecordEntity,TradePaymentRecord.class);
 
@@ -136,13 +141,17 @@ public class BankNotifyTestServiceImpl implements ITranService<BankNotifyParam, 
             //保存消息数据
             transactionMessageRepository.save(messageEntity);
 
-            log.info("保存消息数据 支付成功的商户订单[{}],商户号[{}],银行订单号bankNo=[{}]",tradeRecordEntity.getMerchantOrderNo(),tradeRecordEntity.getMerchantNo(),bankNo);
+            log.info("保存消息数据 支付成功的商户订单[{}],商户号[{}],银行订单号bankNo=[{}]",tradeRecordEntity.getMerchantOrderNo(),tradeRecordEntity.getMerchantNo(),trxNo);
 
             //调用支付成功处理方法
+//            tradePaymentBizService.completeSuccessOrder(tradePaymentRecord,bankTrxNo,timeEnd,bankReturnMsg);
 
-            tradePaymentBizService.completeSuccessOrder(tradePaymentRecord,bankTrxNo,bankReturnMsg);
             //调用消息微服务==>发送消息
+            MessageReqT messageReq = new MessageReqT();
 
+            messageReq.setParam(transactionMessage);
+
+            baseMessageManagerApi.confirmAndSendMessage(messageReq);
 
         }else {
 

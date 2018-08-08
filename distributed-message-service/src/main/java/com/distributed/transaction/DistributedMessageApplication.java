@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
@@ -12,10 +13,16 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+/**
+*
+* @author ssk www.8win.com Inc.All rights reserved
+* @date 2018/08/08 上午 10:04
+* @since v1.0
+**/
 @EnableDiscoveryClient
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @SpringBootApplication
+@EnableFeignClients(basePackages = { "com.distributed.transaction.message" })
 @Log4j2
 public class DistributedMessageApplication {
 

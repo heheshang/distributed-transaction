@@ -34,7 +34,6 @@ public class GatewayTestNotifyController {
     public GateWayRes pay(@PathVariable("payTypeCode") String payTypeCode, @RequestBody GateWayReq req) {
 
         req.setPayTypeEnum(PayTypeEnum.getEnum(payTypeCode));
-
         return testNotifyGateWayService.handle(req);
 
     }

@@ -2,7 +2,6 @@ package com.distributed.transaction.controller;
 
 import com.distributed.transaction.gateway.api.GateWayReq;
 import com.distributed.transaction.gateway.api.GateWayRes;
-import com.distributed.transaction.module.gateway.vo.TccGatewayRecord;
 import com.distributed.transaction.service.core.ITccGateWayRecordService;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +28,8 @@ public class GatewayTestPayController {
     @RequestMapping(value = "/recharge", method = RequestMethod.POST)
     public GateWayRes pay(@RequestBody  GateWayReq req) {
 
-        GateWayRes res = new GateWayRes();
 
-        res.setMessage(testPayGateWayService.handle(req));
 
-        return res;
+        return testPayGateWayService.handle(req);
     }
 }

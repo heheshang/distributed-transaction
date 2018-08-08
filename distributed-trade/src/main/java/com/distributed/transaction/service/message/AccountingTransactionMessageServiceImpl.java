@@ -4,24 +4,14 @@ import com.distributed.transaction.enums.message.AreadlyDeadEnum;
 import com.distributed.transaction.enums.message.MessageStatusEnum;
 import com.distributed.transaction.enums.message.MsgDataTypeEnum;
 import com.distributed.transaction.enums.message.NotifyDestinationNameEnum;
-import com.distributed.transaction.exception.TradeBizException;
 import com.distributed.transaction.module.accounting.vo.AccountingVoucher;
-import com.distributed.transaction.module.message.domain.TransactionMessageEntity;
-import com.distributed.transaction.module.message.repository.TransactionMessageRepository;
 import com.distributed.transaction.module.message.vo.TransactionMessage;
 import com.distributed.transaction.module.trade.vo.TradePaymentRecord;
 import com.distributed.transaction.utils.SingletonGsonEnum;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
 
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.Session;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -32,12 +22,6 @@ import java.util.UUID;
 @Component
 @Log4j2
 public class AccountingTransactionMessageServiceImpl {
-
-    @Autowired
-    private JmsTemplate jmsTemplate;
-
-    @Autowired
-    private TransactionMessageRepository transactionMessageRepository;
 
     /**
      * 封装会计凭证消息信息
@@ -79,11 +63,9 @@ public class AccountingTransactionMessageServiceImpl {
         voucher.setReceiverAccountType(1);
         voucher.setReceiverFee(paymentRecord.getReceiverFee() == null ? BigDecimal.ZERO : paymentRecord.getReceiverFee());
         voucher.setRemark("模拟支付信息");
-
         voucher.setMessageId(UUID.randomUUID().toString().replace("-", ""));
 
         String messageBody = SingletonGsonEnum.instences.getGson().toJson(voucher);
-
 
         TransactionMessage message = new TransactionMessage();
 
@@ -103,33 +85,6 @@ public class AccountingTransactionMessageServiceImpl {
     }
 
 
-    /**
-     * 发送确认支付消息
-     * @param messageId
-     */
-    public void confirmAndSendMessage(String messageId){
 
-        final TransactionMessageEntity messageEntity = transactionMessageRepository.getByMessageId(messageId);
-
-        if (messageEntity == null) {
-            throw new TradeBizException(TradeBizException.TRADE_SYSTEM_ERROR, "根据消息id查找的消息为空");
-        }
-
-
-        messageEntity.setStatus(MessageStatusEnum.SENDING);
-
-        messageEntity.setEditTime(new Date());
-
-        jmsTemplate.setDefaultDestinationName(messageEntity.getConsumerQueue().name());
-
-        jmsTemplate.send(new MessageCreator() {
-            @Override
-            public Message createMessage(Session session) throws JMSException {
-
-                return session.createTextMessage(messageEntity.getMessageBody());
-            }
-        });
-
-    }
 
 }

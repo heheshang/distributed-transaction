@@ -3,7 +3,6 @@ package com.distributed.transaction.config;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.RedeliveryPolicy;
 import org.apache.activemq.command.ActiveMQQueue;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
@@ -12,7 +11,6 @@ import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.jms.core.JmsTemplate;
 
-import javax.jms.JMSException;
 import javax.jms.Queue;
 
 import static com.distributed.transaction.enums.message.NotifyDestinationNameEnum.BANK_NOTIFY;
@@ -36,12 +34,7 @@ public class MqConfig {
         return new ActiveMQQueue(BANK_NOTIFY.name());
     }
 
-  /*  @Bean
-    public Topic topic() {
-        //注意:是temp 还是非temp
-        return new ActiveMQTopic();
-    }
-*/
+
     @Bean
     public RedeliveryPolicy redeliveryPolicy() {
 
@@ -87,8 +80,8 @@ public class MqConfig {
     public JmsListenerContainerFactory<?> jmsListenerContainerQueue(ActiveMQConnectionFactory connectionFactory) {
 
         DefaultJmsListenerContainerFactory bean = new DefaultJmsListenerContainerFactory();
-        //TODO 客户端签收模式
-//        bean.setSessionAcknowledgeMode(4);
+        // 客户端签收模式
+        // bean.setSessionAcknowledgeMode(4);
         bean.setConnectionFactory(connectionFactory);
         return bean;
     }

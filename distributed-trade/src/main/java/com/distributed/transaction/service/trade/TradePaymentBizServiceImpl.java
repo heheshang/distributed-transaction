@@ -6,6 +6,8 @@ import org.mengyun.tcctransaction.api.Compensable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
+
 /**
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
@@ -16,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class TradePaymentBizServiceImpl {
 
     @Compensable(confirmMethod = "confirmCompleteSuccessOrder", cancelMethod = "cancelCompleteSuccessOrder")
-    public void completeSuccessOrder(TradePaymentRecord tradePaymentRecord, String bankTrxNo, String bankReturnMsg) {
+    public void completeSuccessOrder(TradePaymentRecord tradePaymentRecord, String bankTrxNo, Date timeEnd, String bankReturnMsg) {
 
     }
 
