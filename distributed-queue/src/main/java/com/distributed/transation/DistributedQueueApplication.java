@@ -15,7 +15,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"com.distributed.transaction.trade"})
+@EnableFeignClients(basePackages = {"com.distributed.transaction.trade","com.distributed.transaction.accounting"})
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class DistributedQueueApplication {
 
