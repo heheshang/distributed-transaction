@@ -13,4 +13,6 @@ import lombok.ToString;
 public class AccountingResT<M> {
 
     private M message;
+
+    private Boolean success;
 }

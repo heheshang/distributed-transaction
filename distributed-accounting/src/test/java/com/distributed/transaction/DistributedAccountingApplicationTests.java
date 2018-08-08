@@ -1,4 +1,4 @@
-package com.distributed.transacrion;
+package com.distributed.transaction;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

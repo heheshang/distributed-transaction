@@ -1,4 +1,4 @@
-package com.distributed.transacrion.config;
+package com.distributed.transaction.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
