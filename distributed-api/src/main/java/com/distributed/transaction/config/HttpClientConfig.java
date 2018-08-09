@@ -36,8 +36,9 @@ public class HttpClientConfig {
     public HttpClientBuilder httpClientBuilder(PoolingHttpClientConnectionManager connectionManager) {
 
         RequestConfig requestConfig = RequestConfig.custom()
-                .setConnectTimeout(5000).setSocketTimeout(2500)
-                .setConnectionRequestTimeout(2500).build();
+                .setConnectTimeout(6000).setSocketTimeout(6000)
+                .setConnectionRequestTimeout(3000)
+                .build();
 
         HttpClientBuilder builder= HttpClientBuilder.create();
 
@@ -45,7 +46,8 @@ public class HttpClientConfig {
 
         builder.setDefaultRequestConfig(requestConfig);
 
-        builder.setRetryHandler(new DefaultHttpRequestRetryHandler(0,false));
+//        builder.setRetryHandler(new DefaultHttpRequestRetryHandler(0,false));
+        builder.setRetryHandler(new DefaultHttpRequestRetryHandler(1,true));
 
 
         return builder;

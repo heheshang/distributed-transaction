@@ -1,6 +1,8 @@
 package com.distributed.transation;
 
+import com.distributed.transaction.config.HttpClientConfig;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
@@ -17,6 +19,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableDiscoveryClient
 @EnableFeignClients(basePackages = {"com.distributed.transaction.trade","com.distributed.transaction.accounting"})
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@ImportAutoConfiguration(classes = HttpClientConfig.class)
 public class DistributedQueueApplication {
 
 

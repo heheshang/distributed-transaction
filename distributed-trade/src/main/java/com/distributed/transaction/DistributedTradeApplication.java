@@ -1,10 +1,11 @@
 package com.distributed.transaction;
 
+import com.distributed.transaction.config.HttpClientConfig;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
@@ -14,7 +15,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableDiscoveryClient
 @EnableFeignClients(basePackages = { "com.distributed.transaction.trade","com.distributed.transaction.message" })
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-@ComponentScan
+@ImportAutoConfiguration(classes = HttpClientConfig.class)
 public class DistributedTradeApplication {
 
     public static void main(String[] args) {

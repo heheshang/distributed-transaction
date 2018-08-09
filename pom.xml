@@ -30,8 +30,10 @@
         <module>distributed-accounting</module>
        <!-- <module>tcc-transaction</module>-->
     </modules>
-
+    <name>${project.artifactId}</name>
     <properties>
+
+
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
         <spring.data.version>1.9.2.RELEASE</spring.data.version>
@@ -45,6 +47,17 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Edgware.RELEASE</spring-cloud.version>
         <tcc.version>1.2.4.22</tcc.version>
+
+        <!--log4j2-->
+        <logger.group>distributed-transaction</logger.group>
+        <logger.file.path>${log4j.path}/${logger.group}/${project.artifactId}</logger.file.path>
+
+        <logger.format>"%d{[yyyy-MM-dd HH:mm:ss,SSS]}-%highlight{[%p]}-%highlight{[%t][%c{1.}.%M]:[%L]}:%m%n"</logger.format>
+        <logger.info.file>${logger.file.path}/${project.artifactId}.log</logger.info.file>
+        <logger.error.file>${logger.file.path}/error-${project.artifactId}.log</logger.error.file>
+        <logger.sql.file>${logger.file.path}/sql.log</logger.sql.file>
+        <logger.gc.file>${log4j.path}/${logger.group}/gc/${project.artifactId}.log</logger.gc.file>
+        <!--log4j2-->
     </properties>
 
 
@@ -66,7 +79,66 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profileActive>local</profileActive>
+                <log4j.level>DEBUG</log4j.level>
+                <log4j.path>../logs</log4j.path>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profileActive>dev</profileActive>
+                <log4j.level>info</log4j.level>
+                <log4j.path>/data/logs</log4j.path>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profileActive>test</profileActive>
+                <log4j.level>info</log4j.level>
+                <log4j.path>/data/logs</log4j.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profileActive>prod</profileActive>
+                <log4j.level>info</log4j.level>
+                <log4j.path>/data/logs</log4j.path>
+            </properties>
+        </profile>
+    </profiles>
+
+
     <build>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                  <!--  <exclude>dev_conf/*</exclude>
+                    <exclude>test_conf/*</exclude>
+                    <exclude>prod_conf/*</exclude>-->
+                </excludes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/${profileActive}_conf</directory>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
