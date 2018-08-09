@@ -1,5 +1,6 @@
 package com.distributed.transation.config;
 
+import org.dozer.DozerBeanMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -23,5 +24,12 @@ public class ThreadPoolConfig {
         poolTaskExecutor.setQueueCapacity(100);
 
         return poolTaskExecutor;
+    }
+
+    @Bean
+    public DozerBeanMapper mapper() {
+
+        DozerBeanMapper mapper = new DozerBeanMapper();
+        return mapper;
     }
 }

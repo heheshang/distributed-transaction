@@ -84,10 +84,10 @@ public class AccountingVoucher {
     private Short payerAccountType;
 
     /** 支付金额 **/
-    private Double payAmount = 0D;
+    private BigDecimal payAmount = BigDecimal.ZERO;
 
     /** 收款方账户类型 **/
-    private Integer receiverAccountType;
+    private Short receiverAccountType;
 
     /**
      * 收款方手续费(退款交易：原路退，实际退收款方手续费。既:交易收收款方手续费
@@ -102,7 +102,7 @@ public class AccountingVoucher {
 
     /** 分录步骤，1：产生交易 2：清算对账 */
     /**非数据库映射字段，只用于传参 */
-    private Integer step;
+    private Short step;
 
     /**
      * 非数据库映射字段，只用于传参

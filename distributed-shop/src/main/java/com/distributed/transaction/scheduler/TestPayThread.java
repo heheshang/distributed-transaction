@@ -57,7 +57,7 @@ public class TestPayThread implements Runnable {
         try {
 
             // 每个线程中生成100条充值记录
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 1; i++) {
                 try {
                     int random = RandomUtils.nextInt(10);
                     long sleepNum = 10L * random;

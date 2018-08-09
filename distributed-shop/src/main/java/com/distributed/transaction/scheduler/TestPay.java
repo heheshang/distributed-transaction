@@ -29,11 +29,11 @@ public class TestPay {
 
 
     private static List<MerchantKey> merchantKeys = Lists.newArrayList(
-            new MerchantKey("4c52295065654407b42797cda80dd07d", "6606353e0dab4f7b9a723f2d3e3276b7"),
-            new MerchantKey("abcf900288114d5fa7fde764966eb2ff", "d94d7c2d56eb4b06828cf746c8be17e6"),
-            new MerchantKey("8ba459f55ff04f39b0128a3cb4a48f2b", "3e2ca2eb1f024570b241d65eb4832c37"),
-            new MerchantKey("93d1ea2f9f3b448994f39d6efc7746ef", "fad7ea79810c4af7a973c091aa7c6143"),
-            new MerchantKey("ca6577dff6d647ac882dfb405ceda21e", "1b8da6c9b7544856955fcff6bf920f84")
+            new MerchantKey("4c52295065654407b42797cda80dd07d", "6606353e0dab4f7b9a723f2d3e3276b7")
+//            new MerchantKey("abcf900288114d5fa7fde764966eb2ff", "d94d7c2d56eb4b06828cf746c8be17e6"),
+//            new MerchantKey("8ba459f55ff04f39b0128a3cb4a48f2b", "3e2ca2eb1f024570b241d65eb4832c37"),
+//            new MerchantKey("93d1ea2f9f3b448994f39d6efc7746ef", "fad7ea79810c4af7a973c091aa7c6143"),
+//            new MerchantKey("ca6577dff6d647ac882dfb405ceda21e", "1b8da6c9b7544856955fcff6bf920f84")
 
     );
 
@@ -51,7 +51,7 @@ public class TestPay {
 
 
 
-        CountDownLatch latch = new CountDownLatch(5);
+        CountDownLatch latch = new CountDownLatch(1);
         try {
             log.info("测试充值开始");
 

@@ -59,8 +59,8 @@ public class AccountingTransactionMessageServiceImpl {
         voucher.setIncome(paymentRecord.getPlatIncome());
         voucher.setCost(paymentRecord.getPlatCost());
         voucher.setBankOrderNo(paymentRecord.getBankOrderNo());
-        voucher.setPayAmount(0d);
-        voucher.setReceiverAccountType(1);
+        voucher.setPayAmount(BigDecimal.ZERO);
+        voucher.setReceiverAccountType((short) 1);
         voucher.setReceiverFee(paymentRecord.getReceiverFee() == null ? BigDecimal.ZERO : paymentRecord.getReceiverFee());
         voucher.setRemark("模拟支付信息");
         voucher.setMessageId(UUID.randomUUID().toString().replace("-", ""));

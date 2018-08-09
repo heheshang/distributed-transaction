@@ -23,10 +23,10 @@ public class AccountIngVoucherController {
     IAccountingVoucherService accountingVoucherService;
 
     @PostMapping("/create/voucher")
-    public void createAccountVoucher(@RequestBody AccountingReqT accountingReq) {
+    public boolean createAccountVoucher(@RequestBody AccountingReqT accountingReq) {
         log.info("会计凭证服务收到创建会计服务记录请求【{}】",accountingReq.toString());
 
 
-        accountingVoucherService.createAccountingVoucher(accountingReq);
+        return accountingVoucherService.createAccountingVoucher(accountingReq).getSuccess();
     }
 }

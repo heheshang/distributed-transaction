@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 public interface BaseAccountIngServiceApi {
 
     @PostMapping("/accounting/create/voucher")
-    public void createAccountVoucher(AccountingReqT reqT);
+    public boolean createAccountVoucher(AccountingReqT reqT);
 
 }

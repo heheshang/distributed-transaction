@@ -12,4 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountingVoucherRepository extends BaseRepository<AccountingVoucherEntity, String> {
 
+
+    AccountingVoucherEntity getByEntryTypeAndVoucherNoAndFromSystem(short entryType,String voucherNo,short fromSystem);
 }
