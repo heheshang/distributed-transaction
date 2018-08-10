@@ -35,9 +35,12 @@ public class HttpClientConfig {
     @Bean
     public HttpClientBuilder httpClientBuilder(PoolingHttpClientConnectionManager connectionManager) {
 
-        RequestConfig requestConfig = RequestConfig.custom()
+        RequestConfig requestConfig = RequestConfig
+
+                .custom()
                 .setConnectTimeout(6000).setSocketTimeout(6000)
                 .setConnectionRequestTimeout(3000)
+
                 .build();
 
         HttpClientBuilder builder= HttpClientBuilder.create();

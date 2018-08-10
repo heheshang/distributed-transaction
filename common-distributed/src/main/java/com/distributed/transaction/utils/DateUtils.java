@@ -6,6 +6,9 @@ import org.apache.log4j.Logger;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -1468,6 +1471,15 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 			return true;
 		}
 		return false;
+	}
+
+	public static Date convertTo(LocalDateTime localDateTime) {
+		ZonedDateTime zdt = localDateTime.atZone(ZoneId.systemDefault());
+		return Date.from(zdt.toInstant());
+	}
+
+	public static LocalDateTime convertFrom(Date date) {
+		return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
 	}
 
 }

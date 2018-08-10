@@ -9,6 +9,7 @@ import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.support.converter.SimpleMessageConverter;
 
 /**
  * active mq 配置
@@ -103,6 +104,8 @@ public class MqConfig {
 
         jmsTemplate.setConnectionFactory(connectionFactory);
 
+        jmsTemplate.setMessageConverter(new SimpleMessageConverter());
+
         //此处可不设置默认，在发送消息时也可设置队列
 //        jmsTemplate.setDefaultDestination(queue);
 
@@ -147,8 +150,10 @@ public class MqConfig {
         factory.setConcurrency("1-10");
         //重连间隔时间
         factory.setRecoveryInterval(1000L);
+        factory.setMessageConverter(new SimpleMessageConverter());
         // TODO 客户端签收模式
         factory.setSessionAcknowledgeMode(4);
+
         return factory;
     }
 

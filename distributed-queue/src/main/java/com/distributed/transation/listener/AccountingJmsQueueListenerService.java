@@ -3,15 +3,15 @@ package com.distributed.transation.listener;
 import com.distributed.transaction.accounting.BaseAccountIngServiceApi;
 import com.distributed.transaction.accounting.api.AccountingReqT;
 import com.distributed.transaction.module.accounting.vo.AccountingVoucher;
+import com.distributed.transaction.utils.SingletonGsonEnum;
 import lombok.extern.log4j.Log4j2;
-import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
 import javax.jms.JMSException;
-import javax.jms.ObjectMessage;
 import javax.jms.Session;
+import javax.jms.TextMessage;
 
 /**
  * @author ssk www.distributed.com Inc.All rights reserved
@@ -24,17 +24,16 @@ public class AccountingJmsQueueListenerService {
 
     @Autowired
     private BaseAccountIngServiceApi baseAccountIngServiceApi;
-    @Autowired
-    private DozerBeanMapper mapper;
+
 
     @JmsListener(destination = "ACCOUNTING_NOTIFY", containerFactory = "accountingQueueJmsListener")
-    public synchronized void reciveAccountingMessage(final ObjectMessage message, Session session) throws JMSException {
+    public synchronized void reciveAccountingMessage(final TextMessage message, Session session) throws JMSException {
 
         try {
 
-            log.info("收到会计凭证消息队列信息【{}】", message);
+            log.info("收到会计凭证消息队列信息【{}】", message.getText());
 
-            AccountingVoucher voucher = mapper.map(message.getObject(), AccountingVoucher.class);
+            AccountingVoucher voucher = SingletonGsonEnum.instences.getGson().fromJson(message.getText(), AccountingVoucher.class);
 
             AccountingReqT accountingReq = new AccountingReqT();
 

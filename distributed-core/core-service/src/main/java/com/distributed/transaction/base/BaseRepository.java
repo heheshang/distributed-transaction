@@ -32,19 +32,5 @@ public interface BaseRepository<T, ID extends Serializable> extends BaseInternal
 
     <S extends T> S saveAndFlush(S s);
 
-    /**
-     * Returns all entities sorted by the given options.
-     *
-     * @param sort
-     * @return all entities sorted by the given options
-     */
-    Iterable<T> findAll(Sort sort);
 
-    /**
-     * Returns a {@link org.springframework.data.domain.Page} of entities meeting the paging restriction provided in the {@code Pageable} object.
-     *
-     * @param pageable
-     * @return a page of entities
-     */
-    Page<T> findAll(Pageable pageable);
 }

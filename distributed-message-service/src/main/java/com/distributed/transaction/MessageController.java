@@ -66,7 +66,7 @@ public class MessageController {
             @Override
             public Message createMessage(Session session) throws JMSException {
 
-                return session.createObjectMessage(messageEntity.getMessageBody());
+                return session.createTextMessage(messageEntity.getMessageBody());
             }
         });
 
