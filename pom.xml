@@ -41,7 +41,7 @@
         <hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
         <lombok.version>1.16.22</lombok.version>
 
-        <guava.version>18.0</guava.version>
+        <guava.version>19.0</guava.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
@@ -81,7 +81,7 @@
 
     <profiles>
         <profile>
-            <id>dev</id>
+            <id>local</id>
             <properties>
                 <profileActive>local</profileActive>
                 <log4j.level>DEBUG</log4j.level>
