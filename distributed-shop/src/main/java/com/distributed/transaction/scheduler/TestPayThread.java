@@ -57,7 +57,7 @@ public class TestPayThread implements Runnable {
         try {
 
             // 每个线程中生成100条充值记录
-            for (int i = 0; i < 1; i++) {
+            for (int i = 0; i < 100; i++) {
                 try {
                     int random = RandomUtils.nextInt(10);
                     long sleepNum = 10L * random;
@@ -90,11 +90,11 @@ public class TestPayThread implements Runnable {
                 }
 
                 // 用户支付行为模拟（等待片刻）
-                try {
-                    Thread.sleep(200L);
+              /*  try {
+//                    Thread.sleep(200L);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }
+                }*/
 
                 //模拟构建银行扣款成功结果通知
                 Map<String, String> notifyMap = getNotifyRequestMap(trxNo);

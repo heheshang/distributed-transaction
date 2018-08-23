@@ -1,7 +1,7 @@
 package com.distributed.transaction.controller;
 
-import com.distributed.transaction.service.IAccountingVoucherService;
 import com.distributed.transaction.accounting.api.AccountingReqT;
+import com.distributed.transaction.service.IAccountingVoucherService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +24,8 @@ public class AccountIngVoucherController {
 
     @PostMapping("/create/voucher")
     public boolean createAccountVoucher(@RequestBody AccountingReqT accountingReq) {
-        log.info("会计凭证服务收到创建会计服务记录请求【{}】",accountingReq.toString());
+
+        log.info("会计凭证服务收到创建会计服务记录请求【{}】", accountingReq.toString());
 
 
         return accountingVoucherService.createAccountingVoucher(accountingReq).getSuccess();

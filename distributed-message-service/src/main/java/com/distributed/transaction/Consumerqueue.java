@@ -1,3 +1,4 @@
+/*
 package com.distributed.transaction;
 
 import lombok.extern.log4j.Log4j2;
@@ -8,16 +9,19 @@ import javax.jms.JMSException;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
+*/
 /*
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-07-04-下午 4:06
-*/
+*//*
+
 
 @Component
 @Log4j2
 public class Consumerqueue {
-   /* @JmsListener(destination = "distributed-topic", containerFactory = "jmsListenerContainerTopic")
+   */
+/* @JmsListener(destination = "distributed-topic", containerFactory = "jmsListenerContainerTopic")
     public void receiveTopic(String text) {
 
         System.out.println("Topic Consumer1:" + text);
@@ -34,7 +38,8 @@ public class Consumerqueue {
 
         System.out.println("Queue Consumer:" + text);
     }
-*/
+*//*
+
 
     @JmsListener(destination = "BANK_NOTIFY",containerFactory = "notifyBankJmsQueueListener")
     public void reciveQueue1(final TextMessage text, Session session) throws JMSException {
@@ -49,3 +54,4 @@ public class Consumerqueue {
         }
     }
 }
+*/

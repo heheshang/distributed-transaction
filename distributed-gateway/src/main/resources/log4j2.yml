@@ -50,7 +50,7 @@ Configuration:
           pattern: @logger.format@
         Policies:
           SizeBasedTriggeringPolicy:
-            size: "128"
+            size: "128m"
         DefaultRolloverStrategy:
             max: 1000
 

@@ -4,6 +4,7 @@ import com.distributed.transaction.module.message.repository.TransactionMessageR
 import com.distributed.transaction.trade.BaseTradeRechargeTransApi;
 import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.banknotify.BankNotifyParam;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +19,7 @@ import java.util.Map;
  * @date 2018-08-03-上午 10:40
  */
 @Component
+@Log4j2
 public class BankMessageService {
 
     @Autowired
@@ -54,9 +56,11 @@ public class BankMessageService {
         bankNotify.getNotifyMap().putAll(bankNotifyMap);
 
         tradeReq.setParams(bankNotify);
+        log.info("调用 trade 服务完成交易,tradeReq=【{}】",tradeReq);
         //调用 trade 服务完成交易
         tradeRechargeTransApi.bankMessageHandle(tradeReq);
         //删除消息日志信息
+        log.info("删除消息日志信息,messageId=【{}】",messageId);
         transactionMessageRepository.deleteByMessageId(messageId);
 
     }

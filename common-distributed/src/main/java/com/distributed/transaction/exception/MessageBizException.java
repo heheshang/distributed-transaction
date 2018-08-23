@@ -13,6 +13,11 @@ public class MessageBizException extends DistributedException {
      *
      */
     private static final long serialVersionUID = 3536909333010163563L;
+    /** 保存的消息为空 **/
+    public static final String  SAVA_MESSAGE_IS_NULL = "8001";
+
+    /** 消息的消费队列为空 **/
+    public static final String MESSAGE_CONSUMER_QUEUE_IS_NULL = "8002";
 
     /**
      * 支付订单号重复

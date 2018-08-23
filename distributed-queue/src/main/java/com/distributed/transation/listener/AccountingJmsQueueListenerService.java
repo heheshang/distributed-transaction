@@ -4,6 +4,7 @@ import com.distributed.transaction.accounting.BaseAccountIngServiceApi;
 import com.distributed.transaction.accounting.api.AccountingReqT;
 import com.distributed.transaction.module.accounting.vo.AccountingVoucher;
 import com.distributed.transaction.utils.SingletonGsonEnum;
+import com.distributed.transation.scheduled.biz.TransactionMessageService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
@@ -25,6 +26,9 @@ public class AccountingJmsQueueListenerService {
     @Autowired
     private BaseAccountIngServiceApi baseAccountIngServiceApi;
 
+    @Autowired
+    private TransactionMessageService transactionMessageService;
+
 
     @JmsListener(destination = "ACCOUNTING_NOTIFY", containerFactory = "accountingQueueJmsListener")
     public synchronized void reciveAccountingMessage(final TextMessage message, Session session) throws JMSException {
@@ -39,15 +43,11 @@ public class AccountingJmsQueueListenerService {
 
             accountingReq.setParam(voucher);
 
-            boolean issuccess = baseAccountIngServiceApi.createAccountVoucher(accountingReq);
+            baseAccountIngServiceApi.createAccountVoucher(accountingReq);
 
-            if (issuccess) {
-                message.acknowledge();// 使用手动签收模式，需要手动的调用，如果不在catch中调用session.recover()消息只会在重启服务后重发
-            }else {
+            message.acknowledge();// 使用手动签收模式，需要手动的调用，如果不在catch中调用session.recover()消息只会在重启服务后重发
 
-                log.error("【发送会计凭证消息队列信息异常啦】,【{}】", issuccess);
-                session.recover();// 此不可省略 重发信息使用
-            }
+            transactionMessageService.deleteMessageByMessageId(voucher.getMessageId());
 
         } catch (Exception e) {
 

@@ -26,7 +26,7 @@ Configuration:
           SizeBasedTriggeringPolicy:
             size: "128 MB"
         DefaultRolloverStrategy:
-          max: 1000
+          max: 3
 
       - name: APP_ERROR
         ignoreExceptions: false
@@ -38,9 +38,9 @@ Configuration:
           pattern: @logger.format@
         Policies:
           SizeBasedTriggeringPolicy:
-            size: "128m"
+            size: "128 MB"
         DefaultRolloverStrategy:
-            max: 1000
+            max: 3
 
       - name: SQL
         ignoreExceptions: false
@@ -50,7 +50,7 @@ Configuration:
           pattern: @logger.format@
         Policies:
           SizeBasedTriggeringPolicy:
-            size: "128"
+            size: "128 MB"
         DefaultRolloverStrategy:
             max: 1000
 

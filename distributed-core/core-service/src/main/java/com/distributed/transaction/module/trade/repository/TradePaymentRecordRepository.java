@@ -20,5 +20,7 @@ public interface TradePaymentRecordRepository extends BaseRepository<TradePaymen
      */
     TradePaymentRecordEntity getByTrxNoAndBankOrderNo(String trxNo, String bankNo);
 
+    TradePaymentRecordEntity getByBankOrderNo(String bankNo);
+
 
 }

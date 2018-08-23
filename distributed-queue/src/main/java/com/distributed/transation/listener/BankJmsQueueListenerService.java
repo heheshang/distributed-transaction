@@ -26,15 +26,17 @@ public class BankJmsQueueListenerService {
 
     @Autowired
     private ThreadPoolTaskExecutor threadPool;
+
     @Autowired
     private BankMessageService bankMessageService;
-
 
 
     @JmsListener(destination = "BANK_NOTIFY", containerFactory = "bankQueueJmsListener")
     public synchronized void reciveBankMessage(final TextMessage message, Session session) throws JMSException {
 
         try {
+
+            log.info("【监听银行通知消息队列信息】,【{}】", message.getText());
 
             Map<String, String> retMap = Maps.newHashMap();
 
@@ -51,8 +53,8 @@ public class BankJmsQueueListenerService {
             message.acknowledge();// 使用手动签收模式，需要手动的调用，如果不在catch中调用session.recover()消息只会在重启服务后重发
 
         } catch (Exception e) {
-
-            session.recover();// 此不可省略 重发信息使用
+            log.error("【监听银行消息队列信息异常啦】,【{}】", e.getMessage());
+//            session.recover();// 此不可省略 重发信息使用
         }
     }
 }

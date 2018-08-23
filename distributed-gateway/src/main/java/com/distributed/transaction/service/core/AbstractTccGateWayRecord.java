@@ -68,7 +68,7 @@ public abstract class AbstractTccGateWayRecord {
     @Transactional(rollbackFor = Exception.class)
     public int saveMessage(Map<String, String> notifyMap) {
 
-
+        log.info("保存消息记录开始【{}】",notifyMap);
         TransactionMessage message = new TransactionMessage();
 
         String messageId = UUID.randomUUID().toString().replace("-", "");
@@ -96,13 +96,13 @@ public abstract class AbstractTccGateWayRecord {
 
 
         TransactionMessageEntity result = transactionMessageRepository.save(mapper.map(message, TransactionMessageEntity.class));
-
+        log.info("保存消息记录结束【{}】",notifyMap);
         jmsTemplate.setDefaultDestinationName(NotifyDestinationNameEnum.BANK_NOTIFY.name());
 
         jmsTemplate.send(new MessageCreator() {
             @Override
             public Message createMessage(Session session) throws JMSException {
-
+                log.info("发送消息到mq【{}】,【{}】",NotifyDestinationNameEnum.BANK_NOTIFY,messageBody);
                 return session.createTextMessage(messageBody);
             }
         });

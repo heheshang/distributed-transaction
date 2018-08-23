@@ -137,7 +137,8 @@ public class BankNotifyTestServiceImpl implements ITranService<BankNotifyParam, 
             TransactionMessage transactionMessage = transactionMessageService.sealTransactionMessage(tradePaymentRecord);
 
             TransactionMessageEntity messageEntity = mapper.map(transactionMessage, TransactionMessageEntity.class);
-
+            messageEntity.setCreater("trade");
+            messageEntity.setEditor("trade");
             //保存消息数据
             transactionMessageRepository.save(messageEntity);
 
