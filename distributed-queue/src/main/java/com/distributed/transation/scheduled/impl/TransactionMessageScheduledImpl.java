@@ -115,7 +115,6 @@ public class TransactionMessageScheduledImpl implements ITransactionMessageSched
 
         log.info("开始处理[SENDING]状态的消息,待发送消息数量====>[{}]", page.getTotalPages());
 
-
         List<TransactionMessage> messages = BeanMapping.mapList(page.getContent(), TransactionMessage.class);
 
         int maxTimes = 5;

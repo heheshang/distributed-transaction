@@ -74,9 +74,13 @@ public class TestPayThread implements Runnable {
 
                 // 请求网关创建订单
                 GateWayReq req = new GateWayReq();
+
                 req.setT(requestVo);
 
+                log.info("gateway 请求消息为:{}", requestVo.toString());
+
                 GateWayRes res = service.recharge(req);
+
                 log.info("gateway 服务返回消息为:{}", res.toString());
 
 
@@ -89,26 +93,17 @@ public class TestPayThread implements Runnable {
                     continue;
                 }
 
-                // 用户支付行为模拟（等待片刻）
-              /*  try {
-//                    Thread.sleep(200L);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }*/
-
                 //模拟构建银行扣款成功结果通知
                 Map<String, String> notifyMap = getNotifyRequestMap(trxNo);
 
                 GateWayRes gateWayRes = service.notify(notifyMap);
 
-                // String notifyResultStr = SimpleHttpUtils.httpGet("http://192.168.1.162:8082/roncoo-pay-web-gateway/scanPayNotify/notify/TEST_PAY_HTTP_CLIENT", notifyMap);
                 log.info("支付完成返回,[{}]", gateWayRes.toString());
                 latch.countDown();
             }
         } catch (Exception e) {
-            log.error(e);
-        } finally {
             latch.countDown();
+            log.error(e);
         }
     }
 

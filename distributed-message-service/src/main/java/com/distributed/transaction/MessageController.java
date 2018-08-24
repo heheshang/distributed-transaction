@@ -45,6 +45,7 @@ public class MessageController {
         log.info("消息服务接收到待确认消息请求【{}】",messageReq.toString());
 
         Map<String,String> map = Maps.newHashMap();
+
         map.putAll((Map<? extends String, ? extends String>) messageReq.getParam());
 
         final TransactionMessageEntity messageEntity = transactionMessageRepository.getByMessageId(map.get("messageId"));
@@ -55,10 +56,11 @@ public class MessageController {
             throw new MessageBizException(MessageBizException.MESSAGE_SYSTEM_ERROR, "根据消息id查找的消息为空");
         }
 
-
         messageEntity.setStatus(MessageStatusEnum.SENDING);
 
         messageEntity.setEditTime(new Date());
+
+        log.info("通过消息Id【{}】,发送消息到【{}】",map.get("messageId"),messageEntity.getConsumerQueue());
 
         jmsTemplate.setDefaultDestinationName(messageEntity.getConsumerQueue().name());
 
