@@ -1,7 +1,7 @@
 package com.distributed.transaction.accounting;
 
 import com.distributed.transaction.accounting.api.AccountingReqT;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**

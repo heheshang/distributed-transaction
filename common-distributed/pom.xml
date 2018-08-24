@@ -33,7 +33,7 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-feign</artifactId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-
+            <version>1.9.3</version>
         </dependency>
 
         <dependency>     <!-- 桥接：告诉Slf4j使用Log4j2 -->

@@ -6,7 +6,7 @@ import com.distributed.transaction.trade.api.banknotify.BankNotifyMessage;
 import com.distributed.transaction.trade.api.banknotify.BankNotifyParam;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
