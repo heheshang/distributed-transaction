@@ -18,19 +18,7 @@ import java.io.Serializable;
 @NoRepositoryBean
 public interface BaseRepository<T, ID extends Serializable> extends BaseInternalRepository<T, ID>, JpaSpecificationExecutor<T> {
 
-    <S extends T> S save(S s);
 
-    <S extends T> Iterable<S> save(Iterable<S> iterable);
-
-    T findOne(ID id);
-
-    boolean exists(ID id);
-
-    Iterable<T> findAll(Iterable<ID> iterable);
-
-    void flush();
-
-    <S extends T> S saveAndFlush(S s);
 
 
 }

@@ -35,7 +35,7 @@ public class PayAccountEntity implements Serializable {
 
     private Date editTime;
 
-    private long version;
+    private Integer version;
 
     private String remark;
 
@@ -105,12 +105,12 @@ public class PayAccountEntity implements Serializable {
     @Basic
     @Column(name = "version")
     @Version
-    public long getVersion() {
+    public Integer getVersion() {
 
         return version;
     }
 
-    public void setVersion(long version) {
+    public void setVersion(Integer version) {
 
         this.version = version;
     }

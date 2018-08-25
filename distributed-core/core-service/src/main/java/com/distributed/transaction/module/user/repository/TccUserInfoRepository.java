@@ -2,6 +2,7 @@ package com.distributed.transaction.module.user.repository;
 
 import com.distributed.transaction.base.BaseRepository;
 import com.distributed.transaction.module.user.domain.TccUserInfoEntity;
+import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @version v1.0
  * @date 2018-07-30-下午 3:03
  */
-@Repository
+
 public interface TccUserInfoRepository extends BaseRepository<TccUserInfoEntity, String> {
 
     /**
