@@ -2,6 +2,7 @@ package com.distributed.transation.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -17,17 +18,16 @@ import javax.sql.DataSource;
 import java.util.Map;
 
 /**
-*
-* @author ssk www.distributed.com Inc.All rights reserved
-* @date 2018/07/19 下午 1:47
-* @since v1.0
-**/
+ * @author ssk www.distributed.com Inc.All rights reserved
+ * @date 2018/07/19 下午 1:47
+ * @since v1.0
+ **/
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        entityManagerFactoryRef="entityManagerFactorySecondary",
-        transactionManagerRef="transactionManagerSecondary",
-        basePackages= {"com.distributed.transaction.module.trade.repository"})
+        entityManagerFactoryRef = "entityManagerFactorySecondary",
+        transactionManagerRef = "transactionManagerSecondary",
+        basePackages = {"com.distributed.transaction.module.trade.repository"})
 public class SecondaryConfig {
 
     @Autowired
@@ -38,25 +38,25 @@ public class SecondaryConfig {
     private DataSource secondaryDataSource;
 
 
-
     @Bean(name = "entityManagerSecondary")
     public EntityManager entityManager(EntityManagerFactoryBuilder builder) {
         return entityManagerFactorySecondary(builder).getObject().createEntityManager();
     }
 
     @Bean(name = "entityManagerFactorySecondary")
-    public LocalContainerEntityManagerFactoryBean entityManagerFactorySecondary (EntityManagerFactoryBuilder builder) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactorySecondary(EntityManagerFactoryBuilder builder) {
         return builder
                 .dataSource(secondaryDataSource)
-                .properties(getVendorProperties(secondaryDataSource))
+                .properties(getVendorProperties())
                 .packages("com.distributed.transaction.module.trade.domain")
                 .persistenceUnit("secondaryPersistenceUnit")
                 .build();
     }
 
-    private Map<String, String> getVendorProperties(DataSource dataSource) {
-        return jpaProperties.getHibernateProperties(dataSource);
+    private Map<String, Object> getVendorProperties() {
+        return jpaProperties.getHibernateProperties(new HibernateSettings());
     }
+
 
     @Bean(name = "transactionManagerSecondary")
     PlatformTransactionManager transactionManagerSecondary(EntityManagerFactoryBuilder builder) {

@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 /**
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
@@ -40,10 +42,10 @@ public class QuerBysqlService {
     @Transactional
     public TransactionMessageVo update(String id) {
 
-        TransactionMessageEntity message = transactionMessageRepository.findOne(id);
+        Optional<TransactionMessageEntity> message = transactionMessageRepository.findById(id);
 
-        message.setStatus(MessageStatusEnum.WAITING_CONFIRM);
-        message.setCreater("xiaozhang");
+        message.get().setStatus(MessageStatusEnum.WAITING_CONFIRM);
+        message.get().setCreater("xiaozhang");
 //        transactionMessageRepository.save(message);
         return mapper.map(message, TransactionMessageVo.class);
     }

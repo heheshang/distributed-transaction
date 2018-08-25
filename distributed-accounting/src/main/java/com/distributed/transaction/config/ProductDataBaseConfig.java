@@ -2,6 +2,7 @@ package com.distributed.transaction.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -55,16 +56,17 @@ public class ProductDataBaseConfig {
 
         return builder
                 .dataSource(productDataSource)
-                .properties(getVendorProperties(productDataSource))
+                .properties(getVendorProperties())
                 .packages("com.distributed.transaction.module.user.domain","com.distributed.transaction.module.product.domain")
                 .persistenceUnit("productPersistenceUnit")
                 .build();
     }
 
-    private Map<String, String> getVendorProperties(DataSource dataSource) {
-
-        return jpaProperties.getHibernateProperties(dataSource);
+    private Map<String, Object> getVendorProperties() {
+        return jpaProperties.getHibernateProperties(new HibernateSettings());
     }
+
+
 
     @Bean(name = "transactionManagerProduct")
     public PlatformTransactionManager transactionManagerProduct(EntityManagerFactoryBuilder builder) {

@@ -58,7 +58,7 @@ public class TransactionMessageService {
         //解决方式把page修改为0
         Sort sort = new Sort(Sort.Direction.ASC, "createTime");
 
-        Pageable pageable = new PageRequest(pageNum, pageSize, sort);
+        Pageable pageable =  PageRequest.of(pageNum, pageSize, sort);
 
         Page<TransactionMessageEntity> page = transactionMessageRepository.findAll(new Specification<TransactionMessageEntity>() {
             @Override

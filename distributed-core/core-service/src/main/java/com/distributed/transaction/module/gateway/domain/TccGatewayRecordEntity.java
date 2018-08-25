@@ -112,4 +112,6 @@ public class TccGatewayRecordEntity implements Serializable {
     @Column(name = "field5", length = 200)
     private String field5;
 
+
+
 }

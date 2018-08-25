@@ -23,4 +23,6 @@ public interface TransactionMessageRepository extends BaseRepository<Transaction
      */
     TransactionMessageEntity getByMessageId(String messageId);
 
+
+
 }

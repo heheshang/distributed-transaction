@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Date;
  */
 @Data
 @ToString
-public class TccGatewayRecordVo {
+public class TccGatewayRecordVo implements Serializable{
 
     private String id;
 
@@ -29,9 +30,9 @@ public class TccGatewayRecordVo {
 
     private String orderIp;
 
-    @DateTimeFormat(pattern = "yyyyMMdd")
+
     private Date orderDate;
-    @DateTimeFormat(pattern = "yyyyMMddHHmmss")
+
     private Date orderTime;
 
     private int orderPeriod;

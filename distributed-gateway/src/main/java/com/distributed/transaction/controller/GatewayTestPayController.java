@@ -3,6 +3,7 @@ package com.distributed.transaction.controller;
 import com.distributed.transaction.gateway.api.GateWayReq;
 import com.distributed.transaction.gateway.api.GateWayRes;
 import com.distributed.transaction.service.core.ITccGateWayRecordService;
+import lombok.extern.log4j.Log4j2;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("gateway")
+@Log4j2
 public class GatewayTestPayController {
 
     @Autowired
@@ -28,7 +30,7 @@ public class GatewayTestPayController {
     @RequestMapping(value = "/recharge", method = RequestMethod.POST)
     public GateWayRes pay(@RequestBody  GateWayReq req) {
 
-
+        log.info("gateway 收到请求【{}】",req.getT());
 
         return testPayGateWayService.handle(req);
     }

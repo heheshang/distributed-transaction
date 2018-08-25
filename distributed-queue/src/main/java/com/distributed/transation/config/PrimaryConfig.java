@@ -2,6 +2,7 @@ package com.distributed.transation.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -55,7 +56,7 @@ public class PrimaryConfig {
                 //设置数据源
                 .dataSource(primaryDataSource)
                 //设置数据源属性
-                .properties(getVendorProperties(primaryDataSource))
+                .properties(getVendorProperties())
                 //设置实体类所在位置.扫描所有带有 @Entity 注解的类
                 .packages("com.distributed.transaction.module.message.domain")
                 // Spring会将EntityManagerFactory注入到Repository之中.有了 EntityManagerFactory之后,
@@ -78,8 +79,8 @@ public class PrimaryConfig {
         return new JpaTransactionManager(entityManagerFactoryPrimary(builder).getObject());
     }
 
-    private Map<String, String> getVendorProperties(DataSource dataSource) {
-        return jpaProperties.getHibernateProperties(dataSource);
+    private Map<String, Object> getVendorProperties() {
+        return jpaProperties.getHibernateProperties(new HibernateSettings());
     }
 
     /**

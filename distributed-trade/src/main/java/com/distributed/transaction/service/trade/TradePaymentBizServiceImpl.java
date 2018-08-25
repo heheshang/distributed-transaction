@@ -2,7 +2,6 @@ package com.distributed.transaction.service.trade;
 
 import com.distributed.transaction.module.trade.vo.TradePaymentRecord;
 import lombok.extern.log4j.Log4j2;
-import org.mengyun.tcctransaction.api.Compensable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +16,7 @@ import java.util.Date;
 @Log4j2
 public class TradePaymentBizServiceImpl {
 
-    @Compensable(confirmMethod = "confirmCompleteSuccessOrder", cancelMethod = "cancelCompleteSuccessOrder")
+//    @Compensable(confirmMethod = "confirmCompleteSuccessOrder", cancelMethod = "cancelCompleteSuccessOrder")
     public void completeSuccessOrder(TradePaymentRecord tradePaymentRecord, String bankTrxNo, Date timeEnd, String bankReturnMsg) {
 
     }

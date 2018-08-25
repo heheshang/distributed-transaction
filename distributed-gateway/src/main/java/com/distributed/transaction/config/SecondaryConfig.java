@@ -2,6 +2,7 @@ package com.distributed.transaction.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -41,6 +42,7 @@ public class SecondaryConfig {
 
     /**
      * 本地查询或者取得序列号执行存储过程使用
+     *
      * @param builder
      * @return
      */
@@ -55,15 +57,15 @@ public class SecondaryConfig {
 
         return builder
                 .dataSource(secondaryDataSource)
-                .properties(getVendorProperties(secondaryDataSource))
+                .properties(getVendorProperties())
                 .packages("com.distributed.transaction.module.message.domain")
                 .persistenceUnit("secondaryPersistenceUnit")
                 .build();
     }
 
-    private Map<String, String> getVendorProperties(DataSource dataSource) {
+    private Map<String, Object> getVendorProperties() {
 
-        return jpaProperties.getHibernateProperties(dataSource);
+        return jpaProperties.getHibernateProperties(new HibernateSettings());
     }
 
     @Bean(name = "transactionManagerSecondary")
@@ -71,8 +73,6 @@ public class SecondaryConfig {
 
         return new JpaTransactionManager(entityManagerFactorySecondary(builder).getObject());
     }
-
-
 
 
 }

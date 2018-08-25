@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
  * @version v1.0
  * @date 2018-08-06-下午 1:49
  */
+@Repository
 public interface PayAccountRepository extends BaseRepository<PayAccountEntity, String> {
 
 

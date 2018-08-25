@@ -12,6 +12,8 @@ import com.distributed.transaction.trade.api.TradeReq;
 import com.distributed.transaction.trade.api.TradeRes;
 import com.distributed.transaction.trade.api.recharge.RechargeMessage;
 import com.distributed.transaction.trade.api.recharge.RechargeParam;
+import com.distributed.transaction.utils.BeanMapping;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Maps;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +34,15 @@ import java.util.Map;
 public class TestPayGateWayServiceImpl extends AbstractTccGateWayRecord implements ITccGateWayRecordService {
 
     @Autowired
-    private BaseTradeRechargeTransApi tradeRechargeTransApi;
+    private BaseTradeRechargeTransApi baseTradeRechargeTransApi;
 
     @Override
     public GateWayRes handle(GateWayReq gateWayReq) {
 
-        TccGatewayRecord gatewayRecord = this.mapper.map(gateWayReq.getT(), TccGatewayRecord.class);
+        ObjectMapper mapper = new ObjectMapper();
+
+
+        TccGatewayRecord gatewayRecord = mapper.convertValue(gateWayReq.getT(), TccGatewayRecord.class);/*BeanMapping.map(gateWayReq.getT(), TccGatewayRecord.class);*/
 
         gatewayRecord = super.save(gatewayRecord);
 
@@ -67,7 +72,7 @@ public class TestPayGateWayServiceImpl extends AbstractTccGateWayRecord implemen
         vo1.setPayKey("4c52295065654407b42797cda80dd07d");
         super.update(vo1);
 */
-        TradeRes<RechargeMessage> tradeRes = tradeRechargeTransApi.recharge(req);
+        TradeRes<RechargeMessage> tradeRes = baseTradeRechargeTransApi.recharge(req);
 
         GateWayRes res = new GateWayRes();
 

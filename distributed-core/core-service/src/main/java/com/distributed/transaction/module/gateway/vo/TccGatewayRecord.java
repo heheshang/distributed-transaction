@@ -2,8 +2,8 @@ package com.distributed.transaction.module.gateway.vo;
 
 import lombok.Data;
 import lombok.ToString;
-import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +13,7 @@ import java.util.Date;
  */
 @Data
 @ToString
-public class TccGatewayRecord {
+public class TccGatewayRecord implements Serializable {
 
     private String id;
 
@@ -29,9 +29,7 @@ public class TccGatewayRecord {
 
     private String orderIp;
 
-    @DateTimeFormat(pattern = "yyyyMMdd")
     private Date orderDate;
-    @DateTimeFormat(pattern = "yyyyMMddHHmmss")
     private Date orderTime;
 
     private int orderPeriod;
@@ -58,4 +56,6 @@ public class TccGatewayRecord {
     private String field3;
     private String field4;
     private String field5;
+
+
 }
