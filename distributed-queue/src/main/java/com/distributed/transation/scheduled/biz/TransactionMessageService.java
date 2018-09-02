@@ -8,20 +8,16 @@ import com.distributed.transaction.module.message.repository.TransactionMessageR
 import com.distributed.transaction.module.message.vo.TransactionMessage;
 import com.distributed.transaction.utils.BeanMapping;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.Session;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -43,9 +39,8 @@ public class TransactionMessageService {
 
     @Autowired
     private TransactionMessageRepository transactionMessageRepository;
-
     @Autowired
-    private JmsTemplate jmsTemplate;
+    RabbitTemplate firstRabbitTemplate;
 
 
     public Page<TransactionMessageEntity> getTransactionMessage(int pageNum, int pageSize, final Map<String, Object> queryMap) {
@@ -58,7 +53,7 @@ public class TransactionMessageService {
         //解决方式把page修改为0
         Sort sort = new Sort(Sort.Direction.ASC, "createTime");
 
-        Pageable pageable =  PageRequest.of(pageNum, pageSize, sort);
+        Pageable pageable = PageRequest.of(pageNum, pageSize, sort);
 
         Page<TransactionMessageEntity> page = transactionMessageRepository.findAll(new Specification<TransactionMessageEntity>() {
             @Override
@@ -104,15 +99,8 @@ public class TransactionMessageService {
 
         messageEntity.setStatus(MessageStatusEnum.SENDING);
 
-        jmsTemplate.setDefaultDestinationName(transactionMessage.getConsumerQueue().name());
+        firstRabbitTemplate.convertAndSend("", transactionMessage);
 
-        jmsTemplate.send(new MessageCreator() {
-            @Override
-            public Message createMessage(Session session) throws JMSException {
-
-                return session.createTextMessage(transactionMessage.getMessageBody());
-            }
-        });
 
     }
 
@@ -141,14 +129,7 @@ public class TransactionMessageService {
 
         messageEntity.setEditTime(new Date());
 
-        jmsTemplate.setDefaultDestinationName(message.getConsumerQueue().name());
-        jmsTemplate.send(new MessageCreator() {
-            @Override
-            public Message createMessage(Session session) throws JMSException {
-
-                return session.createTextMessage(message.getMessageBody());
-            }
-        });
+        firstRabbitTemplate.convertAndSend("", messageEntity);
     }
 
     @Transactional(rollbackFor = Exception.class)

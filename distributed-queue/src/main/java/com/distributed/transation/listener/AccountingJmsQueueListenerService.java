@@ -5,14 +5,12 @@ import com.distributed.transaction.accounting.api.AccountingReqT;
 import com.distributed.transaction.module.accounting.vo.AccountingVoucher;
 import com.distributed.transaction.utils.SingletonGsonEnum;
 import com.distributed.transation.scheduled.biz.TransactionMessageService;
+import com.rabbitmq.client.Channel;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
-
-import javax.jms.JMSException;
-import javax.jms.Session;
-import javax.jms.TextMessage;
 
 /**
  * @author ssk www.distributed.com Inc.All rights reserved
@@ -21,7 +19,7 @@ import javax.jms.TextMessage;
  */
 @Component
 @Log4j2
-public class AccountingJmsQueueListenerService {
+public class AccountingJmsQueueListenerService implements ChannelAwareMessageListener {
 
     @Autowired
     private BaseAccountIngServiceApi baseAccountIngServiceApi;
@@ -30,14 +28,13 @@ public class AccountingJmsQueueListenerService {
     private TransactionMessageService transactionMessageService;
 
 
-    @JmsListener(destination = "ACCOUNTING_NOTIFY", containerFactory = "accountingQueueJmsListener")
-    public synchronized void reciveAccountingMessage(final TextMessage message, Session session) throws JMSException {
-
+    @Override
+    public void onMessage(Message message, Channel channel) throws Exception {
         try {
 
-            log.info("收到会计凭证消息队列信息【{}】", message.getText());
+            log.info("收到会计凭证消息队列信息【{}】", message.getBody());
 
-            AccountingVoucher voucher = SingletonGsonEnum.instences.getGson().fromJson(message.getText(), AccountingVoucher.class);
+            AccountingVoucher voucher = SingletonGsonEnum.instences.getGson().fromJson(String.valueOf(message.getBody()), AccountingVoucher.class);
 
             AccountingReqT accountingReq = new AccountingReqT();
 
@@ -45,14 +42,15 @@ public class AccountingJmsQueueListenerService {
 
             baseAccountIngServiceApi.createAccountVoucher(accountingReq);
 
-            message.acknowledge();// 使用手动签收模式，需要手动的调用，如果不在catch中调用session.recover()消息只会在重启服务后重发
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
 
             transactionMessageService.deleteMessageByMessageId(voucher.getMessageId());
 
         } catch (Exception e) {
 
             log.error("【发送会计凭证消息队列信息异常啦】,【{}】", e);
-            session.recover();// 此不可省略 重发信息使用
+            ////ack返回false，并重新回到队列，api里面解释得很清楚
+            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
         }
     }
 }

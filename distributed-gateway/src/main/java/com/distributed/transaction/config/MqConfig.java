@@ -1,3 +1,4 @@
+/*
 package com.distributed.transaction.config;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -17,20 +18,23 @@ import javax.jms.JMSException;
 import javax.jms.Queue;
 import javax.jms.Topic;
 
+*/
 /**
  * active mq 配置
  *
  * @author ssk www.8win.com Inc.All rights reserved
  * @version v1.0
  * @date 2018-07-04-下午 3:55
- */
+ *//*
+
 @Configuration
 @EnableJms
 public class MqConfig {
 
 
 
-  /*  @Bean
+  */
+/*  @Bean
     public Queue queue() {
 
         return new ActiveMQQueue();
@@ -40,7 +44,8 @@ public class MqConfig {
     public Topic topic() {
         //注意:是temp 还是非temp
         return new ActiveMQTopic();
-    }*/
+    }*//*
+
 
     @Bean
     public RedeliveryPolicy redeliveryPolicy() {
@@ -93,7 +98,8 @@ public class MqConfig {
         return bean;
     }
 
-    /**
+    */
+/**
      * AUTO_ACKNOWLEDGE = 1    自动确认
      * CLIENT_ACKNOWLEDGE = 2    客户端手动确认
      * DUPS_OK_ACKNOWLEDGE = 3    自动批量确认
@@ -102,9 +108,12 @@ public class MqConfig {
      *
      * @param connectionFactory
      * @return
-     */
+     *//*
+
     @Bean
-    public JmsTemplate jmsTemplate(ActiveMQConnectionFactory connectionFactory/*, Queue queue*/) {
+    public JmsTemplate jmsTemplate(ActiveMQConnectionFactory connectionFactory*/
+/*, Queue queue*//*
+) {
 
         JmsTemplate jmsTemplate = new JmsTemplate();
 
@@ -129,9 +138,11 @@ public class MqConfig {
     }
 
 
-    /**
+    */
+/**
      * 定义一个消息监听器连接工厂，这里定义的是点对点模式的监听器连接工厂
-     */
+     *//*
+
     @Bean(name = "bankJmsQueueListener")
     public DefaultJmsListenerContainerFactory jmsQueueListenerContainerFactory(ActiveMQConnectionFactory connectionFactory) {
 
@@ -148,3 +159,4 @@ public class MqConfig {
 
 
 }
+*/
